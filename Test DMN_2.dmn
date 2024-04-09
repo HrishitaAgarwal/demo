@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dmn:definitions xmlns:dmn="http://www.omg.org/spec/DMN/20180521/MODEL/" xmlns="https://kiegroup.org/dmn/_4E6DC619-9498-4ED7-B426-EDB18E45B089" xmlns:feel="http://www.omg.org/spec/DMN/20180521/FEEL/" xmlns:kie="http://www.drools.org/kie/dmn/1.2" xmlns:dmndi="http://www.omg.org/spec/DMN/20180521/DMNDI/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" id="_99C0948A-F06C-45E8-B381-7010E8E1FEDC" name="Test DMN_2" typeLanguage="http://www.omg.org/spec/DMN/20180521/FEEL/" namespace="https://kiegroup.org/dmn/_4E6DC619-9498-4ED7-B426-EDB18E45B089">
+  <dmn:extensionElements/>
+  <dmn:itemDefinition id="_51CC0F3A-E863-411C-B0B9-7572B1F078ED" name="tPerformer" isCollection="false">
+    <dmn:itemComponent id="_21B14FA9-E1E9-447D-9A1E-632A0F034DF4" name="FD_flag" isCollection="false">
+      <dmn:typeRef>boolean</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_83474015-A322-476A-8358-1C25E8E1D6B3" name="Registration_date" isCollection="false">
+      <dmn:typeRef>date</dmn:typeRef>
+    </dmn:itemComponent>
+  </dmn:itemDefinition>
+  <dmn:itemDefinition id="_F0865BC0-3432-4D9C-8047-1C5EB30DE637" name="Leave_start date" isCollection="false">
+    <dmn:typeRef>date</dmn:typeRef>
+  </dmn:itemDefinition>
+  <dmn:inputData id="_2127C8C0-CB30-4891-A446-8B18B43FCEF3" name="Performer">
+    <dmn:extensionElements/>
+    <dmn:variable id="_F95F1102-A18C-47DA-9C43-B6C042CF5776" name="Performer" typeRef="tPerformer"/>
+  </dmn:inputData>
+  <dmn:inputData id="_A98760CC-A81C-4D43-B565-A0D47EA0B39E" name="Leave start date">
+    <dmn:extensionElements/>
+    <dmn:variable id="_CA162C3D-A842-47AB-99A6-61B67B63DCEA" name="Leave start date" typeRef="Leave_start date"/>
+  </dmn:inputData>
+  <dmn:decision id="_726C9646-3597-4311-B3CF-9DE9652FBEAC" name="Calculate number of service years">
+    <dmn:extensionElements/>
+    <dmn:variable id="_0746731B-BF71-4E4C-8ACC-B2A454521EA2" name="Calculate number of service years" typeRef="number"/>
+    <dmn:informationRequirement id="_2FD9331A-0F4A-4CA9-90CA-776CDE067B2E">
+      <dmn:requiredInput href="#_2127C8C0-CB30-4891-A446-8B18B43FCEF3"/>
+    </dmn:informationRequirement>
+    <dmn:informationRequirement id="_3CF7737E-5316-40D5-90F3-042B514B519C">
+      <dmn:requiredInput href="#_A98760CC-A81C-4D43-B565-A0D47EA0B39E"/>
+    </dmn:informationRequirement>
+    <dmn:literalExpression id="_1CDFC701-9CFE-4813-8E34-DA4DEC173459">
+      <dmn:text>round down(((date(Leave start date) - date(Performer.Registration_date)).days)/365,0)</dmn:text>
+    </dmn:literalExpression>
+  </dmn:decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="_62C3B615-9FEF-4B26-A7E6-94BBB68463A6" name="DRG">
+      <di:extension>
+        <kie:ComponentsWidthsExtension>
+          <kie:ComponentWidths dmnElementRef="_1CDFC701-9CFE-4813-8E34-DA4DEC173459">
+            <kie:width>755</kie:width>
+          </kie:ComponentWidths>
+        </kie:ComponentsWidthsExtension>
+      </di:extension>
+      <dmndi:DMNShape id="dmnshape-drg-_2127C8C0-CB30-4891-A446-8B18B43FCEF3" dmnElementRef="_2127C8C0-CB30-4891-A446-8B18B43FCEF3" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="459" y="319" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_A98760CC-A81C-4D43-B565-A0D47EA0B39E" dmnElementRef="_A98760CC-A81C-4D43-B565-A0D47EA0B39E" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="661" y="319" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_726C9646-3597-4311-B3CF-9DE9652FBEAC" dmnElementRef="_726C9646-3597-4311-B3CF-9DE9652FBEAC" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="655" y="190" width="113" height="56"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="dmnedge-drg-_2FD9331A-0F4A-4CA9-90CA-776CDE067B2E" dmnElementRef="_2FD9331A-0F4A-4CA9-90CA-776CDE067B2E">
+        <di:waypoint x="509" y="344"/>
+        <di:waypoint x="655" y="218"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-drg-_3CF7737E-5316-40D5-90F3-042B514B519C" dmnElementRef="_3CF7737E-5316-40D5-90F3-042B514B519C">
+        <di:waypoint x="711" y="344"/>
+        <di:waypoint x="711.5" y="246"/>
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</dmn:definitions>
