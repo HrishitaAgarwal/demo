@@ -41,7 +41,7 @@
         </dmn:inputExpression>
       </dmn:input>
       <dmn:input id="_3CC3D0E9-2796-439B-901C-4E0D5C5ABCBE">
-        <dmn:inputExpression typeRef="date">
+        <dmn:inputExpression id="_BBCB72B0-DFB5-4B34-B0BD-5610A53BA511" typeRef="date">
           <dmn:text>Treatment.tdate</dmn:text>
         </dmn:inputExpression>
       </dmn:input>
