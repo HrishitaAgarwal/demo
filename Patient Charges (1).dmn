@@ -29,7 +29,7 @@
             </dmn:inputExpression>
           </dmn:input>
           <dmn:input id="_17D73BCB-BE5A-46E7-B385-B8E00CBD6311">
-            <dmn:inputExpression typeRef="boolean">
+            <dmn:inputExpression id="_6802C496-43C1-4764-8DAF-CA8650987FD2" typeRef="boolean">
               <dmn:text>Treatment.tdate</dmn:text>
             </dmn:inputExpression>
           </dmn:input>
@@ -77,7 +77,7 @@
           <dmndi:StrokeColor red="0" green="0" blue="0"/>
           <dmndi:FontColor red="0" green="0" blue="0"/>
         </dmndi:DMNStyle>
-        <dc:Bounds x="246" y="465" width="100" height="50"/>
+        <dc:Bounds x="582" y="353" width="100" height="50"/>
         <dmndi:DMNLabel/>
       </dmndi:DMNShape>
       <dmndi:DMNShape id="dmnshape-drg-_16680584-1AFC-43B1-8D27-FFCBC5DF161F" dmnElementRef="_16680584-1AFC-43B1-8D27-FFCBC5DF161F" isCollapsed="false">
@@ -86,12 +86,12 @@
           <dmndi:StrokeColor red="0" green="0" blue="0"/>
           <dmndi:FontColor red="0" green="0" blue="0"/>
         </dmndi:DMNStyle>
-        <dc:Bounds x="246" y="284.62718788950065" width="120" height="50"/>
+        <dc:Bounds x="582" y="172.62718788950065" width="120" height="50"/>
         <dmndi:DMNLabel/>
       </dmndi:DMNShape>
       <dmndi:DMNEdge id="dmnedge-drg-_AD647ACC-5E55-42B3-B076-E3DB7BDFBF47" dmnElementRef="_AD647ACC-5E55-42B3-B076-E3DB7BDFBF47">
-        <di:waypoint x="296" y="490"/>
-        <di:waypoint x="306" y="334.62718788950065"/>
+        <di:waypoint x="632" y="378"/>
+        <di:waypoint x="642" y="222.62718788950065"/>
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
     <dmndi:DMNDiagram id="_DB589807-B816-4DDC-B60E-44B83DE53CA2" name="new-diagram">
