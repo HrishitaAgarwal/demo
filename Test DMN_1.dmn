@@ -52,7 +52,7 @@
           <dmn:text>1</dmn:text>
         </dmn:inputEntry>
         <dmn:inputEntry id="_8E3F39A5-23EB-45FE-AB76-C21927DDA7BA">
-          <dmn:text>[date("2006-01-01")..date("2010-08-31")]</dmn:text>
+          <dmn:text>[date("2006-04-01")..date("2010-08-31")]</dmn:text>
         </dmn:inputEntry>
         <dmn:outputEntry id="_AF320EA4-DD8C-41C1-A3BD-BB55D85012B0">
           <dmn:text>15.5</dmn:text>
