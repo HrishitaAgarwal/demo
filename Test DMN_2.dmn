@@ -210,7 +210,7 @@ else
           <dmn:text>false</dmn:text>
         </dmn:inputEntry>
         <dmn:inputEntry id="_499454BE-63AD-47C5-BB2C-408F73319806">
-          <dmn:text>&gt; 1</dmn:text>
+          <dmn:text>&gt;= 2</dmn:text>
         </dmn:inputEntry>
         <dmn:inputEntry id="_7300025F-8AAA-4DCC-8217-4A9C129BA857">
           <dmn:text>true</dmn:text>
@@ -239,7 +239,7 @@ else
           <dmn:text>false</dmn:text>
         </dmn:inputEntry>
         <dmn:inputEntry id="_BCBD278E-B34B-45BB-B16F-01336ABEF0F0">
-          <dmn:text>&gt; 2</dmn:text>
+          <dmn:text>&gt;= 1</dmn:text>
         </dmn:inputEntry>
         <dmn:inputEntry id="_4C64284F-6446-4B7C-9FAB-0FB0FC161E9D">
           <dmn:text>true</dmn:text>
@@ -257,29 +257,116 @@ else
           <dmn:text/>
         </dmn:annotationEntry>
       </dmn:rule>
-      <dmn:rule id="_05BB2CE2-D9CE-4158-8742-B3C0CC987A54">
-        <dmn:inputEntry id="_707A9C35-91BE-4512-8DFA-DB6D5CE0D561">
+      <dmn:rule id="_2AA02853-F721-4469-832F-BB2CD4512CF8">
+        <dmn:inputEntry id="_E89205F9-5E08-4DE7-8DC6-1FF3FFD92E29">
+          <dmn:text>false</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_58FDC8DC-C25D-4488-92E9-D7C233A3D562">
           <dmn:text>-</dmn:text>
         </dmn:inputEntry>
-        <dmn:inputEntry id="_0CE2656A-F996-4679-B296-BE4F5C095DEB">
+        <dmn:inputEntry id="_D3A44851-C6ED-406F-9339-6D83E1226883">
           <dmn:text>-</dmn:text>
         </dmn:inputEntry>
-        <dmn:inputEntry id="_D09B06EF-0196-4646-8CC6-7DDD1239B5B2">
+        <dmn:inputEntry id="_1E5598DB-D4FD-4F80-8E59-7FB69DBEAB56">
+          <dmn:text>&lt; 2</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_8758CBCD-63B4-4568-97F9-D7DCC2A0384F">
           <dmn:text>-</dmn:text>
         </dmn:inputEntry>
-        <dmn:inputEntry id="_A8040FC8-A725-4891-995B-2399665098D1">
+        <dmn:inputEntry id="_7FEAB409-1D58-4A1D-982E-00436E4ACD4E">
           <dmn:text>-</dmn:text>
         </dmn:inputEntry>
-        <dmn:inputEntry id="_63149769-BB7A-4D34-BD4F-D0F2111AB850">
+        <dmn:inputEntry id="_CE43D5E1-2964-49B3-AA3F-9EFCEFF653D2">
           <dmn:text>-</dmn:text>
         </dmn:inputEntry>
-        <dmn:inputEntry id="_7CCF655D-A1FE-42E9-81FC-ECD4D77D9B83">
+        <dmn:outputEntry id="_CE89DD69-C5D1-4E1B-B635-EF1777338979">
+          <dmn:text>false</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_9C2A141A-8214-49DF-B211-5B19345B4EAD">
+        <dmn:inputEntry id="_79D0798C-CECA-4044-9945-C44BA948B0A9">
+          <dmn:text>true</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_76131CFE-33A0-41B7-B65B-EF6C0B39842D">
           <dmn:text>-</dmn:text>
         </dmn:inputEntry>
-        <dmn:inputEntry id="_14E61BFD-2C3E-43E1-B3A0-56C917543591">
+        <dmn:inputEntry id="_FA2E70D7-9FF8-4EBE-B63A-B71A1BBD840C">
           <dmn:text>-</dmn:text>
         </dmn:inputEntry>
-        <dmn:outputEntry id="_647DC904-1809-45F7-B39E-D69B9EFFCAA9">
+        <dmn:inputEntry id="_D3535809-74E5-4D87-A129-B33C8A97193B">
+          <dmn:text>&lt; 1</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_BED9D562-9E2E-479E-B906-D099D8CFF0B2">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_570A970E-6A1E-4C1A-AE4C-837223F9DD7E">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_D0EA1952-7C0A-4B27-B6AB-CB6DEE3E58E6">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_8D4393E6-0195-40DF-9605-87D6CDFBBF71">
+          <dmn:text>false</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_D8DC635A-3718-4B49-AD6F-AEA993A6E0C9">
+        <dmn:inputEntry id="_03EC7B8B-7896-40F2-9D24-59FC65C24246">
+          <dmn:text>true</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_05E54158-7521-444D-97C9-77742D03CC1D">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_83734769-13A5-4DB5-AC8F-5FA4F7DD6458">
+          <dmn:text>true</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_4274D2A7-3D07-4BDE-9980-2C9533357C21">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_50210DF1-5B8A-4CDC-9B2E-1A74CCE0A8DC">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_28C21C27-2AFC-4263-A26D-2B68FF8D7C1D">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_EFB4A0EE-D99C-486B-9A25-EAC59A19AED9">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_204B4F4B-DE4F-4E03-847F-9DDE01AD6C97">
+          <dmn:text>false</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_982CEF9C-17EA-491A-AA11-5F2181F354AC">
+        <dmn:inputEntry id="_54D2DDD3-690C-423C-8468-8FA7199CCA3C">
+          <dmn:text>false</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_B026F910-AC18-4DF2-9BD1-8DB16347D711">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_09DD545D-C0FC-49A0-AD54-CA561B61D45C">
+          <dmn:text>false</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_0211EB83-54E0-4E86-A515-614792F9E0AE">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_0CBEF4BB-890B-4495-AD04-D480D4FA392B">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_06DD5F3D-3323-40EC-8EB0-F741A1CD52DF">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_02706013-CB64-4251-8827-57DE6A57850B">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_6E832ED3-BC59-4000-AC8E-CED0086E6866">
           <dmn:text>false</dmn:text>
         </dmn:outputEntry>
         <dmn:annotationEntry>
