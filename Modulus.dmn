@@ -4,18 +4,15 @@
   <dmn:itemDefinition id="_5169E161-17C7-4FFF-80AC-50DFE9E372A3" name="NHN" isCollection="false">
     <dmn:typeRef>number</dmn:typeRef>
   </dmn:itemDefinition>
-  <dmn:itemDefinition id="_F2A6E02B-DFCE-4EDC-83E3-1412B01BDBC4" name="NN" isCollection="true">
-    <dmn:typeRef>number</dmn:typeRef>
-  </dmn:itemDefinition>
   <dmn:itemDefinition id="_7DEFA4D6-43A5-4D83-8DF8-503548A538C9" name="WF" isCollection="true">
     <dmn:typeRef>number</dmn:typeRef>
   </dmn:itemDefinition>
   <dmn:itemDefinition id="_6FE26E58-0B37-497F-8D43-BB192BEFCEBF" name="X" isCollection="true">
     <dmn:typeRef>number</dmn:typeRef>
   </dmn:itemDefinition>
-  <dmn:decision id="_B55F503C-A646-4861-AE2F-BA8A449280A8" name="Modulus Check">
+  <dmn:decision id="_B55F503C-A646-4861-AE2F-BA8A449280A8" name="Convert num to list">
     <dmn:extensionElements/>
-    <dmn:variable id="_ED07F060-A279-47C1-96BD-9EC5F1A5CE54" name="Modulus Check" typeRef="number"/>
+    <dmn:variable id="_ED07F060-A279-47C1-96BD-9EC5F1A5CE54" name="Convert num to list" typeRef="number"/>
     <dmn:informationRequirement id="_D4966DAF-FD1A-4CE4-9BB9-71A2195D613B">
       <dmn:requiredInput href="#_1469D759-DF57-4598-945C-67FE0A9EA118"/>
     </dmn:informationRequirement>
@@ -135,7 +132,7 @@
         </dmn:literalExpression>
       </dmn:contextEntry>
       <dmn:contextEntry>
-        <dmn:variable id="_6EEE5A91-7080-48CD-9290-47C96700B761" name="NN" typeRef="NN"/>
+        <dmn:variable id="_6EEE5A91-7080-48CD-9290-47C96700B761" name="NN" typeRef="number"/>
         <dmn:literalExpression id="_395B6857-07FF-4FBF-9FC6-063A6DF12723">
           <dmn:text>[N1,N2,N3,N4,N5,N6,N7,N8,N9,N10]</dmn:text>
         </dmn:literalExpression>
@@ -151,6 +148,65 @@
     <dmn:extensionElements/>
     <dmn:variable id="_D2AA32E3-545E-47B6-BD46-3BE54019DCED" name="NHN" typeRef="NHN"/>
   </dmn:inputData>
+  <dmn:decision id="_295E252D-1E91-4DB2-9541-9AC5E6E96BBF" name="CheckSum">
+    <dmn:extensionElements/>
+    <dmn:variable id="_FBF6335B-C2F9-41C2-826F-1A55693D07B0" name="CheckSum" typeRef="boolean"/>
+    <dmn:informationRequirement id="_DB3408C8-3D72-4FC4-B8B7-2A3F954F4B41">
+      <dmn:requiredDecision href="#_B55F503C-A646-4861-AE2F-BA8A449280A8"/>
+    </dmn:informationRequirement>
+    <dmn:context id="_27D0C559-BEAE-44A2-AFEA-85147B36090E">
+      <dmn:contextEntry>
+        <dmn:variable id="_7177A1C7-35A2-475A-BB41-81B29A23C33F" name="WF" typeRef="number"/>
+        <dmn:literalExpression id="_98DCF454-726D-4EB0-95F9-D54B6B27E9CA">
+          <dmn:text>[10,9,8,7,6,5,4,3,2]</dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
+      <dmn:contextEntry>
+        <dmn:variable id="_153432EA-9A22-4237-A949-8D1FF730404A" name="NN" typeRef="number"/>
+        <dmn:literalExpression id="_BD311AF9-2B10-4245-B4E6-F6C40F4051D5">
+          <dmn:text>Convert num to list</dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
+      <dmn:contextEntry>
+        <dmn:variable id="_D692399B-4F0C-4C1E-8762-5E7603CE6670" name="Calc1" typeRef="number"/>
+        <dmn:literalExpression id="_932CADD6-F826-4ADB-A7B5-B3D7BDF22CFA">
+          <dmn:text>NN[1]*WF[1] + NN[2]*WF[2] + NN[3]*WF[3] + NN[4]*WF[4] + NN[5]*WF[5] + NN[6]*WF[6] + NN[7]*WF[7] + NN[8]*WF[8] + NN[9]*WF[9]</dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
+      <dmn:contextEntry>
+        <dmn:variable id="_EE8CF397-DD88-41EE-A6FD-71B9E3E77A3A" name="Calc2" typeRef="number"/>
+        <dmn:literalExpression id="_C41535E8-25CC-4F4E-8B55-C89A9AB49583">
+          <dmn:text>modulo(Calc1,11)</dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
+      <dmn:contextEntry>
+        <dmn:variable id="_6902F3A7-784C-4865-AF80-9B21260933EA" name="Rem" typeRef="number"/>
+        <dmn:literalExpression id="_5436DD1C-1E83-4893-981C-12FC92427706">
+          <dmn:text>abs(Calc2 - 11)</dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
+      <dmn:contextEntry>
+        <dmn:variable id="_6CD1E145-B75A-4FF7-B975-04CB54FF9D44" name="checksum" typeRef="number"/>
+        <dmn:literalExpression id="_523E5143-B0EF-4010-BE15-A00580A2CFCC">
+          <dmn:text>if Rem = 11 then 0
+    
+else Rem
+    </dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
+      <dmn:contextEntry>
+        <dmn:literalExpression id="_6D3134BE-9A64-47EB-ABE6-29B8AC62480C">
+          <dmn:text>if checksum = 10 then false
+    
+else 
+    if checksum = NN[10] then true
+        
+    else false
+        </dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
+    </dmn:context>
+  </dmn:decision>
   <dmndi:DMNDI>
     <dmndi:DMNDiagram id="_D6052999-AC26-4567-B420-EE07EB8C6D11" name="DRG">
       <di:extension>
@@ -223,6 +279,32 @@
           <kie:ComponentWidths dmnElementRef="_BE1A88AA-33FC-401C-B364-66D828679B35">
             <kie:width>700</kie:width>
           </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_27D0C559-BEAE-44A2-AFEA-85147B36090E">
+            <kie:width>50</kie:width>
+            <kie:width>280</kie:width>
+            <kie:width>806</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_98DCF454-726D-4EB0-95F9-D54B6B27E9CA">
+            <kie:width>806</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_BD311AF9-2B10-4245-B4E6-F6C40F4051D5">
+            <kie:width>806</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_932CADD6-F826-4ADB-A7B5-B3D7BDF22CFA">
+            <kie:width>806</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_C41535E8-25CC-4F4E-8B55-C89A9AB49583">
+            <kie:width>806</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_5436DD1C-1E83-4893-981C-12FC92427706">
+            <kie:width>806</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_523E5143-B0EF-4010-BE15-A00580A2CFCC">
+            <kie:width>806</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_6D3134BE-9A64-47EB-ABE6-29B8AC62480C">
+            <kie:width>806</kie:width>
+          </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
       <dmndi:DMNShape id="dmnshape-drg-_B55F503C-A646-4861-AE2F-BA8A449280A8" dmnElementRef="_B55F503C-A646-4861-AE2F-BA8A449280A8" isCollapsed="false">
@@ -231,7 +313,7 @@
           <dmndi:StrokeColor red="0" green="0" blue="0"/>
           <dmndi:FontColor red="0" green="0" blue="0"/>
         </dmndi:DMNStyle>
-        <dc:Bounds x="682" y="141" width="251" height="129"/>
+        <dc:Bounds x="558" y="514" width="251" height="129"/>
         <dmndi:DMNLabel/>
       </dmndi:DMNShape>
       <dmndi:DMNShape id="dmnshape-drg-_1469D759-DF57-4598-945C-67FE0A9EA118" dmnElementRef="_1469D759-DF57-4598-945C-67FE0A9EA118" isCollapsed="false">
@@ -240,12 +322,25 @@
           <dmndi:StrokeColor red="0" green="0" blue="0"/>
           <dmndi:FontColor red="0" green="0" blue="0"/>
         </dmndi:DMNStyle>
-        <dc:Bounds x="727" y="361" width="159" height="55"/>
+        <dc:Bounds x="603" y="734" width="159" height="55"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_295E252D-1E91-4DB2-9541-9AC5E6E96BBF" dmnElementRef="_295E252D-1E91-4DB2-9541-9AC5E6E96BBF" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="558" y="336.67859059073345" width="245" height="107"/>
         <dmndi:DMNLabel/>
       </dmndi:DMNShape>
       <dmndi:DMNEdge id="dmnedge-drg-_D4966DAF-FD1A-4CE4-9BB9-71A2195D613B-AUTO-TARGET" dmnElementRef="_D4966DAF-FD1A-4CE4-9BB9-71A2195D613B">
-        <di:waypoint x="806.5" y="388.5"/>
-        <di:waypoint x="807.5" y="270"/>
+        <di:waypoint x="682.5" y="761.5"/>
+        <di:waypoint x="683.5" y="643"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-drg-_DB3408C8-3D72-4FC4-B8B7-2A3F954F4B41" dmnElementRef="_DB3408C8-3D72-4FC4-B8B7-2A3F954F4B41">
+        <di:waypoint x="683.5" y="578.5"/>
+        <di:waypoint x="680.5" y="443.67859059073345"/>
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
