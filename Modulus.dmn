@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dmn:definitions xmlns:dmn="http://www.omg.org/spec/DMN/20180521/MODEL/" xmlns="https://kiegroup.org/dmn/_A9AB3692-9F19-48C8-A5C4-DF7C1E25F423" xmlns:feel="http://www.omg.org/spec/DMN/20180521/FEEL/" xmlns:kie="http://www.drools.org/kie/dmn/1.2" xmlns:dmndi="http://www.omg.org/spec/DMN/20180521/DMNDI/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" id="_74E1E1BE-EB68-43AD-9781-8ACDC5884CA1" name="Modulus" typeLanguage="http://www.omg.org/spec/DMN/20180521/FEEL/" namespace="https://kiegroup.org/dmn/_A9AB3692-9F19-48C8-A5C4-DF7C1E25F423">
+  <dmn:extensionElements/>
+  <dmn:itemDefinition id="_5169E161-17C7-4FFF-80AC-50DFE9E372A3" name="NHN" isCollection="false">
+    <dmn:typeRef>number</dmn:typeRef>
+  </dmn:itemDefinition>
+  <dmn:itemDefinition id="_F2A6E02B-DFCE-4EDC-83E3-1412B01BDBC4" name="NN" isCollection="true">
+    <dmn:typeRef>number</dmn:typeRef>
+  </dmn:itemDefinition>
+  <dmn:itemDefinition id="_7DEFA4D6-43A5-4D83-8DF8-503548A538C9" name="WF" isCollection="true">
+    <dmn:typeRef>number</dmn:typeRef>
+  </dmn:itemDefinition>
+  <dmn:itemDefinition id="_6FE26E58-0B37-497F-8D43-BB192BEFCEBF" name="X" isCollection="true">
+    <dmn:typeRef>number</dmn:typeRef>
+  </dmn:itemDefinition>
+  <dmn:decision id="_B55F503C-A646-4861-AE2F-BA8A449280A8" name="Modulus Check">
+    <dmn:extensionElements/>
+    <dmn:variable id="_ED07F060-A279-47C1-96BD-9EC5F1A5CE54" name="Modulus Check" typeRef="number"/>
+    <dmn:informationRequirement id="_D4966DAF-FD1A-4CE4-9BB9-71A2195D613B">
+      <dmn:requiredInput href="#_1469D759-DF57-4598-945C-67FE0A9EA118"/>
+    </dmn:informationRequirement>
+    <dmn:context id="_B8430B3B-0CB1-4E2E-9DE7-C7783008CBDE">
+      <dmn:contextEntry>
+        <dmn:variable id="_1E12ED9B-7091-4DCE-8417-F08EA97DED78" name="X" typeRef="X"/>
+        <dmn:literalExpression id="_54C9F575-DE69-40D3-9B28-935E5FDDBC26">
+          <dmn:text>[1000000000,100000000,10000000,1000000,100000,10000,1000,100,10]</dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
+      <dmn:contextEntry>
+        <dmn:variable id="_F08A6A82-803C-45EF-A190-381B8FBE8DFD" name="N1" typeRef="number"/>
+        <dmn:literalExpression id="_9C1CD03D-BA37-4471-AFD8-A94F39EEC04F">
+          <dmn:text>(NHN - (modulo(NHN,X[1])))/X[1]</dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
+      <dmn:contextEntry>
+        <dmn:variable id="_4CCF5B9B-00F1-4B56-9DAF-C4B7018FE584" name="Temp" typeRef="number"/>
+        <dmn:literalExpression id="_977A80EC-6010-4534-8B8D-E6E79B28ECF9">
+          <dmn:text>(NHN - N1*X[1])</dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
+      <dmn:contextEntry>
+        <dmn:variable id="_F1CEC721-21EA-4A77-A17B-B2CF13C4F077" name="N2" typeRef="number"/>
+        <dmn:literalExpression id="_258BE710-5D6C-4E51-BD5F-D0AC42BEF193">
+          <dmn:text>(Temp - (modulo(Temp,X[2])))/X[2]</dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
+      <dmn:contextEntry>
+        <dmn:variable id="_2E998CCB-FDE7-45F3-9EA5-4720C1963739" name="temp2" typeRef="number"/>
+        <dmn:literalExpression id="_4E80CEF3-67CE-48C8-947C-876F862926DD">
+          <dmn:text>(NHN - (N1*X[1] + N2*X[2]))</dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
+      <dmn:contextEntry>
+        <dmn:variable id="_6BE21215-DA07-4174-B6C1-EB146BD17607" name="N3" typeRef="number"/>
+        <dmn:literalExpression id="_F55A9987-B29A-4106-92B2-D8066AB3EF81">
+          <dmn:text>(temp2 - (modulo(temp2,X[3])))/X[3]</dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
+      <dmn:contextEntry>
+        <dmn:variable id="_49CAFB03-63DA-4192-88FC-A99E7D4BA2AD" name="temp3" typeRef="number"/>
+        <dmn:literalExpression id="_A343B004-F833-406F-BE22-A65F68809A37">
+          <dmn:text>(NHN - (N1*X[1] + N2*X[2] + N3*X[3]))</dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
+      <dmn:contextEntry>
+        <dmn:variable id="_3EE6C56C-A83B-4250-BA02-7BD56675329F" name="N4" typeRef="number"/>
+        <dmn:literalExpression id="_757F185C-38C4-4AEF-815B-ED3CF540DC8A">
+          <dmn:text>(temp3 - (modulo(temp3,X[4])))/X[4]</dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
+      <dmn:contextEntry>
+        <dmn:variable id="_0038CFA6-B123-4E15-ACFE-575EE1F9AB2A" name="temp4" typeRef="number"/>
+        <dmn:literalExpression id="_825BF3C9-41E5-4F09-BD8F-AFE5BA7DFC36">
+          <dmn:text>(NHN - (N1*X[1] + N2*X[2] + N3*X[3] + N4*X[4]))</dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
+      <dmn:contextEntry>
+        <dmn:variable id="_FF385273-E82B-40B9-8D1A-7579A03D913D" name="N5" typeRef="number"/>
+        <dmn:literalExpression id="_2D0A87EE-E4D9-4AAA-BF30-5D722E111650">
+          <dmn:text>(temp4 - (modulo(temp4,X[5])))/X[5]</dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
+      <dmn:contextEntry>
+        <dmn:variable id="_738EF616-A9EF-46B4-9ABF-D00B7217567F" name="temp5" typeRef="number"/>
+        <dmn:literalExpression id="_0A7C4332-93CC-4954-81B0-886B2EDA6986">
+          <dmn:text>(NHN - (N1*X[1] + N2*X[2] + N3*X[3] + N4*X[4] + N5*X[5]))</dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
+      <dmn:contextEntry>
+        <dmn:variable id="_FABF57BD-72A9-4572-86AD-2414AC8773E7" name="N6" typeRef="number"/>
+        <dmn:literalExpression id="_65352A3D-3DA5-4522-A0B9-1CD48EA13DFA">
+          <dmn:text>(temp5 - (modulo(temp5,X[6])))/X[6]</dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
+      <dmn:contextEntry>
+        <dmn:variable id="_AD1A3135-AD92-4D33-B2D1-106CAB2238B4" name="temp6" typeRef="number"/>
+        <dmn:literalExpression id="_4ACFC2BC-2B3E-4A4F-A37A-94061D55946C">
+          <dmn:text>(NHN - (N1*X[1] + N2*X[2] + N3*X[3] + N4*X[4] + N5*X[5] + N6*X[6]))</dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
+      <dmn:contextEntry>
+        <dmn:variable id="_1F444CD9-EDBD-43EA-8F86-FB8BF2B1C251" name="N7" typeRef="number"/>
+        <dmn:literalExpression id="_A13DE39E-DA09-418E-9600-890D375789A5">
+          <dmn:text>(temp6 - (modulo(temp6,X[7])))/X[7]</dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
+      <dmn:contextEntry>
+        <dmn:variable id="_8AB0D1FA-712F-4287-9309-8188C3E5F7F9" name="temp7" typeRef="number"/>
+        <dmn:literalExpression id="_91B8DC62-A660-4ECF-950E-12AA4299AAEC">
+          <dmn:text>(NHN - (N1*X[1] + N2*X[2] + N3*X[3] + N4*X[4] + N5*X[5] + N6*X[6] + N7*X[7]))</dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
+      <dmn:contextEntry>
+        <dmn:variable id="_E3A33B15-D07C-4512-869D-CDF97F8ECD49" name="N8" typeRef="number"/>
+        <dmn:literalExpression id="_7061A26D-7A39-47C6-8D2A-15095D644132">
+          <dmn:text>(temp7 - (modulo(temp7,X[8])))/X[8]</dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
+      <dmn:contextEntry>
+        <dmn:variable id="_8DC3D4DD-35D0-4CC2-A986-B87C942B1761" name="temp8" typeRef="number"/>
+        <dmn:literalExpression id="_4B69DCD6-4F1B-4366-89C8-DD2B3851DB44">
+          <dmn:text>(NHN - (N1*X[1] + N2*X[2] + N3*X[3] + N4*X[4] + N5*X[5] + N6*X[6] + N7*X[7] + N8*X[8]))</dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
+      <dmn:contextEntry>
+        <dmn:variable id="_A7027BBF-48E2-466A-A155-23D1AE5AA193" name="N9" typeRef="number"/>
+        <dmn:literalExpression id="_E3281373-DEBD-42E1-A848-D28FC6F0AEE6">
+          <dmn:text>(temp8 - (modulo(temp8,X[9])))/X[9]</dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
+      <dmn:contextEntry>
+        <dmn:variable id="_C0E2DD0D-FB2C-4D52-B856-D7F7E0CB7306" name="N10" typeRef="number"/>
+        <dmn:literalExpression id="_536FAAF7-373E-4B0A-8A58-08B05E1B15F3">
+          <dmn:text>(modulo(NHN , X[9]))</dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
+      <dmn:contextEntry>
+        <dmn:variable id="_6EEE5A91-7080-48CD-9290-47C96700B761" name="NN" typeRef="NN"/>
+        <dmn:literalExpression id="_395B6857-07FF-4FBF-9FC6-063A6DF12723">
+          <dmn:text>[N1,N2,N3,N4,N5,N6,N7,N8,N9,N10]</dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
+      <dmn:contextEntry>
+        <dmn:literalExpression id="_BE1A88AA-33FC-401C-B364-66D828679B35">
+          <dmn:text>NN</dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
+    </dmn:context>
+  </dmn:decision>
+  <dmn:inputData id="_1469D759-DF57-4598-945C-67FE0A9EA118" name="NHN">
+    <dmn:extensionElements/>
+    <dmn:variable id="_D2AA32E3-545E-47B6-BD46-3BE54019DCED" name="NHN" typeRef="NHN"/>
+  </dmn:inputData>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="_D6052999-AC26-4567-B420-EE07EB8C6D11" name="DRG">
+      <di:extension>
+        <kie:ComponentsWidthsExtension>
+          <kie:ComponentWidths dmnElementRef="_B8430B3B-0CB1-4E2E-9DE7-C7783008CBDE">
+            <kie:width>50</kie:width>
+            <kie:width>312</kie:width>
+            <kie:width>700</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_54C9F575-DE69-40D3-9B28-935E5FDDBC26">
+            <kie:width>700</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_9C1CD03D-BA37-4471-AFD8-A94F39EEC04F">
+            <kie:width>700</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_977A80EC-6010-4534-8B8D-E6E79B28ECF9">
+            <kie:width>700</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_258BE710-5D6C-4E51-BD5F-D0AC42BEF193">
+            <kie:width>700</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_4E80CEF3-67CE-48C8-947C-876F862926DD">
+            <kie:width>700</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_F55A9987-B29A-4106-92B2-D8066AB3EF81">
+            <kie:width>700</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_A343B004-F833-406F-BE22-A65F68809A37">
+            <kie:width>700</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_757F185C-38C4-4AEF-815B-ED3CF540DC8A">
+            <kie:width>700</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_825BF3C9-41E5-4F09-BD8F-AFE5BA7DFC36">
+            <kie:width>700</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_2D0A87EE-E4D9-4AAA-BF30-5D722E111650">
+            <kie:width>700</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_0A7C4332-93CC-4954-81B0-886B2EDA6986">
+            <kie:width>700</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_65352A3D-3DA5-4522-A0B9-1CD48EA13DFA">
+            <kie:width>700</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_4ACFC2BC-2B3E-4A4F-A37A-94061D55946C">
+            <kie:width>700</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_A13DE39E-DA09-418E-9600-890D375789A5">
+            <kie:width>700</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_91B8DC62-A660-4ECF-950E-12AA4299AAEC">
+            <kie:width>700</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_7061A26D-7A39-47C6-8D2A-15095D644132">
+            <kie:width>700</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_4B69DCD6-4F1B-4366-89C8-DD2B3851DB44">
+            <kie:width>700</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_E3281373-DEBD-42E1-A848-D28FC6F0AEE6">
+            <kie:width>700</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_536FAAF7-373E-4B0A-8A58-08B05E1B15F3">
+            <kie:width>700</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_395B6857-07FF-4FBF-9FC6-063A6DF12723">
+            <kie:width>700</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_BE1A88AA-33FC-401C-B364-66D828679B35">
+            <kie:width>700</kie:width>
+          </kie:ComponentWidths>
+        </kie:ComponentsWidthsExtension>
+      </di:extension>
+      <dmndi:DMNShape id="dmnshape-drg-_B55F503C-A646-4861-AE2F-BA8A449280A8" dmnElementRef="_B55F503C-A646-4861-AE2F-BA8A449280A8" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="682" y="141" width="251" height="129"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_1469D759-DF57-4598-945C-67FE0A9EA118" dmnElementRef="_1469D759-DF57-4598-945C-67FE0A9EA118" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="727" y="361" width="159" height="55"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="dmnedge-drg-_D4966DAF-FD1A-4CE4-9BB9-71A2195D613B-AUTO-TARGET" dmnElementRef="_D4966DAF-FD1A-4CE4-9BB9-71A2195D613B">
+        <di:waypoint x="806.5" y="388.5"/>
+        <di:waypoint x="807.5" y="270"/>
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</dmn:definitions>
