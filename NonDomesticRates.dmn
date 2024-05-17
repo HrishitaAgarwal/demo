@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dmn:definitions xmlns:dmn="http://www.omg.org/spec/DMN/20180521/MODEL/" xmlns="https://kiegroup.org/dmn/_1C54DF6B-3626-4AA4-9D17-70EDDC43A248" xmlns:feel="http://www.omg.org/spec/DMN/20180521/FEEL/" xmlns:kie="http://www.drools.org/kie/dmn/1.2" xmlns:dmndi="http://www.omg.org/spec/DMN/20180521/DMNDI/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" id="_AE7B0A99-97FD-44A8-894D-0E099DCAD920" name="Untitled" typeLanguage="http://www.omg.org/spec/DMN/20180521/FEEL/" namespace="https://kiegroup.org/dmn/_1C54DF6B-3626-4AA4-9D17-70EDDC43A248">
+  <dmn:extensionElements/>
+  <dmn:inputData id="_61BCE155-63FE-4AC7-87F2-30A55FEFE042" name="PaymentAdjustment">
+    <dmn:extensionElements/>
+    <dmn:variable id="_CEBBD039-8832-4588-A0F3-91328E548450" name="PaymentAdjustment" typeRef="date"/>
+  </dmn:inputData>
+  <dmn:inputData id="_0DE1E71C-847A-4EE5-AFB0-698453D81754" name="PaymentAdjustmentStartDate">
+    <dmn:extensionElements/>
+    <dmn:variable id="_6BDE2D02-1DB6-4B55-9153-C0AF3DEB4B0D" name="PaymentAdjustmentStartDate" typeRef="date"/>
+  </dmn:inputData>
+  <dmn:decision id="_3284097C-3A48-4084-B55B-EA46CAFAB150" name="Duration">
+    <dmn:extensionElements/>
+    <dmn:variable id="_69853A13-F425-4BA9-AF52-AAF2AB0742E5" name="Duration" typeRef="boolean"/>
+    <dmn:informationRequirement id="_1C88997E-398A-4092-AFB1-0DF7297EAB0A">
+      <dmn:requiredInput href="#_0DE1E71C-847A-4EE5-AFB0-698453D81754"/>
+    </dmn:informationRequirement>
+    <dmn:informationRequirement id="_806D7A7F-395F-4FAB-98BD-AAD181FBB4EE">
+      <dmn:requiredInput href="#_61BCE155-63FE-4AC7-87F2-30A55FEFE042"/>
+    </dmn:informationRequirement>
+    <dmn:context id="_CE873787-4C8E-4578-A315-E0EF7DD82799">
+      <dmn:contextEntry>
+        <dmn:variable id="_7B75A700-BB6B-467A-B674-1440BB9F097E" name="Duration1" typeRef="date"/>
+        <dmn:literalExpression id="_C55F8FFF-91AB-4D3A-A425-3255F0084046">
+          <dmn:text>PaymentAdjustmentStartDate + @P3M</dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
+      <dmn:contextEntry>
+        <dmn:variable id="_37EF5691-4A4D-4498-A118-FC75FE2B52AC" name="Duration2" typeRef="boolean"/>
+        <dmn:literalExpression id="_F0FE0268-C07F-4DE2-AF59-461FDB5809D5">
+          <dmn:text>if Duration1 &gt;= PaymentAdjustment and PaymentAdjustmentStartDate &lt;= PaymentAdjustment then true 
+else false</dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
+      <dmn:contextEntry>
+        <dmn:literalExpression id="_60393ED9-2D0A-4C50-8D26-4FA18515791E">
+          <dmn:text>Duration2</dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
+    </dmn:context>
+  </dmn:decision>
+  <dmn:decision id="_F02EAD44-70B7-463F-BBAF-FAFDF0E03C42" name="Error">
+    <dmn:extensionElements/>
+    <dmn:variable id="_88E964B7-155C-4808-814E-F90C184A82F5" name="Error" typeRef="Any"/>
+    <dmn:informationRequirement id="_3059529C-B182-43D4-AD5C-C79049BF8A75">
+      <dmn:requiredDecision href="#_3284097C-3A48-4084-B55B-EA46CAFAB150"/>
+    </dmn:informationRequirement>
+    <dmn:literalExpression id="_514C3F08-875A-4229-B67A-30D1E2A53000">
+      <dmn:text>if Duration = false then "Error"
+else "No Error"</dmn:text>
+    </dmn:literalExpression>
+  </dmn:decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="_D2683DF3-74EF-4368-9C3A-1615E859042E" name="DRG">
+      <di:extension>
+        <kie:ComponentsWidthsExtension>
+          <kie:ComponentWidths dmnElementRef="_CE873787-4C8E-4578-A315-E0EF7DD82799">
+            <kie:width>50</kie:width>
+            <kie:width>120</kie:width>
+            <kie:width>828</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_C55F8FFF-91AB-4D3A-A425-3255F0084046">
+            <kie:width>828</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_F0FE0268-C07F-4DE2-AF59-461FDB5809D5">
+            <kie:width>828</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_60393ED9-2D0A-4C50-8D26-4FA18515791E">
+            <kie:width>828</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_514C3F08-875A-4229-B67A-30D1E2A53000">
+            <kie:width>379</kie:width>
+          </kie:ComponentWidths>
+        </kie:ComponentsWidthsExtension>
+      </di:extension>
+      <dmndi:DMNShape id="dmnshape-drg-_61BCE155-63FE-4AC7-87F2-30A55FEFE042" dmnElementRef="_61BCE155-63FE-4AC7-87F2-30A55FEFE042" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="535" y="404" width="231" height="97"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_0DE1E71C-847A-4EE5-AFB0-698453D81754" dmnElementRef="_0DE1E71C-847A-4EE5-AFB0-698453D81754" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="283" y="400" width="191" height="101"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_3284097C-3A48-4084-B55B-EA46CAFAB150" dmnElementRef="_3284097C-3A48-4084-B55B-EA46CAFAB150" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="420" y="214.5" width="199" height="85"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_F02EAD44-70B7-463F-BBAF-FAFDF0E03C42" dmnElementRef="_F02EAD44-70B7-463F-BBAF-FAFDF0E03C42" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="461" y="5.000000000000007" width="121" height="95"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="dmnedge-drg-_1C88997E-398A-4092-AFB1-0DF7297EAB0A-AUTO-SOURCE-AUTO-TARGET" dmnElementRef="_1C88997E-398A-4092-AFB1-0DF7297EAB0A">
+        <di:waypoint x="378.5" y="400"/>
+        <di:waypoint x="519.5" y="299.5"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-drg-_806D7A7F-395F-4FAB-98BD-AAD181FBB4EE-AUTO-TARGET" dmnElementRef="_806D7A7F-395F-4FAB-98BD-AAD181FBB4EE">
+        <di:waypoint x="650.5" y="452.5"/>
+        <di:waypoint x="519.5" y="299.5"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-drg-_3059529C-B182-43D4-AD5C-C79049BF8A75-AUTO-TARGET" dmnElementRef="_3059529C-B182-43D4-AD5C-C79049BF8A75">
+        <di:waypoint x="519.5" y="257"/>
+        <di:waypoint x="521.5" y="100"/>
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</dmn:definitions>
