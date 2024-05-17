@@ -110,11 +110,13 @@
       </dmn:contextEntry>
       <dmn:contextEntry>
         <dmn:literalExpression id="_CC6586F4-5FC2-4366-90E7-97E7995A0FCF">
-          <dmn:text>if FirstCheck or SecondCheck or ThirdCheck or FourthCheck or FifthCheck
- then true
-    
-else false
-    </dmn:text>
+          <dmn:text>if FirstCheck then true
+else if SecondCheck then true 
+else if ThirdCheck then true 
+else if ThirdCheck then true
+else if FourthCheck then true
+else if FifthCheck then true else
+false</dmn:text>
         </dmn:literalExpression>
       </dmn:contextEntry>
     </dmn:context>
@@ -244,40 +246,43 @@ else false
     </dmn:knowledgeRequirement>
     <dmn:context id="_0B0C0118-250C-4994-8FD6-1BE2C3C69E2D">
       <dmn:contextEntry>
-        <dmn:variable id="_518BF5BC-031B-4E4C-BD05-B0EF2B1CC50A" name="FirstCheck" typeRef="boolean"/>
+        <dmn:variable id="_518BF5BC-031B-4E4C-BD05-B0EF2B1CC50A" name="FirstCheck2" typeRef="boolean"/>
         <dmn:literalExpression id="_85B4574B-015F-4FF3-B1A6-B583A93FE258">
           <dmn:text>FirstCheck2(Patient,FPatient)</dmn:text>
         </dmn:literalExpression>
       </dmn:contextEntry>
       <dmn:contextEntry>
-        <dmn:variable id="_919C533B-FDC0-4AEC-8775-3E5F71341FF1" name="SecondCheck" typeRef="boolean"/>
+        <dmn:variable id="_919C533B-FDC0-4AEC-8775-3E5F71341FF1" name="SecondCheck2" typeRef="boolean"/>
         <dmn:literalExpression id="_54375C73-5201-499B-8447-DCF79BA3C8DB">
           <dmn:text>SecondCheck2(Patient,FPatient)</dmn:text>
         </dmn:literalExpression>
       </dmn:contextEntry>
       <dmn:contextEntry>
-        <dmn:variable id="_00FB9C15-2D58-43B1-8911-68F4958A5AA0" name="ThirdCheck" typeRef="boolean"/>
+        <dmn:variable id="_00FB9C15-2D58-43B1-8911-68F4958A5AA0" name="ThirdCheck2" typeRef="boolean"/>
         <dmn:literalExpression id="_0D8476F4-14EE-45A6-967D-AD7D33274C47">
           <dmn:text>ThirdCheck2(Patient,FPatient)</dmn:text>
         </dmn:literalExpression>
       </dmn:contextEntry>
       <dmn:contextEntry>
-        <dmn:variable id="_DF4F015E-9440-40B4-933C-0AFB1DD576B7" name="FourthCheck" typeRef="boolean"/>
+        <dmn:variable id="_DF4F015E-9440-40B4-933C-0AFB1DD576B7" name="FourthCheck2" typeRef="boolean"/>
         <dmn:literalExpression id="_32873596-EA4F-445D-B990-93BE1FB80A29">
           <dmn:text>FourthCheck2(Patient,FPatient)</dmn:text>
         </dmn:literalExpression>
       </dmn:contextEntry>
       <dmn:contextEntry>
-        <dmn:variable id="_0FEB2FFD-DC78-4ACB-BD77-489EA5112EA7" name="FifthCheck" typeRef="boolean"/>
+        <dmn:variable id="_0FEB2FFD-DC78-4ACB-BD77-489EA5112EA7" name="FifthCheck2" typeRef="boolean"/>
         <dmn:literalExpression id="_CF42148C-D18D-45F6-841A-01DA73D96EA7">
           <dmn:text>FifthCheck2(Patient,FPatient)</dmn:text>
         </dmn:literalExpression>
       </dmn:contextEntry>
       <dmn:contextEntry>
         <dmn:literalExpression id="_954646B5-5268-4A20-9888-5DD8DFFBC50D">
-          <dmn:text>if FirstCheck or SecondCheck or ThirdCheck or FourthCheck or FifthCheck
- then true
-    
+          <dmn:text>if FirstCheck2 then true
+else if SecondCheck2 then true 
+else if ThirdCheck2 then true 
+else if ThirdCheck2 then true
+else if FourthCheck2 then true
+else if FifthCheck2 then true
 else false
     </dmn:text>
         </dmn:literalExpression>
