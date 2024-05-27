@@ -188,9 +188,9 @@ else false</dmn:text>
     </dmn:knowledgeRequirement>
     <dmn:context id="_2B0EADAC-884E-4B1C-8218-D96BFAF5A337">
       <dmn:contextEntry>
-        <dmn:variable id="_581B512D-27AA-41AF-9745-9A49942E2724" name="Check1" typeRef="boolean"/>
+        <dmn:variable id="_581B512D-27AA-41AF-9745-9A49942E2724" name="AcceptanceDate Check" typeRef="boolean"/>
         <dmn:literalExpression id="_2E2C38E3-3859-42B6-ACA2-F3CC16DE3FC4">
-          <dmn:text>during(tActivity.tAcceptanceDate,[ClinicianStart,ClinicianEnd])</dmn:text>
+          <dmn:text>TreatmentDate_BKM(tActivity.tAcceptanceDate,ClinicianStart,ClinicianEnd)</dmn:text>
         </dmn:literalExpression>
       </dmn:contextEntry>
       <dmn:contextEntry>
@@ -216,7 +216,7 @@ else false</dmn:text>
       <dmn:formalParameter id="_1427881F-FCF9-47DF-BE84-8D4931054DB6" name="DateC1" typeRef="date"/>
       <dmn:formalParameter id="_AB682D2A-CE2B-4CB5-9069-5E0006FF75FF" name="DateC2" typeRef="date"/>
       <dmn:literalExpression id="_1B577C6A-0B0C-427A-AFD3-9B6722186DC0">
-        <dmn:text/>
+        <dmn:text>during(InputDate,[DateC1,DateC2])</dmn:text>
       </dmn:literalExpression>
     </dmn:encapsulatedLogic>
   </dmn:businessKnowledgeModel>
@@ -243,14 +243,14 @@ else false</dmn:text>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_2B0EADAC-884E-4B1C-8218-D96BFAF5A337">
             <kie:width>50</kie:width>
-            <kie:width>120</kie:width>
-            <kie:width>504</kie:width>
+            <kie:width>279</kie:width>
+            <kie:width>659</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_2E2C38E3-3859-42B6-ACA2-F3CC16DE3FC4">
-            <kie:width>504</kie:width>
+            <kie:width>659</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_E312746C-250F-48CD-9B7A-D1742104EC5B">
-            <kie:width>504</kie:width>
+            <kie:width>659</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_1B577C6A-0B0C-427A-AFD3-9B6722186DC0">
             <kie:width>538</kie:width>
