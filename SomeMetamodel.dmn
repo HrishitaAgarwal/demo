@@ -30,77 +30,69 @@
   <dmn:itemDefinition id="_EEA3883C-E92B-4598-9932-87825EF5A0DF" name="CheckCode_IOM" isCollection="false">
     <dmn:typeRef>boolean</dmn:typeRef>
   </dmn:itemDefinition>
-  <dmn:inputData id="_0C99EE1A-9640-4F4A-8E51-5CE18493EC79" name="FormData">
+  <dmn:decision id="_624A0901-8BC4-4584-AE3C-67C5058AD2EA" name="Decision-1">
     <dmn:extensionElements/>
-    <dmn:variable id="_635FC332-74C0-489C-B37E-5A8DB8A0C696" name="FormData" typeRef="tFormData"/>
-  </dmn:inputData>
-  <dmn:decision id="_C08CF68D-0CBD-4669-953D-C7B1C67F34B0" name="RegionCode Check">
-    <dmn:extensionElements/>
-    <dmn:variable id="_31AB3648-A308-4394-9461-03E3B37EFD76" name="RegionCode Check" typeRef="boolean"/>
-    <dmn:informationRequirement id="_32981AD3-AD6D-41FE-95CD-A4D4AE39F253">
-      <dmn:requiredInput href="#_0C99EE1A-9640-4F4A-8E51-5CE18493EC79"/>
+    <dmn:variable id="_430DEB8F-55EC-4343-A735-32E1C50F56D8" name="Decision-1" typeRef="boolean"/>
+    <dmn:informationRequirement id="_E9D8456D-1FAF-4F3E-A062-2D8ABBB6C155">
+      <dmn:requiredInput href="#_3FA1604F-5BAC-4539-8EBF-5B02F6386EB7"/>
     </dmn:informationRequirement>
-    <dmn:context id="_B3342E64-CEEA-48C7-AE78-DB30BDE299E9">
+    <dmn:context id="_237EBD41-30DD-47F3-A6A4-77471B99E1DA">
       <dmn:contextEntry>
-        <dmn:variable id="_213825D3-6872-45D9-9E6B-2830FBFF1FB2" name="Eng_Codes" typeRef="Eng_codes"/>
-        <dmn:literalExpression id="_E8B48B19-9044-43B3-AEE9-203E0310888C">
-          <dmn:text>[9179, 9302, 9303, 9304, 9305, 9306, 9307, 9308, 9309, 9310, 9313, 9315, 9319, 9399, 9333, 9334, 9335, 9336, 9337, 9338, 9339, 9353, 9376, 9377 ]</dmn:text>
+        <dmn:variable id="_05E3784D-8170-4C2B-B5B4-E9F2EE5EB05B" name="Test" typeRef="number"/>
+        <dmn:literalExpression id="_776F9D3B-E260-4038-A683-92FDC8F20897">
+          <dmn:text>[1,2,34,5]</dmn:text>
         </dmn:literalExpression>
       </dmn:contextEntry>
       <dmn:contextEntry>
-        <dmn:variable id="_A35A50D8-12DC-4940-838F-469932948AC1" name="CheckCode_Eng" typeRef="CheckCode_Eng"/>
-        <dmn:literalExpression id="_AB910D30-CE08-490E-B87A-9FAF258C66AA">
-          <dmn:text>overlaps(FormData.tCode,Eng_Codes)</dmn:text>
-        </dmn:literalExpression>
-      </dmn:contextEntry>
-      <dmn:contextEntry>
-        <dmn:literalExpression id="_DEAAF393-65DD-42D0-863C-96E587E71A56">
-          <dmn:text>CheckCode_Eng</dmn:text>
+        <dmn:variable id="_B327D47F-77E4-4E08-87AB-C13AB23BA47D" name="ContextEntry-2" typeRef="boolean"/>
+        <dmn:literalExpression id="_F90EBC8A-6062-466A-A2F4-F8110D03B469">
+          <dmn:text>some ch in code satisfies ch in Test</dmn:text>
         </dmn:literalExpression>
       </dmn:contextEntry>
     </dmn:context>
   </dmn:decision>
+  <dmn:inputData id="_3FA1604F-5BAC-4539-8EBF-5B02F6386EB7" name="code">
+    <dmn:extensionElements/>
+    <dmn:variable id="_1996C34C-C848-4C7A-B7DF-7CAB567668BF" name="code" typeRef="Eng_codes"/>
+  </dmn:inputData>
   <dmndi:DMNDI>
     <dmndi:DMNDiagram id="_717A5512-714E-44CD-9D6C-EA751F99A6AC" name="DRG">
       <di:extension>
         <kie:ComponentsWidthsExtension>
-          <kie:ComponentWidths dmnElementRef="_B3342E64-CEEA-48C7-AE78-DB30BDE299E9">
+          <kie:ComponentWidths dmnElementRef="_237EBD41-30DD-47F3-A6A4-77471B99E1DA">
             <kie:width>50</kie:width>
-            <kie:width>120</kie:width>
-            <kie:width>699</kie:width>
+            <kie:width>439</kie:width>
+            <kie:width>521</kie:width>
           </kie:ComponentWidths>
-          <kie:ComponentWidths dmnElementRef="_E8B48B19-9044-43B3-AEE9-203E0310888C">
-            <kie:width>699</kie:width>
+          <kie:ComponentWidths dmnElementRef="_776F9D3B-E260-4038-A683-92FDC8F20897">
+            <kie:width>521</kie:width>
           </kie:ComponentWidths>
-          <kie:ComponentWidths dmnElementRef="_AB910D30-CE08-490E-B87A-9FAF258C66AA">
-            <kie:width>699</kie:width>
-          </kie:ComponentWidths>
-          <kie:ComponentWidths dmnElementRef="_DEAAF393-65DD-42D0-863C-96E587E71A56">
-            <kie:width>699</kie:width>
+          <kie:ComponentWidths dmnElementRef="_F90EBC8A-6062-466A-A2F4-F8110D03B469">
+            <kie:width>521</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
-      <dmndi:DMNShape id="dmnshape-drg-_0C99EE1A-9640-4F4A-8E51-5CE18493EC79" dmnElementRef="_0C99EE1A-9640-4F4A-8E51-5CE18493EC79" isCollapsed="false">
+      <dmndi:DMNShape id="dmnshape-drg-_624A0901-8BC4-4584-AE3C-67C5058AD2EA" dmnElementRef="_624A0901-8BC4-4584-AE3C-67C5058AD2EA" isCollapsed="false">
         <dmndi:DMNStyle>
           <dmndi:FillColor red="255" green="255" blue="255"/>
           <dmndi:StrokeColor red="0" green="0" blue="0"/>
           <dmndi:FontColor red="0" green="0" blue="0"/>
         </dmndi:DMNStyle>
-        <dc:Bounds x="286" y="247" width="100" height="50"/>
+        <dc:Bounds x="248" y="171" width="294" height="120"/>
         <dmndi:DMNLabel/>
       </dmndi:DMNShape>
-      <dmndi:DMNShape id="dmnshape-drg-_C08CF68D-0CBD-4669-953D-C7B1C67F34B0" dmnElementRef="_C08CF68D-0CBD-4669-953D-C7B1C67F34B0" isCollapsed="false">
+      <dmndi:DMNShape id="dmnshape-drg-_3FA1604F-5BAC-4539-8EBF-5B02F6386EB7" dmnElementRef="_3FA1604F-5BAC-4539-8EBF-5B02F6386EB7" isCollapsed="false">
         <dmndi:DMNStyle>
           <dmndi:FillColor red="255" green="255" blue="255"/>
           <dmndi:StrokeColor red="0" green="0" blue="0"/>
           <dmndi:FontColor red="0" green="0" blue="0"/>
         </dmndi:DMNStyle>
-        <dc:Bounds x="303" y="89" width="100" height="50"/>
+        <dc:Bounds x="257" y="406" width="100" height="50"/>
         <dmndi:DMNLabel/>
       </dmndi:DMNShape>
-      <dmndi:DMNEdge id="dmnedge-drg-_32981AD3-AD6D-41FE-95CD-A4D4AE39F253-AUTO-TARGET" dmnElementRef="_32981AD3-AD6D-41FE-95CD-A4D4AE39F253">
-        <di:waypoint x="336" y="272"/>
-        <di:waypoint x="353" y="139"/>
+      <dmndi:DMNEdge id="dmnedge-drg-_E9D8456D-1FAF-4F3E-A062-2D8ABBB6C155-AUTO-TARGET" dmnElementRef="_E9D8456D-1FAF-4F3E-A062-2D8ABBB6C155">
+        <di:waypoint x="307" y="431"/>
+        <di:waypoint x="395" y="291"/>
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
