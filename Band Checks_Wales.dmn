@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dmn:definitions xmlns:dmn="http://www.omg.org/spec/DMN/20180521/MODEL/" xmlns="https://kiegroup.org/dmn/_572886FC-F361-4824-9C15-46599AD62D67" xmlns:feel="http://www.omg.org/spec/DMN/20180521/FEEL/" xmlns:kie="http://www.drools.org/kie/dmn/1.2" xmlns:dmndi="http://www.omg.org/spec/DMN/20180521/DMNDI/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" id="_E6659A9F-54BC-4E43-BEC8-81C2A1915606" name="Band Checks" typeLanguage="http://www.omg.org/spec/DMN/20180521/FEEL/" namespace="https://kiegroup.org/dmn/_572886FC-F361-4824-9C15-46599AD62D67">
+  <dmn:extensionElements/>
+  <dmn:itemDefinition id="_6DCE2DE6-BD2A-46E5-A002-CB5C127EF800" name="System_Param" isCollection="false">
+    <dmn:itemComponent id="_71987AAC-07C2-418F-92BC-D3457EA7D787" name="CDS_Changes_Start_Date" isCollection="false">
+      <dmn:typeRef>date</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_EE492834-2606-49E5-B35D-E12E80EB45A3" name="CDS_Enh_Start_Date" isCollection="false">
+      <dmn:typeRef>date</dmn:typeRef>
+    </dmn:itemComponent>
+  </dmn:itemDefinition>
+  <dmn:itemDefinition id="_764BEA14-585C-446D-B4E1-61925D0124FD" name="ActivityDate" isCollection="false">
+    <dmn:itemComponent id="_61DD9EC7-B597-40AB-A1C7-BD7AB3168C71" name="tRegion" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+      <dmn:allowedValues kie:constraintType="enumeration" id="_6096E726-4B86-4A93-B5AA-7A324A6DFC7E">
+        <dmn:text>"Wales"</dmn:text>
+      </dmn:allowedValues>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_F95B2D58-D24A-4D02-8CE2-D90DF80C55CA" name="tAcceptanceDate" isCollection="false">
+      <dmn:typeRef>date</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_25505B32-CF9F-4652-AAA4-C8625802B058" name="tCodes" isCollection="true">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+  </dmn:itemDefinition>
+  <dmn:decision id="_F8EB1D56-B51C-427B-8412-CAB9C641B8EC" name="DateCheck">
+    <dmn:extensionElements/>
+    <dmn:variable id="_B205FF56-1368-4C27-AD6F-D63CA0F885B7" name="DateCheck" typeRef="boolean"/>
+    <dmn:informationRequirement id="_AB2CA67E-4B64-4709-A702-9A8BE6E251C2">
+      <dmn:requiredInput href="#_EA6FFB79-60C2-495D-9AD6-18EAFB7C3E7C"/>
+    </dmn:informationRequirement>
+    <dmn:informationRequirement id="_199081FD-82B0-4A9E-B18F-880ED4E08E88">
+      <dmn:requiredInput href="#_B77A9734-04B8-4AF3-9D7F-69AC5A2BB92D"/>
+    </dmn:informationRequirement>
+    <dmn:literalExpression id="_63134D92-305D-402B-8FF4-BAF744B7C6CD">
+      <dmn:text>if Activity.tAcceptanceDate &gt;= SystemParam.CDS_Changes_Start_Date and 
+Activity.tAcceptanceDate &lt; SystemParam.CDS_Enh_Start_Date
+then
+    true
+else false
+    </dmn:text>
+    </dmn:literalExpression>
+  </dmn:decision>
+  <dmn:inputData id="_EA6FFB79-60C2-495D-9AD6-18EAFB7C3E7C" name="SystemParam">
+    <dmn:extensionElements/>
+    <dmn:variable id="_4E66325D-9217-4F6C-BF77-B3AD0BD79DCC" name="SystemParam" typeRef="System_Param"/>
+  </dmn:inputData>
+  <dmn:inputData id="_B77A9734-04B8-4AF3-9D7F-69AC5A2BB92D" name="Activity">
+    <dmn:extensionElements/>
+    <dmn:variable id="_1BCE2747-46E1-4DDB-9AED-2B817E5EC6F0" name="Activity" typeRef="ActivityDate"/>
+  </dmn:inputData>
+  <dmn:decisionService id="_51206C94-F6DF-4BCC-ABAB-37BD772BFB10" name="Band_Code Rule">
+    <dmn:extensionElements/>
+    <dmn:variable id="_BEE7E9B7-F65B-4D7F-8C71-7B5B8632609D" name="Band_Code Rule" typeRef="number"/>
+    <dmn:outputDecision href="#_C010ABEE-D878-4750-B3BF-5E0B2B7D77DA"/>
+    <dmn:encapsulatedDecision href="#_F8EB1D56-B51C-427B-8412-CAB9C641B8EC"/>
+    <dmn:inputData href="#_B77A9734-04B8-4AF3-9D7F-69AC5A2BB92D"/>
+    <dmn:inputData href="#_EA6FFB79-60C2-495D-9AD6-18EAFB7C3E7C"/>
+  </dmn:decisionService>
+  <dmn:decision id="_C010ABEE-D878-4750-B3BF-5E0B2B7D77DA" name="Band _Code Checks">
+    <dmn:extensionElements/>
+    <dmn:variable id="_49A6A50D-5A11-49CE-AAA3-F7C701AE97D0" name="Band _Code Checks" typeRef="number"/>
+    <dmn:informationRequirement id="_6C95C73D-5421-44F7-8E4F-C5AAF8B2C1DA">
+      <dmn:requiredInput href="#_B77A9734-04B8-4AF3-9D7F-69AC5A2BB92D"/>
+    </dmn:informationRequirement>
+    <dmn:informationRequirement id="_1EF97B68-6D9A-474C-AF73-98C2451DE584">
+      <dmn:requiredDecision href="#_F8EB1D56-B51C-427B-8412-CAB9C641B8EC"/>
+    </dmn:informationRequirement>
+    <dmn:context id="_801032CB-E90B-4CF6-9066-C82A95C7A274">
+      <dmn:contextEntry>
+        <dmn:variable id="_9D8E6DDF-A96C-4578-8526-856EAC8D85BB" name="Rel_Treatment_Codes" typeRef="Any"/>
+        <dmn:relation id="_2C575246-F51D-4332-8707-26959E16A62F">
+          <dmn:column id="_6DDDBC44-8B2C-4AAF-A6AB-9BE925A6080E" name="Region" typeRef="string"/>
+          <dmn:column id="_445D7EBD-471B-433D-8FAB-87F33E67B32A" name="TreatmentCodes" typeRef="number"/>
+          <dmn:row id="_F45EED38-8BF0-4B22-9803-294A255E6A37">
+            <dmn:literalExpression id="_C2A946E5-961A-4F89-B42A-3AAEF7211DC5">
+              <dmn:text>"Wales"</dmn:text>
+            </dmn:literalExpression>
+            <dmn:literalExpression id="_A31E5A92-D230-435E-BAE7-00A04268DBE2">
+              <dmn:text>9179</dmn:text>
+            </dmn:literalExpression>
+          </dmn:row>
+          <dmn:row id="_B109A6B6-0DAA-436F-9615-652EF7D69C98">
+            <dmn:literalExpression id="_1AB8665A-5AF8-4CE0-B22A-471E01429425">
+              <dmn:text>"Wales"</dmn:text>
+            </dmn:literalExpression>
+            <dmn:literalExpression id="_B0852834-C491-4F70-9514-50E3F3D14E83">
+              <dmn:text>[9302..9310]</dmn:text>
+            </dmn:literalExpression>
+          </dmn:row>
+          <dmn:row id="_12752C43-F241-4EAC-AB67-71D3177D5507">
+            <dmn:literalExpression id="_D9F188B8-8094-4579-BCBD-F7FE3A487420">
+              <dmn:text>"Wales"</dmn:text>
+            </dmn:literalExpression>
+            <dmn:literalExpression id="_6BF29B8E-D3B4-4C8F-8804-BDBF4AD69C06">
+              <dmn:text>9315</dmn:text>
+            </dmn:literalExpression>
+          </dmn:row>
+          <dmn:row id="_3DFBA7B9-75DC-4104-A4BC-9030CBFC4F26">
+            <dmn:literalExpression id="_DB87208C-4D25-4984-A61A-E989CEE19F19">
+              <dmn:text>"Wales"</dmn:text>
+            </dmn:literalExpression>
+            <dmn:literalExpression id="_A52C1A6F-531D-4E33-A23B-EBF044D596D5">
+              <dmn:text>9319</dmn:text>
+            </dmn:literalExpression>
+          </dmn:row>
+          <dmn:row id="_1580DC42-0BE6-4A18-A671-DB4783018D72">
+            <dmn:literalExpression id="_AAC020B5-1C3D-4853-BFE6-85DC923A4567">
+              <dmn:text>"Wales"</dmn:text>
+            </dmn:literalExpression>
+            <dmn:literalExpression id="_F71BE839-206C-4F83-84F9-9B8E57AFA122">
+              <dmn:text>9399</dmn:text>
+            </dmn:literalExpression>
+          </dmn:row>
+          <dmn:row id="_B1F05486-DBBE-4D27-B816-6E1D92F18182">
+            <dmn:literalExpression id="_F6AAFB2E-883A-40E7-87CC-880500C2EB0C">
+              <dmn:text>"Wales"</dmn:text>
+            </dmn:literalExpression>
+            <dmn:literalExpression id="_3DCB882B-5E88-4E30-B170-A29D28A71B95">
+              <dmn:text>[9333..9339]</dmn:text>
+            </dmn:literalExpression>
+          </dmn:row>
+          <dmn:row id="_65D62C97-9DF7-4F02-A733-50A7766402B8">
+            <dmn:literalExpression id="_27660AFD-A5C3-46F7-AC30-DAAFA4E96E66">
+              <dmn:text>"Wales"</dmn:text>
+            </dmn:literalExpression>
+            <dmn:literalExpression id="_51D59B7D-3CB2-4AD2-A12E-FDE042EABCAF">
+              <dmn:text>9353</dmn:text>
+            </dmn:literalExpression>
+          </dmn:row>
+          <dmn:row id="_DA79C506-1374-4571-9C77-487F5D2F595A">
+            <dmn:literalExpression id="_C6EC321B-A524-4092-9045-75599DA5D906">
+              <dmn:text>"Wales"</dmn:text>
+            </dmn:literalExpression>
+            <dmn:literalExpression id="_83332963-3BB1-4E34-9FE3-BE1BF9F34457">
+              <dmn:text>9376</dmn:text>
+            </dmn:literalExpression>
+          </dmn:row>
+          <dmn:row id="_54BF9E75-6B39-42E1-A66E-27FFCB2F3AA7">
+            <dmn:literalExpression id="_19732A13-BF7D-441A-9151-277491EB9CBE">
+              <dmn:text>"Wales"</dmn:text>
+            </dmn:literalExpression>
+            <dmn:literalExpression id="_6832A2AC-11F6-4581-BC14-C61C932604E5">
+              <dmn:text>9377</dmn:text>
+            </dmn:literalExpression>
+          </dmn:row>
+        </dmn:relation>
+      </dmn:contextEntry>
+      <dmn:contextEntry>
+        <dmn:variable id="_03492CB5-7986-45C3-8D24-E5CB418CBC38" name="Cond_1" typeRef="boolean"/>
+        <dmn:literalExpression id="_7958509F-10BE-4903-9390-A1FC75DD3F7A">
+          <dmn:text>some x in Activity.tCodes satisfies x in Rel_Treatment_Codes[Region=Activity.tRegion].TreatmentCodes</dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
+      <dmn:contextEntry>
+        <dmn:literalExpression id="_5B57AFB2-7E34-4D7E-99D6-1FBD0C1045DB">
+          <dmn:text>if DateCheck and Cond_1 then 0
+    
+else 244 
+    </dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
+    </dmn:context>
+  </dmn:decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="_86781BFC-D7D3-4F77-A6BA-2F244A689396" name="DRG">
+      <di:extension>
+        <kie:ComponentsWidthsExtension>
+          <kie:ComponentWidths dmnElementRef="_63134D92-305D-402B-8FF4-BAF744B7C6CD">
+            <kie:width>759</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_801032CB-E90B-4CF6-9066-C82A95C7A274">
+            <kie:width>50</kie:width>
+            <kie:width>469</kie:width>
+            <kie:width>916</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_2C575246-F51D-4332-8707-26959E16A62F">
+            <kie:width>50</kie:width>
+            <kie:width>392</kie:width>
+            <kie:width>454</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_C2A946E5-961A-4F89-B42A-3AAEF7211DC5"/>
+          <kie:ComponentWidths dmnElementRef="_A31E5A92-D230-435E-BAE7-00A04268DBE2"/>
+          <kie:ComponentWidths dmnElementRef="_1AB8665A-5AF8-4CE0-B22A-471E01429425"/>
+          <kie:ComponentWidths dmnElementRef="_B0852834-C491-4F70-9514-50E3F3D14E83"/>
+          <kie:ComponentWidths dmnElementRef="_D9F188B8-8094-4579-BCBD-F7FE3A487420"/>
+          <kie:ComponentWidths dmnElementRef="_6BF29B8E-D3B4-4C8F-8804-BDBF4AD69C06"/>
+          <kie:ComponentWidths dmnElementRef="_DB87208C-4D25-4984-A61A-E989CEE19F19"/>
+          <kie:ComponentWidths dmnElementRef="_A52C1A6F-531D-4E33-A23B-EBF044D596D5"/>
+          <kie:ComponentWidths dmnElementRef="_AAC020B5-1C3D-4853-BFE6-85DC923A4567"/>
+          <kie:ComponentWidths dmnElementRef="_F71BE839-206C-4F83-84F9-9B8E57AFA122"/>
+          <kie:ComponentWidths dmnElementRef="_F6AAFB2E-883A-40E7-87CC-880500C2EB0C"/>
+          <kie:ComponentWidths dmnElementRef="_3DCB882B-5E88-4E30-B170-A29D28A71B95"/>
+          <kie:ComponentWidths dmnElementRef="_27660AFD-A5C3-46F7-AC30-DAAFA4E96E66"/>
+          <kie:ComponentWidths dmnElementRef="_51D59B7D-3CB2-4AD2-A12E-FDE042EABCAF"/>
+          <kie:ComponentWidths dmnElementRef="_C6EC321B-A524-4092-9045-75599DA5D906"/>
+          <kie:ComponentWidths dmnElementRef="_83332963-3BB1-4E34-9FE3-BE1BF9F34457"/>
+          <kie:ComponentWidths dmnElementRef="_19732A13-BF7D-441A-9151-277491EB9CBE"/>
+          <kie:ComponentWidths dmnElementRef="_6832A2AC-11F6-4581-BC14-C61C932604E5"/>
+          <kie:ComponentWidths dmnElementRef="_7958509F-10BE-4903-9390-A1FC75DD3F7A">
+            <kie:width>916</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_5B57AFB2-7E34-4D7E-99D6-1FBD0C1045DB">
+            <kie:width>916</kie:width>
+          </kie:ComponentWidths>
+        </kie:ComponentsWidthsExtension>
+      </di:extension>
+      <dmndi:DMNShape id="dmnshape-drg-_F8EB1D56-B51C-427B-8412-CAB9C641B8EC" dmnElementRef="_F8EB1D56-B51C-427B-8412-CAB9C641B8EC" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="1688" y="417" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_EA6FFB79-60C2-495D-9AD6-18EAFB7C3E7C" dmnElementRef="_EA6FFB79-60C2-495D-9AD6-18EAFB7C3E7C" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="1418" y="649" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_B77A9734-04B8-4AF3-9D7F-69AC5A2BB92D" dmnElementRef="_B77A9734-04B8-4AF3-9D7F-69AC5A2BB92D" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="1566" y="641" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_51206C94-F6DF-4BCC-ABAB-37BD772BFB10" dmnElementRef="_51206C94-F6DF-4BCC-ABAB-37BD772BFB10" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="1426" y="181" width="678" height="396"/>
+        <dmndi:DMNLabel/>
+        <dmndi:DMNDecisionServiceDividerLine>
+          <di:waypoint x="1426" y="281"/>
+          <di:waypoint x="2104" y="281"/>
+        </dmndi:DMNDecisionServiceDividerLine>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_C010ABEE-D878-4750-B3BF-5E0B2B7D77DA" dmnElementRef="_C010ABEE-D878-4750-B3BF-5E0B2B7D77DA" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="1548" y="213" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="dmnedge-drg-_AB2CA67E-4B64-4709-A702-9A8BE6E251C2-AUTO-TARGET" dmnElementRef="_AB2CA67E-4B64-4709-A702-9A8BE6E251C2">
+        <di:waypoint x="1468" y="674"/>
+        <di:waypoint x="1738" y="467"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-drg-_199081FD-82B0-4A9E-B18F-880ED4E08E88-AUTO-TARGET" dmnElementRef="_199081FD-82B0-4A9E-B18F-880ED4E08E88">
+        <di:waypoint x="1616" y="666"/>
+        <di:waypoint x="1738" y="467"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-drg-_6C95C73D-5421-44F7-8E4F-C5AAF8B2C1DA-AUTO-TARGET" dmnElementRef="_6C95C73D-5421-44F7-8E4F-C5AAF8B2C1DA">
+        <di:waypoint x="1616" y="666"/>
+        <di:waypoint x="1598" y="263"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-drg-_1EF97B68-6D9A-474C-AF73-98C2451DE584-AUTO-TARGET" dmnElementRef="_1EF97B68-6D9A-474C-AF73-98C2451DE584">
+        <di:waypoint x="1738" y="442"/>
+        <di:waypoint x="1598" y="263"/>
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</dmn:definitions>
