@@ -36,11 +36,35 @@
     <dmn:informationRequirement id="_E9D8456D-1FAF-4F3E-A062-2D8ABBB6C155">
       <dmn:requiredInput href="#_3FA1604F-5BAC-4539-8EBF-5B02F6386EB7"/>
     </dmn:informationRequirement>
+    <dmn:informationRequirement id="_D843F602-3227-4BD5-8101-E79BAE12B10A">
+      <dmn:requiredInput href="#_C1DF9259-C61A-4ABF-A957-3EDAB9C4E149"/>
+    </dmn:informationRequirement>
     <dmn:context id="_237EBD41-30DD-47F3-A6A4-77471B99E1DA">
       <dmn:contextEntry>
         <dmn:variable id="_05E3784D-8170-4C2B-B5B4-E9F2EE5EB05B" name="Test" typeRef="number"/>
         <dmn:literalExpression id="_776F9D3B-E260-4038-A683-92FDC8F20897">
           <dmn:text>[1,2,34,5]</dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
+      <dmn:contextEntry>
+        <dmn:variable id="_2BC04E40-C616-4448-BE18-801B0B469C8F" name="Rel"/>
+        <dmn:relation id="_7152C52C-4C17-4401-B888-64CFA92B7866">
+          <dmn:column id="_F16C56CD-8FEC-480B-97B6-1ED59376A42F" name="Region" typeRef="string"/>
+          <dmn:column id="_47F4A5DD-A5EA-48EC-92BA-8E6849817FC7" name="treatcodes"/>
+          <dmn:row id="_6709B76D-8894-4532-8D29-B152C35328E1">
+            <dmn:literalExpression id="_53FC700C-5720-4FC6-A11A-7783E7E62DA1">
+              <dmn:text>"England"</dmn:text>
+            </dmn:literalExpression>
+            <dmn:literalExpression id="_B5AF86EF-81D0-4CDD-9432-E5786224DC89">
+              <dmn:text>[1..5]</dmn:text>
+            </dmn:literalExpression>
+          </dmn:row>
+        </dmn:relation>
+      </dmn:contextEntry>
+      <dmn:contextEntry>
+        <dmn:variable id="_32E77B8D-6199-46AE-8323-7987567AA00E" name="ContextEntry-3"/>
+        <dmn:literalExpression id="_FC7AF41B-6EB8-4D61-B14D-8C3DAE3AD39E">
+          <dmn:text>some x in code satisfies x in Rel[Region=region].treatcodes</dmn:text>
         </dmn:literalExpression>
       </dmn:contextEntry>
       <dmn:contextEntry>
@@ -55,6 +79,10 @@
     <dmn:extensionElements/>
     <dmn:variable id="_1996C34C-C848-4C7A-B7DF-7CAB567668BF" name="code" typeRef="Eng_codes"/>
   </dmn:inputData>
+  <dmn:inputData id="_C1DF9259-C61A-4ABF-A957-3EDAB9C4E149" name="region">
+    <dmn:extensionElements/>
+    <dmn:variable id="_633B287D-C91F-40B4-8A29-CE6026DF7EF7" name="region"/>
+  </dmn:inputData>
   <dmndi:DMNDI>
     <dmndi:DMNDiagram id="_717A5512-714E-44CD-9D6C-EA751F99A6AC" name="DRG">
       <di:extension>
@@ -65,6 +93,16 @@
             <kie:width>521</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_776F9D3B-E260-4038-A683-92FDC8F20897">
+            <kie:width>521</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_7152C52C-4C17-4401-B888-64CFA92B7866">
+            <kie:width>50</kie:width>
+            <kie:width>100</kie:width>
+            <kie:width>351</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_53FC700C-5720-4FC6-A11A-7783E7E62DA1"/>
+          <kie:ComponentWidths dmnElementRef="_B5AF86EF-81D0-4CDD-9432-E5786224DC89"/>
+          <kie:ComponentWidths dmnElementRef="_FC7AF41B-6EB8-4D61-B14D-8C3DAE3AD39E">
             <kie:width>521</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_F90EBC8A-6062-466A-A2F4-F8110D03B469">
@@ -90,8 +128,21 @@
         <dc:Bounds x="257" y="406" width="100" height="50"/>
         <dmndi:DMNLabel/>
       </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_C1DF9259-C61A-4ABF-A957-3EDAB9C4E149" dmnElementRef="_C1DF9259-C61A-4ABF-A957-3EDAB9C4E149" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="422" y="421" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
       <dmndi:DMNEdge id="dmnedge-drg-_E9D8456D-1FAF-4F3E-A062-2D8ABBB6C155-AUTO-TARGET" dmnElementRef="_E9D8456D-1FAF-4F3E-A062-2D8ABBB6C155">
         <di:waypoint x="307" y="431"/>
+        <di:waypoint x="395" y="291"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-drg-_D843F602-3227-4BD5-8101-E79BAE12B10A-AUTO-TARGET" dmnElementRef="_D843F602-3227-4BD5-8101-E79BAE12B10A">
+        <di:waypoint x="472" y="446"/>
         <di:waypoint x="395" y="291"/>
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
