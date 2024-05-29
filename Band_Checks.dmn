@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dmn:definitions xmlns:dmn="http://www.omg.org/spec/DMN/20180521/MODEL/" xmlns="https://kiegroup.org/dmn/_7B25E281-981E-419D-9FED-87A6554EDC70" xmlns:feel="http://www.omg.org/spec/DMN/20180521/FEEL/" xmlns:kie="http://www.drools.org/kie/dmn/1.2" xmlns:dmndi="http://www.omg.org/spec/DMN/20180521/DMNDI/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" id="_7D6B6A24-1E18-4545-9AC6-CC7B8F7D030D" name="Band_Checks" typeLanguage="http://www.omg.org/spec/DMN/20180521/FEEL/" namespace="https://kiegroup.org/dmn/_7B25E281-981E-419D-9FED-87A6554EDC70">
+  <dmn:extensionElements/>
+  <dmn:itemDefinition id="_8F954F7A-31AB-44EF-8901-738F94E906BB" name="tFormData" isCollection="false">
+    <dmn:itemComponent id="_40130F50-A724-40A7-93D9-B1DDC9045D29" name="tBand" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_6DA09A4C-0F03-405C-8300-1D263DC0C543" name="tRegion" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_5DC866D6-7FD7-4871-8A09-868FBDC207BD" name="tCode" isCollection="true">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+  </dmn:itemDefinition>
+  <dmn:itemDefinition id="_98A676F3-135B-4E47-B917-6C25580D49DE" name="Eng_codes" isCollection="true">
+    <dmn:typeRef>number</dmn:typeRef>
+  </dmn:itemDefinition>
+  <dmn:itemDefinition id="_7F357106-4DD7-4B11-9479-5FCC4FA08887" name="IOM_codes" isCollection="true">
+    <dmn:typeRef>number</dmn:typeRef>
+  </dmn:itemDefinition>
+  <dmn:itemDefinition id="_504C3B7D-9DA0-4986-9BF7-8FDCD9D12F2F" name="Welsh_codes" isCollection="false">
+    <dmn:typeRef>number</dmn:typeRef>
+  </dmn:itemDefinition>
+  <dmn:itemDefinition id="_BC16D68F-0069-4E1A-92E8-94F89C5F14DF" name="CheckCode_Eng" isCollection="true">
+    <dmn:typeRef>boolean</dmn:typeRef>
+  </dmn:itemDefinition>
+  <dmn:itemDefinition id="_3B1E96F1-03E0-41FC-BF89-A1B94E49861C" name="CheckCode_Welsh" isCollection="false">
+    <dmn:typeRef>boolean</dmn:typeRef>
+  </dmn:itemDefinition>
+  <dmn:itemDefinition id="_EEA3883C-E92B-4598-9932-87825EF5A0DF" name="CheckCode_IOM" isCollection="false">
+    <dmn:typeRef>boolean</dmn:typeRef>
+  </dmn:itemDefinition>
+  <dmn:inputData id="_0C99EE1A-9640-4F4A-8E51-5CE18493EC79" name="FormData">
+    <dmn:extensionElements/>
+    <dmn:variable id="_635FC332-74C0-489C-B37E-5A8DB8A0C696" name="FormData" typeRef="tFormData"/>
+  </dmn:inputData>
+  <dmn:decision id="_C08CF68D-0CBD-4669-953D-C7B1C67F34B0" name="RegionCode Check">
+    <dmn:extensionElements/>
+    <dmn:variable id="_31AB3648-A308-4394-9461-03E3B37EFD76" name="RegionCode Check" typeRef="boolean"/>
+    <dmn:informationRequirement id="_32981AD3-AD6D-41FE-95CD-A4D4AE39F253">
+      <dmn:requiredInput href="#_0C99EE1A-9640-4F4A-8E51-5CE18493EC79"/>
+    </dmn:informationRequirement>
+    <dmn:context id="_B3342E64-CEEA-48C7-AE78-DB30BDE299E9">
+      <dmn:contextEntry>
+        <dmn:variable id="_213825D3-6872-45D9-9E6B-2830FBFF1FB2" name="Eng_Codes" typeRef="Eng_codes"/>
+        <dmn:literalExpression id="_E8B48B19-9044-43B3-AEE9-203E0310888C">
+          <dmn:text>[9179, 9302, 9303, 9304, 9305, 9306, 9307, 9308, 9309, 9310, 9313, 9315, 9319, 9399, 9333, 9334, 9335, 9336, 9337, 9338, 9339, 9353, 9376, 9377 ]</dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
+      <dmn:contextEntry>
+        <dmn:variable id="_A35A50D8-12DC-4940-838F-469932948AC1" name="CheckCode_Eng" typeRef="CheckCode_Eng"/>
+        <dmn:literalExpression id="_AB910D30-CE08-490E-B87A-9FAF258C66AA">
+          <dmn:text>overlaps(FormData.tCode,Eng_Codes)</dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
+      <dmn:contextEntry>
+        <dmn:literalExpression id="_DEAAF393-65DD-42D0-863C-96E587E71A56">
+          <dmn:text>CheckCode_Eng</dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
+    </dmn:context>
+  </dmn:decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="_717A5512-714E-44CD-9D6C-EA751F99A6AC" name="DRG">
+      <di:extension>
+        <kie:ComponentsWidthsExtension>
+          <kie:ComponentWidths dmnElementRef="_B3342E64-CEEA-48C7-AE78-DB30BDE299E9">
+            <kie:width>50</kie:width>
+            <kie:width>120</kie:width>
+            <kie:width>699</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_E8B48B19-9044-43B3-AEE9-203E0310888C">
+            <kie:width>699</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_AB910D30-CE08-490E-B87A-9FAF258C66AA">
+            <kie:width>699</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_DEAAF393-65DD-42D0-863C-96E587E71A56">
+            <kie:width>699</kie:width>
+          </kie:ComponentWidths>
+        </kie:ComponentsWidthsExtension>
+      </di:extension>
+      <dmndi:DMNShape id="dmnshape-drg-_0C99EE1A-9640-4F4A-8E51-5CE18493EC79" dmnElementRef="_0C99EE1A-9640-4F4A-8E51-5CE18493EC79" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="286" y="247" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_C08CF68D-0CBD-4669-953D-C7B1C67F34B0" dmnElementRef="_C08CF68D-0CBD-4669-953D-C7B1C67F34B0" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="303" y="89" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="dmnedge-drg-_32981AD3-AD6D-41FE-95CD-A4D4AE39F253-AUTO-TARGET" dmnElementRef="_32981AD3-AD6D-41FE-95CD-A4D4AE39F253">
+        <di:waypoint x="336" y="272"/>
+        <di:waypoint x="353" y="139"/>
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</dmn:definitions>
