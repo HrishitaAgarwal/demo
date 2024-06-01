@@ -12,12 +12,18 @@
   <dmn:itemDefinition id="_764BEA14-585C-446D-B4E1-61925D0124FD" name="ActivityDate" isCollection="false">
     <dmn:itemComponent id="_61DD9EC7-B597-40AB-A1C7-BD7AB3168C71" name="tRegion" isCollection="false">
       <dmn:typeRef>string</dmn:typeRef>
-      <dmn:allowedValues kie:constraintType="enumeration" id="_6096E726-4B86-4A93-B5AA-7A324A6DFC7E">
-        <dmn:text>"Wales"</dmn:text>
+      <dmn:allowedValues kie:constraintType="expression" id="_CA536AE1-267C-4882-8195-8758D6785619">
+        <dmn:text>"Wales","England"</dmn:text>
       </dmn:allowedValues>
     </dmn:itemComponent>
     <dmn:itemComponent id="_F95B2D58-D24A-4D02-8CE2-D90DF80C55CA" name="tAcceptanceDate" isCollection="false">
       <dmn:typeRef>date</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_6E49B42C-AAF5-48CA-A171-4491CB1922D5" name="tBand" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+      <dmn:allowedValues kie:constraintType="expression" id="_C7DD5BB7-D9DD-4E3E-BFA4-E91E7D22F710">
+        <dmn:text>"1","2","3","Urgent"</dmn:text>
+      </dmn:allowedValues>
     </dmn:itemComponent>
     <dmn:itemComponent id="_25505B32-CF9F-4652-AAA4-C8625802B058" name="tCodes" isCollection="true">
       <dmn:typeRef>number</dmn:typeRef>
@@ -144,6 +150,38 @@ else false
               <dmn:text>9377</dmn:text>
             </dmn:literalExpression>
           </dmn:row>
+          <dmn:row id="_35039D54-C6D8-4EF3-AB4A-96EF1ED64EBD">
+            <dmn:literalExpression id="_AE1C1933-9302-4326-A4E3-3D175A04591D">
+              <dmn:text>"England"</dmn:text>
+            </dmn:literalExpression>
+            <dmn:literalExpression id="_DEC19570-B8DD-4581-932B-5FFD290941FD">
+              <dmn:text>[9301..9315]</dmn:text>
+            </dmn:literalExpression>
+          </dmn:row>
+          <dmn:row id="_DE096A1C-1EC0-4E2E-BDA8-B4C7806D3370">
+            <dmn:literalExpression id="_5FC2B142-EE49-4136-9E42-1F36F561D7EE">
+              <dmn:text>"England"</dmn:text>
+            </dmn:literalExpression>
+            <dmn:literalExpression id="_A93D404F-6BD1-43D8-91D1-141DFB924ECA">
+              <dmn:text>[9370..9371]</dmn:text>
+            </dmn:literalExpression>
+          </dmn:row>
+          <dmn:row id="_309CBBF9-A9D8-4411-938B-E4E98DA9DA52">
+            <dmn:literalExpression id="_FBE04DBB-0A2E-40CD-B623-1435659F1E03">
+              <dmn:text>"England"</dmn:text>
+            </dmn:literalExpression>
+            <dmn:literalExpression id="_73F5F252-8A4B-4DC8-8777-9BB4B2AAF70A">
+              <dmn:text>[9378..9379]</dmn:text>
+            </dmn:literalExpression>
+          </dmn:row>
+          <dmn:row id="_59A57770-E29C-474D-86A9-8E2BE15555F7">
+            <dmn:literalExpression id="_A71BD713-6909-4915-BCC5-0B52EE4EAA1B">
+              <dmn:text>"England"</dmn:text>
+            </dmn:literalExpression>
+            <dmn:literalExpression id="_A4C84B44-9DFF-46AC-8EFB-6AE58F4DD323">
+              <dmn:text>[9317..9318]</dmn:text>
+            </dmn:literalExpression>
+          </dmn:row>
         </dmn:relation>
       </dmn:contextEntry>
       <dmn:contextEntry>
@@ -154,9 +192,10 @@ else false
       </dmn:contextEntry>
       <dmn:contextEntry>
         <dmn:literalExpression id="_5B57AFB2-7E34-4D7E-99D6-1FBD0C1045DB">
-          <dmn:text>if DateCheck and Cond_1 then 0
-    
-else 244 
+          <dmn:text>if Activity.tRegion = "Wales" then 
+if DateCheck and Cond_1 then 0
+    else 244
+else if Cond_1 then 0 else 244
     </dmn:text>
         </dmn:literalExpression>
       </dmn:contextEntry>
@@ -172,12 +211,12 @@ else 244
           <kie:ComponentWidths dmnElementRef="_801032CB-E90B-4CF6-9066-C82A95C7A274">
             <kie:width>50</kie:width>
             <kie:width>469</kie:width>
-            <kie:width>916</kie:width>
+            <kie:width>896</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_2C575246-F51D-4332-8707-26959E16A62F">
             <kie:width>50</kie:width>
             <kie:width>392</kie:width>
-            <kie:width>454</kie:width>
+            <kie:width>434</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_C2A946E5-961A-4F89-B42A-3AAEF7211DC5"/>
           <kie:ComponentWidths dmnElementRef="_A31E5A92-D230-435E-BAE7-00A04268DBE2"/>
@@ -197,11 +236,19 @@ else 244
           <kie:ComponentWidths dmnElementRef="_83332963-3BB1-4E34-9FE3-BE1BF9F34457"/>
           <kie:ComponentWidths dmnElementRef="_19732A13-BF7D-441A-9151-277491EB9CBE"/>
           <kie:ComponentWidths dmnElementRef="_6832A2AC-11F6-4581-BC14-C61C932604E5"/>
+          <kie:ComponentWidths dmnElementRef="_AE1C1933-9302-4326-A4E3-3D175A04591D"/>
+          <kie:ComponentWidths dmnElementRef="_DEC19570-B8DD-4581-932B-5FFD290941FD"/>
+          <kie:ComponentWidths dmnElementRef="_5FC2B142-EE49-4136-9E42-1F36F561D7EE"/>
+          <kie:ComponentWidths dmnElementRef="_A93D404F-6BD1-43D8-91D1-141DFB924ECA"/>
+          <kie:ComponentWidths dmnElementRef="_FBE04DBB-0A2E-40CD-B623-1435659F1E03"/>
+          <kie:ComponentWidths dmnElementRef="_73F5F252-8A4B-4DC8-8777-9BB4B2AAF70A"/>
+          <kie:ComponentWidths dmnElementRef="_A71BD713-6909-4915-BCC5-0B52EE4EAA1B"/>
+          <kie:ComponentWidths dmnElementRef="_A4C84B44-9DFF-46AC-8EFB-6AE58F4DD323"/>
           <kie:ComponentWidths dmnElementRef="_7958509F-10BE-4903-9390-A1FC75DD3F7A">
-            <kie:width>916</kie:width>
+            <kie:width>896</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_5B57AFB2-7E34-4D7E-99D6-1FBD0C1045DB">
-            <kie:width>916</kie:width>
+            <kie:width>896</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
