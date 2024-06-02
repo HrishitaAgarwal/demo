@@ -142,9 +142,9 @@ else false
     <dmn:informationRequirement id="_4880C1FA-A59F-4021-AF51-D7F3383169C0">
       <dmn:requiredDecision href="#_1AA2B0D9-978D-40C0-85A1-FE4F91ABB60A"/>
     </dmn:informationRequirement>
-    <dmn:decisionTable id="_4E841D63-E96A-402C-AA73-19357F9125F5" hitPolicy="UNIQUE" preferredOrientation="Rule-as-Row">
+    <dmn:decisionTable id="_4E841D63-E96A-402C-AA73-19357F9125F5" hitPolicy="COLLECT" preferredOrientation="Rule-as-Row">
       <dmn:input id="_68FEC839-C82F-4399-9CC0-DCE63C3791E9">
-        <dmn:inputExpression typeRef="number">
+        <dmn:inputExpression id="_645A4713-4BCF-4949-835E-2EA0BA25D0AC" typeRef="number">
           <dmn:text>Region and Age check.error_code</dmn:text>
         </dmn:inputExpression>
       </dmn:input>
@@ -167,7 +167,7 @@ else false
           <dmn:text>true</dmn:text>
         </dmn:outputEntry>
         <dmn:outputEntry id="_8D1739FC-7627-4309-828B-383CEDEDFA62">
-          <dmn:text/>
+          <dmn:text>"Seniority Adj rule success"</dmn:text>
         </dmn:outputEntry>
         <dmn:annotationEntry>
           <dmn:text/>
@@ -184,7 +184,24 @@ else false
           <dmn:text>false</dmn:text>
         </dmn:outputEntry>
         <dmn:outputEntry id="_A088AB2A-CFC9-4ADD-9B45-EAC7D85D514B">
+          <dmn:text>"Region and Age check failed"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
           <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_CB9F13B4-3CC0-47F3-BAB6-C205D3618EB7">
+        <dmn:inputEntry id="_CE4D2144-EC1E-425B-ADD9-5305FB8824DC">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_11C1740E-F2A8-4212-8373-2EE901099803">
+          <dmn:text>false</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_806BAA9F-5E7E-4945-842A-75923D1CF458">
+          <dmn:text>false</dmn:text>
+        </dmn:outputEntry>
+        <dmn:outputEntry id="_26FDF2F6-CBDA-44FA-92EB-60FDCBD4D7DE">
+          <dmn:text>"Seniority date check failed"</dmn:text>
         </dmn:outputEntry>
         <dmn:annotationEntry>
           <dmn:text/>
@@ -239,7 +256,7 @@ else
             <kie:width>312</kie:width>
             <kie:width>266</kie:width>
             <kie:width>149</kie:width>
-            <kie:width>100</kie:width>
+            <kie:width>155</kie:width>
             <kie:width>100</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_26BDA856-A39A-40F4-9F2F-E3856B527254">
