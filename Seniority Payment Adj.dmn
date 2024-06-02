@@ -40,15 +40,6 @@
     </dmn:informationRequirement>
     <dmn:context id="_110796A9-23F6-4014-B54F-905B06107AF7">
       <dmn:contextEntry>
-        <dmn:variable id="_71ECB76E-FC15-4816-B218-7F4807238293" name="Seniority_date test" typeRef="boolean"/>
-        <dmn:literalExpression id="_754562BD-C315-4F0F-B927-7772699EC9E6">
-          <dmn:text>if (Seniority_Start - Paymnt_Adj_Date).days &gt; 90 then true
-    
-else
-    false  </dmn:text>
-        </dmn:literalExpression>
-      </dmn:contextEntry>
-      <dmn:contextEntry>
         <dmn:variable id="_A2BCF415-C2AB-4C65-B148-88A1031D9730" name="Region_test" typeRef="boolean"/>
         <dmn:literalExpression id="_B97163DC-75F7-4F87-9116-6D21901441B2">
           <dmn:text>if Region = 1 then true
@@ -68,9 +59,9 @@ else false
       </dmn:contextEntry>
       <dmn:contextEntry>
         <dmn:variable id="_21B70D6E-B089-4CE0-A642-0E84D990B275" name="error_code"/>
-        <dmn:decisionTable id="_01187F13-EBBB-4B66-BA9D-8190BE1CAD99" hitPolicy="UNIQUE" preferredOrientation="Rule-as-Row">
+        <dmn:decisionTable id="_01187F13-EBBB-4B66-BA9D-8190BE1CAD99" hitPolicy="COLLECT" preferredOrientation="Rule-as-Row">
           <dmn:input id="_C89D5463-32E8-474D-9757-762DCDB1443E">
-            <dmn:inputExpression typeRef="boolean">
+            <dmn:inputExpression id="_3B89B52C-F9FA-4D17-935D-AD3A1A8217F8" typeRef="boolean">
               <dmn:text>Region_test</dmn:text>
             </dmn:inputExpression>
           </dmn:input>
@@ -79,17 +70,21 @@ else false
               <dmn:text>Age test</dmn:text>
             </dmn:inputExpression>
           </dmn:input>
-          <dmn:output id="_B5BDB15A-0E93-47EF-A14B-E4ACBD247EA7"/>
+          <dmn:output id="_B5BDB15A-0E93-47EF-A14B-E4ACBD247EA7" name="error_code" typeRef="number"/>
+          <dmn:output id="_FF7FE752-6FE2-41FE-9493-3310C24538F9" name="output-2" typeRef="string"/>
           <dmn:annotation name="annotation-1"/>
           <dmn:rule id="_5B29D126-C87D-4558-9171-428ADA19B6E1">
             <dmn:inputEntry id="_6E70D415-6EF4-43CC-97CC-54B5BA0471C4">
               <dmn:text>false</dmn:text>
             </dmn:inputEntry>
             <dmn:inputEntry id="_4772AF80-B695-4253-86AD-0273EF387EEB">
-              <dmn:text>true</dmn:text>
+              <dmn:text>-</dmn:text>
             </dmn:inputEntry>
             <dmn:outputEntry id="_FA08810F-BAB3-49F6-81AE-6393BF2F1255">
               <dmn:text>0001</dmn:text>
+            </dmn:outputEntry>
+            <dmn:outputEntry id="_009226FE-85A9-4E68-A1EC-911C6EE55BCA">
+              <dmn:text>"Region test failed"</dmn:text>
             </dmn:outputEntry>
             <dmn:annotationEntry>
               <dmn:text/>
@@ -105,6 +100,9 @@ else false
             <dmn:outputEntry id="_49DEB21C-008B-4D54-9C9D-9CF4E05BB7F5">
               <dmn:text>0002</dmn:text>
             </dmn:outputEntry>
+            <dmn:outputEntry id="_800712D5-2620-4419-BD88-DCBD2B92064E">
+              <dmn:text>"Age test failed"</dmn:text>
+            </dmn:outputEntry>
             <dmn:annotationEntry>
               <dmn:text/>
             </dmn:annotationEntry>
@@ -118,6 +116,9 @@ else false
             </dmn:inputEntry>
             <dmn:outputEntry id="_161B324E-A9A1-4867-B4FA-C75E5DCF9CE1">
               <dmn:text>0000</dmn:text>
+            </dmn:outputEntry>
+            <dmn:outputEntry id="_2C9B37FF-CEE4-4994-81B9-6CBBD6787EBB">
+              <dmn:text>"Region and age is valid"</dmn:text>
             </dmn:outputEntry>
             <dmn:annotationEntry>
               <dmn:text/>
@@ -152,17 +153,21 @@ else false
           <dmn:text>Seniority_date Check</dmn:text>
         </dmn:inputExpression>
       </dmn:input>
-      <dmn:output id="_D2B0AD69-5A1B-4DB9-94A5-678115E9CB91"/>
+      <dmn:output id="_D2B0AD69-5A1B-4DB9-94A5-678115E9CB91" name="Adjustment Rule Check" typeRef="boolean"/>
+      <dmn:output id="_A26FF6EA-5989-41D0-95C2-B39D204B268E" name="output-2"/>
       <dmn:annotation name="annotation-1"/>
       <dmn:rule id="_BA1B040C-BE3A-4E10-9F0C-DFABA9C2BA2E">
         <dmn:inputEntry id="_2C14A772-C393-41E1-888D-C0748075178D">
-          <dmn:text>0000</dmn:text>
+          <dmn:text>0</dmn:text>
         </dmn:inputEntry>
         <dmn:inputEntry id="_E19C9DE4-A5C4-4035-ABBB-60B1A693B46B">
           <dmn:text>true</dmn:text>
         </dmn:inputEntry>
         <dmn:outputEntry id="_912E4544-1EB5-4B14-A288-671DFBF0213B">
           <dmn:text>true</dmn:text>
+        </dmn:outputEntry>
+        <dmn:outputEntry id="_F0EDF15F-D079-48DC-9AF1-369818D384A0">
+          <dmn:text/>
         </dmn:outputEntry>
         <dmn:annotationEntry>
           <dmn:text/>
@@ -177,6 +182,9 @@ else false
         </dmn:inputEntry>
         <dmn:outputEntry id="_DA2B5477-28FE-4BDB-85D6-812C974FFA51">
           <dmn:text>false</dmn:text>
+        </dmn:outputEntry>
+        <dmn:outputEntry id="_89953306-F9C2-4E69-848E-FF5A4DD15B78">
+          <dmn:text/>
         </dmn:outputEntry>
         <dmn:annotationEntry>
           <dmn:text/>
@@ -207,31 +215,30 @@ else
           <kie:ComponentWidths dmnElementRef="_110796A9-23F6-4014-B54F-905B06107AF7">
             <kie:width>50</kie:width>
             <kie:width>413</kie:width>
-            <kie:width>638</kie:width>
-          </kie:ComponentWidths>
-          <kie:ComponentWidths dmnElementRef="_754562BD-C315-4F0F-B927-7772699EC9E6">
-            <kie:width>638</kie:width>
+            <kie:width>756</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_B97163DC-75F7-4F87-9116-6D21901441B2">
-            <kie:width>638</kie:width>
+            <kie:width>756</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_D2227B40-ABCF-4568-8C98-A633553F4051">
-            <kie:width>638</kie:width>
+            <kie:width>756</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_01187F13-EBBB-4B66-BA9D-8190BE1CAD99">
             <kie:width>50</kie:width>
             <kie:width>100</kie:width>
             <kie:width>100</kie:width>
             <kie:width>100</kie:width>
-            <kie:width>268</kie:width>
+            <kie:width>148</kie:width>
+            <kie:width>238</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_A5055DEA-A988-4378-95A7-721BE834CCA0">
-            <kie:width>638</kie:width>
+            <kie:width>756</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_4E841D63-E96A-402C-AA73-19357F9125F5">
             <kie:width>50</kie:width>
             <kie:width>350</kie:width>
             <kie:width>247</kie:width>
+            <kie:width>100</kie:width>
             <kie:width>100</kie:width>
             <kie:width>100</kie:width>
           </kie:ComponentWidths>
