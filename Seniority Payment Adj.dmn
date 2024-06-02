@@ -154,7 +154,9 @@ else false
         </dmn:inputExpression>
       </dmn:input>
       <dmn:output id="_5C48B004-360B-4B4A-B597-1D5674B74A08" name="output-1" typeRef="boolean"/>
-      <dmn:output id="_F9CB814F-B521-4BAA-B25C-B0C5601287A0" name="output-2"/>
+      <dmn:output id="_216E2594-6BFB-497B-A093-43680406774D" name="Seniority Pay %" typeRef="number"/>
+      <dmn:output id="_2AE78A37-E50F-4CED-84BA-D450712F3FD5" name="Max Payment per month" typeRef="number"/>
+      <dmn:output id="_F9CB814F-B521-4BAA-B25C-B0C5601287A0" name="Rule Reason" typeRef="string"/>
       <dmn:annotation name="annotation-1"/>
       <dmn:rule id="_AC133203-4B42-4D6D-A6D7-312890649034">
         <dmn:inputEntry id="_EA9D7568-3C54-4011-B405-B522DE680EB4">
@@ -165,6 +167,12 @@ else false
         </dmn:inputEntry>
         <dmn:outputEntry id="_4F9CC724-5844-4C69-B154-285CEAC78D0E">
           <dmn:text>true</dmn:text>
+        </dmn:outputEntry>
+        <dmn:outputEntry id="_F88F3B17-73AA-4DDE-8488-2B818FB1CF99">
+          <dmn:text>21.72</dmn:text>
+        </dmn:outputEntry>
+        <dmn:outputEntry id="_4AA4B2AC-6165-46D1-90BD-85D29456E1C3">
+          <dmn:text>662</dmn:text>
         </dmn:outputEntry>
         <dmn:outputEntry id="_8D1739FC-7627-4309-828B-383CEDEDFA62">
           <dmn:text>"Seniority Adj rule success"</dmn:text>
@@ -183,6 +191,12 @@ else false
         <dmn:outputEntry id="_A6F62EEC-24D3-4355-8569-F12A3E6A1C9C">
           <dmn:text>false</dmn:text>
         </dmn:outputEntry>
+        <dmn:outputEntry id="_7A6F748C-AF49-4123-A96D-36328B65ACC1">
+          <dmn:text>-</dmn:text>
+        </dmn:outputEntry>
+        <dmn:outputEntry id="_FECE57AD-C52E-44CB-9407-DC4A15F428BF">
+          <dmn:text>-</dmn:text>
+        </dmn:outputEntry>
         <dmn:outputEntry id="_A088AB2A-CFC9-4ADD-9B45-EAC7D85D514B">
           <dmn:text>"Region and Age check failed"</dmn:text>
         </dmn:outputEntry>
@@ -199,6 +213,12 @@ else false
         </dmn:inputEntry>
         <dmn:outputEntry id="_806BAA9F-5E7E-4945-842A-75923D1CF458">
           <dmn:text>false</dmn:text>
+        </dmn:outputEntry>
+        <dmn:outputEntry id="_46B50E37-9A1C-4BEA-9DAC-74242ECADBA3">
+          <dmn:text>-</dmn:text>
+        </dmn:outputEntry>
+        <dmn:outputEntry id="_DC4FE790-4AFC-4EC9-82BB-2CC0660C79A3">
+          <dmn:text>-</dmn:text>
         </dmn:outputEntry>
         <dmn:outputEntry id="_26FDF2F6-CBDA-44FA-92EB-60FDCBD4D7DE">
           <dmn:text>"Seniority date check failed"</dmn:text>
@@ -256,6 +276,8 @@ else
             <kie:width>312</kie:width>
             <kie:width>266</kie:width>
             <kie:width>149</kie:width>
+            <kie:width>100</kie:width>
+            <kie:width>100</kie:width>
             <kie:width>155</kie:width>
             <kie:width>100</kie:width>
           </kie:ComponentWidths>
