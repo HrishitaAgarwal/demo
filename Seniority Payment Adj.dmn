@@ -153,7 +153,7 @@ else false
           <dmn:text>Seniority_date Check</dmn:text>
         </dmn:inputExpression>
       </dmn:input>
-      <dmn:output id="_5C48B004-360B-4B4A-B597-1D5674B74A08" name="output-1" typeRef="boolean"/>
+      <dmn:output id="_5C48B004-360B-4B4A-B597-1D5674B74A08" name="Check" typeRef="boolean"/>
       <dmn:output id="_216E2594-6BFB-497B-A093-43680406774D" name="Seniority Pay %" typeRef="number"/>
       <dmn:output id="_2AE78A37-E50F-4CED-84BA-D450712F3FD5" name="Max Payment per month" typeRef="number"/>
       <dmn:output id="_F9CB814F-B521-4BAA-B25C-B0C5601287A0" name="Rule Reason" typeRef="string"/>
