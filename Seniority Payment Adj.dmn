@@ -58,7 +58,7 @@ else false
         </dmn:literalExpression>
       </dmn:contextEntry>
       <dmn:contextEntry>
-        <dmn:variable id="_21B70D6E-B089-4CE0-A642-0E84D990B275" name="error_code"/>
+        <dmn:variable id="_21B70D6E-B089-4CE0-A642-0E84D990B275" name="error_code" typeRef="Any"/>
         <dmn:decisionTable id="_01187F13-EBBB-4B66-BA9D-8190BE1CAD99" hitPolicy="COLLECT" preferredOrientation="Rule-as-Row">
           <dmn:input id="_C89D5463-32E8-474D-9757-762DCDB1443E">
             <dmn:inputExpression id="_3B89B52C-F9FA-4D17-935D-AD3A1A8217F8" typeRef="boolean">
@@ -143,47 +143,47 @@ else false
       <dmn:requiredDecision href="#_1AA2B0D9-978D-40C0-85A1-FE4F91ABB60A"/>
     </dmn:informationRequirement>
     <dmn:decisionTable id="_4E841D63-E96A-402C-AA73-19357F9125F5" hitPolicy="UNIQUE" preferredOrientation="Rule-as-Row">
-      <dmn:input id="_4E5B3254-4532-4A7A-AB96-DE174E3805E6">
-        <dmn:inputExpression id="_3AE9288B-814C-45B9-A6CE-05CCB4458E62" typeRef="number">
-          <dmn:text>Region and Age check</dmn:text>
+      <dmn:input id="_68FEC839-C82F-4399-9CC0-DCE63C3791E9">
+        <dmn:inputExpression typeRef="number">
+          <dmn:text>Region and Age check.error_code</dmn:text>
         </dmn:inputExpression>
       </dmn:input>
-      <dmn:input id="_9A538582-6CE9-4811-8FB5-69B40C38C938">
-        <dmn:inputExpression id="_7C2CFFA5-2A66-4600-9D36-413D0B9BEE68" typeRef="boolean">
+      <dmn:input id="_13B0EABD-50F6-4D34-A921-E2C1ECC230AD">
+        <dmn:inputExpression id="_2012F314-DB73-4C63-9175-4AD1BFB6F5B3" typeRef="boolean">
           <dmn:text>Seniority_date Check</dmn:text>
         </dmn:inputExpression>
       </dmn:input>
-      <dmn:output id="_D2B0AD69-5A1B-4DB9-94A5-678115E9CB91" name="Adjustment Rule Check" typeRef="boolean"/>
-      <dmn:output id="_A26FF6EA-5989-41D0-95C2-B39D204B268E" name="output-2"/>
+      <dmn:output id="_5C48B004-360B-4B4A-B597-1D5674B74A08" name="output-1" typeRef="boolean"/>
+      <dmn:output id="_F9CB814F-B521-4BAA-B25C-B0C5601287A0" name="output-2"/>
       <dmn:annotation name="annotation-1"/>
-      <dmn:rule id="_BA1B040C-BE3A-4E10-9F0C-DFABA9C2BA2E">
-        <dmn:inputEntry id="_2C14A772-C393-41E1-888D-C0748075178D">
+      <dmn:rule id="_AC133203-4B42-4D6D-A6D7-312890649034">
+        <dmn:inputEntry id="_EA9D7568-3C54-4011-B405-B522DE680EB4">
           <dmn:text>0</dmn:text>
         </dmn:inputEntry>
-        <dmn:inputEntry id="_E19C9DE4-A5C4-4035-ABBB-60B1A693B46B">
+        <dmn:inputEntry id="_DD24FFF8-7023-48B5-9692-6AB7D0344067">
           <dmn:text>true</dmn:text>
         </dmn:inputEntry>
-        <dmn:outputEntry id="_912E4544-1EB5-4B14-A288-671DFBF0213B">
+        <dmn:outputEntry id="_4F9CC724-5844-4C69-B154-285CEAC78D0E">
           <dmn:text>true</dmn:text>
         </dmn:outputEntry>
-        <dmn:outputEntry id="_F0EDF15F-D079-48DC-9AF1-369818D384A0">
+        <dmn:outputEntry id="_8D1739FC-7627-4309-828B-383CEDEDFA62">
           <dmn:text/>
         </dmn:outputEntry>
         <dmn:annotationEntry>
           <dmn:text/>
         </dmn:annotationEntry>
       </dmn:rule>
-      <dmn:rule id="_8BFB5C93-E4D6-4104-A3D4-71958BA3B1A2">
-        <dmn:inputEntry id="_FC4BDF53-570D-43BA-BCD6-90878A071B24">
+      <dmn:rule id="_49E14A3F-B364-4449-A6BA-8ADE5B7A6DF0">
+        <dmn:inputEntry id="_AD961582-283B-40BC-B101-4E87A0DE6523">
+          <dmn:text>!= 0</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_F36A1586-D166-4882-9482-5F44779580DD">
           <dmn:text>-</dmn:text>
         </dmn:inputEntry>
-        <dmn:inputEntry id="_E453A93C-8104-41F1-813C-69264416FD44">
-          <dmn:text>false</dmn:text>
-        </dmn:inputEntry>
-        <dmn:outputEntry id="_DA2B5477-28FE-4BDB-85D6-812C974FFA51">
+        <dmn:outputEntry id="_A6F62EEC-24D3-4355-8569-F12A3E6A1C9C">
           <dmn:text>false</dmn:text>
         </dmn:outputEntry>
-        <dmn:outputEntry id="_89953306-F9C2-4E69-848E-FF5A4DD15B78">
+        <dmn:outputEntry id="_A088AB2A-CFC9-4ADD-9B45-EAC7D85D514B">
           <dmn:text/>
         </dmn:outputEntry>
         <dmn:annotationEntry>
@@ -236,9 +236,9 @@ else
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_4E841D63-E96A-402C-AA73-19357F9125F5">
             <kie:width>50</kie:width>
-            <kie:width>350</kie:width>
-            <kie:width>247</kie:width>
-            <kie:width>100</kie:width>
+            <kie:width>312</kie:width>
+            <kie:width>266</kie:width>
+            <kie:width>149</kie:width>
             <kie:width>100</kie:width>
             <kie:width>100</kie:width>
           </kie:ComponentWidths>
