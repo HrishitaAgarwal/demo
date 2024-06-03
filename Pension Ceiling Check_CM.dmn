@@ -104,7 +104,7 @@ else false
         <dmn:variable id="_7F364B0F-A7F4-40E2-A241-22DC63C69977" name="Pro_rata" typeRef="number"/>
         <dmn:literalExpression id="_D0EECD64-4B33-4DCB-8F86-868DAA24CEAB">
           <dmn:text>if Ceiling Check then
-    (TCV*PCeiling)/(100*Total_NPE)
+   round down(decimal((decimal(TCV*PCeiling/100, 2))/Total_NPE, 5), 4)
 else
     0</dmn:text>
         </dmn:literalExpression>
@@ -124,12 +124,12 @@ else
   </dmn:decision>
   <dmn:businessKnowledgeModel id="_AB68F11B-8F74-400B-95D4-9801B36AD77E" name="Calc">
     <dmn:extensionElements/>
-    <dmn:variable id="_79191622-DC30-4908-A5A6-52584BB95B18" name="Calc"/>
+    <dmn:variable id="_79191622-DC30-4908-A5A6-52584BB95B18" name="Calc" typeRef="number"/>
     <dmn:encapsulatedLogic id="_88C52B0A-E820-49B9-B055-D06C2DB66654" kind="FEEL">
       <dmn:formalParameter id="_8314C5F7-75F4-4652-BD1B-3581765ED23D" name="NPE_I" typeRef="number"/>
       <dmn:formalParameter id="_556A81D5-0F47-4DB9-AE9D-AFF5DBF9BA4E" name="Revise" typeRef="number"/>
       <dmn:literalExpression id="_27E034B9-16CB-4B2F-AA71-89919DFDAB64">
-        <dmn:text>NPE_I * Revise</dmn:text>
+        <dmn:text>round down(decimal(NPE_I * Revise, 3), 2)</dmn:text>
       </dmn:literalExpression>
     </dmn:encapsulatedLogic>
   </dmn:businessKnowledgeModel>

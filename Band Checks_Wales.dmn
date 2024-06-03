@@ -48,9 +48,12 @@
     </dmn:informationRequirement>
     <dmn:literalExpression id="_63134D92-305D-402B-8FF4-BAF744B7C6CD">
       <dmn:text>if Activity.tAcceptanceDate &gt;= SystemParam.CDS_Changes_Start_Date and 
+
 Activity.tAcceptanceDate &lt; SystemParam.CDS_Enh_Start_Date
+
 then
     true
+    
 else false
     </dmn:text>
     </dmn:literalExpression>
