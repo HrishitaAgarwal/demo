@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dmn:definitions xmlns:dmn="http://www.omg.org/spec/DMN/20180521/MODEL/" xmlns="https://kiegroup.org/dmn/_2775A57F-BB8B-4BF0-82B3-3DCBDCED3165" xmlns:feel="http://www.omg.org/spec/DMN/20180521/FEEL/" xmlns:kie="http://www.drools.org/kie/dmn/1.2" xmlns:dmndi="http://www.omg.org/spec/DMN/20180521/DMNDI/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" id="_D3DD3601-163B-4872-895F-CA7692513894" name="Non Existent NHS Number Check" typeLanguage="http://www.omg.org/spec/DMN/20180521/FEEL/" namespace="https://kiegroup.org/dmn/_2775A57F-BB8B-4BF0-82B3-3DCBDCED3165">
   <dmn:extensionElements/>
-  <dmn:itemDefinition id="_AFE0BF44-31B1-4D27-B1F6-302199D35401" name="tPatientData" isCollection="false">
+  <dmn:itemDefinition id="_AFE0BF44-31B1-4D27-B1F6-302199D35401" name="tPatientData" isCollection="true">
     <dmn:itemComponent id="_2FA922E0-FFD2-4AC5-8CF2-C988E56BC52B" name="tSurname" isCollection="false">
       <dmn:typeRef>string</dmn:typeRef>
     </dmn:itemComponent>
@@ -738,6 +738,14 @@ else false
         <di:waypoint x="719" y="431"/>
         <di:waypoint x="489.5" y="299"/>
       </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-drg-_A52722EC-6304-4B83-A2E5-7CDECB9C7B08-AUTO-TARGET" dmnElementRef="_A52722EC-6304-4B83-A2E5-7CDECB9C7B08">
+        <di:waypoint x="560.5" y="587.5"/>
+        <di:waypoint x="1069.5" y="274.5"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-drg-_E759740A-F820-4FAC-8479-6808F4C6E330-AUTO-TARGET" dmnElementRef="_E759740A-F820-4FAC-8479-6808F4C6E330">
+        <di:waypoint x="743.5" y="587.5"/>
+        <di:waypoint x="1069.5" y="274.5"/>
+      </dmndi:DMNEdge>
       <dmndi:DMNEdge id="dmnedge-drg-_5603218C-4180-4D3D-A681-837D1A3A1BCB-AUTO-TARGET" dmnElementRef="_5603218C-4180-4D3D-A681-837D1A3A1BCB">
         <di:waypoint x="1321" y="31.684210526315795"/>
         <di:waypoint x="1069.5" y="187.5"/>
@@ -752,14 +760,6 @@ else false
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="dmnedge-drg-_9C84041D-0A95-40DD-9BD5-09F50FF3BB25-AUTO-TARGET" dmnElementRef="_9C84041D-0A95-40DD-9BD5-09F50FF3BB25">
         <di:waypoint x="1293.111111111111" y="372.88888888888886"/>
-        <di:waypoint x="1069.5" y="274.5"/>
-      </dmndi:DMNEdge>
-      <dmndi:DMNEdge id="dmnedge-drg-_A52722EC-6304-4B83-A2E5-7CDECB9C7B08-AUTO-TARGET" dmnElementRef="_A52722EC-6304-4B83-A2E5-7CDECB9C7B08">
-        <di:waypoint x="560.5" y="587.5"/>
-        <di:waypoint x="1069.5" y="274.5"/>
-      </dmndi:DMNEdge>
-      <dmndi:DMNEdge id="dmnedge-drg-_E759740A-F820-4FAC-8479-6808F4C6E330-AUTO-TARGET" dmnElementRef="_E759740A-F820-4FAC-8479-6808F4C6E330">
-        <di:waypoint x="743.5" y="587.5"/>
         <di:waypoint x="1069.5" y="274.5"/>
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="dmnedge-drg-_E47D94E3-C446-4BC3-9025-5CA40C46C2F8" dmnElementRef="_E47D94E3-C446-4BC3-9025-5CA40C46C2F8">

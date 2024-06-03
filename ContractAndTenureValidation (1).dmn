@@ -105,7 +105,7 @@
         </dmn:inputExpression>
       </dmn:input>
       <dmn:input id="_0A6DD86C-2BE0-436C-95B0-8D926458FB0A">
-        <dmn:inputExpression typeRef="boolean">
+        <dmn:inputExpression id="_76912CE0-7930-44CA-9A60-989B2E9FEC89" typeRef="boolean">
           <dmn:text>ContractCheck</dmn:text>
         </dmn:inputExpression>
       </dmn:input>
@@ -115,7 +115,7 @@
         </dmn:inputExpression>
       </dmn:input>
       <dmn:input id="_D37B8233-6EBC-4D19-B237-015BB813F23C">
-        <dmn:inputExpression typeRef="boolean">
+        <dmn:inputExpression id="_FF30C44C-D82E-4E97-B3FC-5C82C4240F83" typeRef="boolean">
           <dmn:text>tActivity.tAcceptanceDateFlag</dmn:text>
         </dmn:inputExpression>
       </dmn:input>

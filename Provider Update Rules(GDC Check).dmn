@@ -29,7 +29,7 @@
         </dmn:inputExpression>
       </dmn:input>
       <dmn:input id="_EB5E8A8C-5653-48AF-8E5C-31AF437FBEE1">
-        <dmn:inputExpression typeRef="number">
+        <dmn:inputExpression id="_A3453F6A-0CD8-4F27-A4CF-3EDD2A1E518D" typeRef="number">
           <dmn:text>GDC_Participants</dmn:text>
         </dmn:inputExpression>
       </dmn:input>
@@ -132,7 +132,7 @@
     </dmn:informationRequirement>
     <dmn:decisionTable id="_54D66C5B-A47E-49CC-8330-F1E3EAFEEF89" hitPolicy="UNIQUE" preferredOrientation="Rule-as-Row">
       <dmn:input id="_8EFCC77D-78C3-444B-A5D1-BEAD0E337DD9">
-        <dmn:inputExpression typeRef="number">
+        <dmn:inputExpression id="_E5D72ED8-90BD-4ABC-A075-5FF7917277FA" typeRef="number">
           <dmn:text>Provider type</dmn:text>
         </dmn:inputExpression>
       </dmn:input>
@@ -296,7 +296,7 @@ else false
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_377CE8C1-CAA1-4FAA-873E-E3005196D76A">
             <kie:width>50</kie:width>
-            <kie:width>120</kie:width>
+            <kie:width>228</kie:width>
             <kie:width>495</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_7651B909-CC8D-4D01-BC75-368DA07A447D">
