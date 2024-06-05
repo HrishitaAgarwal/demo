@@ -125,7 +125,7 @@
         </dmn:inputExpression>
       </dmn:input>
       <dmn:input id="_62ED21A9-F411-45E8-A1EE-2E69E858C023">
-        <dmn:inputExpression typeRef="boolean">
+        <dmn:inputExpression id="_49727BDC-765F-4BFA-8C46-B474ED0FCB7B" typeRef="boolean">
           <dmn:text>tActivity.tAssessmentDateFlag</dmn:text>
         </dmn:inputExpression>
       </dmn:input>
@@ -209,7 +209,7 @@
           <dmn:text>-</dmn:text>
         </dmn:inputEntry>
         <dmn:inputEntry id="_AB632581-1982-4DA5-AA04-72550351B95D">
-          <dmn:text/>
+          <dmn:text>-</dmn:text>
         </dmn:inputEntry>
         <dmn:inputEntry id="_6406FD4E-9D6D-4D69-83D1-DBDA58A222EB">
           <dmn:text>false</dmn:text>
@@ -413,7 +413,7 @@
           <dmn:text>-</dmn:text>
         </dmn:inputEntry>
         <dmn:inputEntry id="_04ED20C0-6EAE-426E-BAA4-0C646002B09B">
-          <dmn:text>false</dmn:text>
+          <dmn:text>-</dmn:text>
         </dmn:inputEntry>
         <dmn:outputEntry id="_7279BB75-677B-4951-99E0-8979052258F3">
           <dmn:text>285</dmn:text>
@@ -499,14 +499,23 @@
         </dmn:literalExpression>
       </dmn:contextEntry>
       <dmn:contextEntry>
+        <dmn:variable id="_A655572E-89E2-4CD1-9B5E-171D7B024655" name="Assess_List" typeRef="number"/>
+        <dmn:literalExpression id="_04F8C2B1-187A-4375-A88C-49417D697466">
+          <dmn:text>[9012, 9013, 9016]</dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
+      <dmn:contextEntry>
         <dmn:variable id="_8C582FD6-BCF4-4108-AEAD-85508B87B6D2" name="Treatment Code Check" typeRef="boolean"/>
         <dmn:literalExpression id="_34216CF5-716F-4892-B466-9D08D32E2F0E">
-          <dmn:text/>
+          <dmn:text>some ch in tActivity.tCodes satisfies ch in Assess_List</dmn:text>
         </dmn:literalExpression>
       </dmn:contextEntry>
       <dmn:contextEntry>
         <dmn:literalExpression id="_239B235A-B9D5-4D5F-9212-E54FAD7796C9">
-          <dmn:text>Treatment Code Check</dmn:text>
+          <dmn:text>if Treatment Code Check then 
+  if AssessmentDate Check then true 
+  else false
+ else false</dmn:text>
         </dmn:literalExpression>
       </dmn:contextEntry>
     </dmn:context>
@@ -624,6 +633,9 @@
             <kie:width>760</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_541DB189-09D9-442C-90DA-EF28A8E2EF32">
+            <kie:width>760</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_04F8C2B1-187A-4375-A88C-49417D697466">
             <kie:width>760</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_34216CF5-716F-4892-B466-9D08D32E2F0E">
