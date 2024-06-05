@@ -239,10 +239,10 @@ else false
       <dmn:requiredInput href="#_E5E23191-5EF6-4FCC-A0E1-EE489F032543"/>
     </dmn:informationRequirement>
     <dmn:literalExpression id="_26BDA856-A39A-40F4-9F2F-E3856B527254">
-      <dmn:text>if (Seniority_Start - Paymnt_Adj_Date).days &gt; 90 then true
+      <dmn:text>if (Seniority_Start - Paymnt_Adj_Date).days &gt; 90 then false
     
 else
-    false  </dmn:text>
+    true </dmn:text>
     </dmn:literalExpression>
   </dmn:decision>
   <dmndi:DMNDI>
