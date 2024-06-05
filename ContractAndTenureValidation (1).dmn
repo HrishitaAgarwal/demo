@@ -17,7 +17,7 @@
     <dmn:itemComponent id="_1E8481A4-2C2D-477D-BA4B-8EEFE4B747BD" name="tAcceptanceDateFlag" isCollection="false">
       <dmn:typeRef>boolean</dmn:typeRef>
     </dmn:itemComponent>
-    <dmn:itemComponent id="_6B8B1C30-C9AF-48C6-A7CB-87BDF7A8188E" name="tCodes" isCollection="true">
+    <dmn:itemComponent id="_9E7F57AD-695E-4CA3-8276-436C07A53E98" name="tCodes" isCollection="true">
       <dmn:typeRef>number</dmn:typeRef>
     </dmn:itemComponent>
     <dmn:itemComponent id="_FA0D0071-B32E-4649-B956-67EFA54DF6E4" name="tCompletionDate" isCollection="false">
@@ -109,11 +109,6 @@
           <dmn:text>ContractCheck</dmn:text>
         </dmn:inputExpression>
       </dmn:input>
-      <dmn:input id="_CD3C710B-7F45-4649-A834-0930B221372B">
-        <dmn:inputExpression id="_4BD72DA8-2C91-4EA2-A166-D2E5BC82C3FB" typeRef="number">
-          <dmn:text>tActivity.tCodes</dmn:text>
-        </dmn:inputExpression>
-      </dmn:input>
       <dmn:input id="_D37B8233-6EBC-4D19-B237-015BB813F23C">
         <dmn:inputExpression id="_FF30C44C-D82E-4E97-B3FC-5C82C4240F83" typeRef="boolean">
           <dmn:text>tActivity.tAcceptanceDateFlag</dmn:text>
@@ -127,6 +122,11 @@
       <dmn:input id="_FB82029D-B0E0-420D-B122-A1941E6B2D4D">
         <dmn:inputExpression id="_7F452F7B-4616-47B8-8B71-AF40B96E5CD2" typeRef="boolean">
           <dmn:text>CompletionDate Check</dmn:text>
+        </dmn:inputExpression>
+      </dmn:input>
+      <dmn:input id="_62ED21A9-F411-45E8-A1EE-2E69E858C023">
+        <dmn:inputExpression typeRef="boolean">
+          <dmn:text>tActivity.tAssessmentDateFlag</dmn:text>
         </dmn:inputExpression>
       </dmn:input>
       <dmn:input id="_D52513B9-0179-4C23-9D6E-66F53D3A63A8">
@@ -144,9 +144,6 @@
         <dmn:inputEntry id="_AD566B8B-DFD7-481E-885A-AC69CE872979">
           <dmn:text>false</dmn:text>
         </dmn:inputEntry>
-        <dmn:inputEntry id="_BA1A658C-3B22-4337-BF13-DB375B860AD7">
-          <dmn:text>-</dmn:text>
-        </dmn:inputEntry>
         <dmn:inputEntry id="_71E9502A-000C-453D-B9B7-8E702623FD4A">
           <dmn:text>-</dmn:text>
         </dmn:inputEntry>
@@ -154,6 +151,9 @@
           <dmn:text>-</dmn:text>
         </dmn:inputEntry>
         <dmn:inputEntry id="_FEF1DA39-CDAF-4813-9473-939336E95527">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_1B466843-FD60-4718-8396-5C1DC065A974">
           <dmn:text>-</dmn:text>
         </dmn:inputEntry>
         <dmn:inputEntry id="_5D42C2C0-AF6C-4BFD-9437-EC1AC4DD9806">
@@ -174,31 +174,31 @@
           <dmn:text>"FP17"</dmn:text>
         </dmn:inputEntry>
         <dmn:inputEntry id="_CF700EC3-53F3-4435-9BB3-EAB4FFD21FB0">
-          <dmn:text>-</dmn:text>
-        </dmn:inputEntry>
-        <dmn:inputEntry id="_A3CA5DBF-982D-4479-A64E-35C102687FDB">
-          <dmn:text>-</dmn:text>
+          <dmn:text>true</dmn:text>
         </dmn:inputEntry>
         <dmn:inputEntry id="_E5B3A163-5117-4EF4-A1AE-91AC30047C5A">
           <dmn:text>true</dmn:text>
         </dmn:inputEntry>
         <dmn:inputEntry id="_6536EB9E-3374-483B-BB11-3B249320156E">
-          <dmn:text>false</dmn:text>
+          <dmn:text>true</dmn:text>
         </dmn:inputEntry>
         <dmn:inputEntry id="_01F72DB3-98C3-4CF5-9EA0-0F6ED8C2252F">
+          <dmn:text>true</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_99CE43D9-D5F5-4E9E-8427-A84A6DB1372D">
           <dmn:text>-</dmn:text>
         </dmn:inputEntry>
         <dmn:inputEntry id="_8EEFC879-39A0-467E-9427-1CDD2F824D02">
           <dmn:text>-</dmn:text>
         </dmn:inputEntry>
         <dmn:outputEntry id="_7997D3C1-12DF-479D-83DF-9D77C74AFAE4">
-          <dmn:text>285</dmn:text>
+          <dmn:text>0</dmn:text>
         </dmn:outputEntry>
         <dmn:outputEntry id="_AD0EBFCC-CE06-470D-83D9-1BEB9C83824E">
-          <dmn:text>"Invalid FP17 Treatment Date"</dmn:text>
+          <dmn:text>"Valid FP17 Treatment Date"</dmn:text>
         </dmn:outputEntry>
         <dmn:annotationEntry>
-          <dmn:text>Acceptance date is not between Clinician Start and End date</dmn:text>
+          <dmn:text>Acceptance date is between Clinician Start and End date</dmn:text>
         </dmn:annotationEntry>
       </dmn:rule>
       <dmn:rule id="_6DC80852-4EE5-488B-BD9B-43D984B9E757">
@@ -208,16 +208,16 @@
         <dmn:inputEntry id="_324FDABA-4D34-447A-9344-B43039C73CB8">
           <dmn:text>-</dmn:text>
         </dmn:inputEntry>
-        <dmn:inputEntry id="_D954E814-DB46-47FB-BF7C-95C9038F0442">
-          <dmn:text>-</dmn:text>
-        </dmn:inputEntry>
         <dmn:inputEntry id="_AB632581-1982-4DA5-AA04-72550351B95D">
-          <dmn:text>false</dmn:text>
+          <dmn:text/>
         </dmn:inputEntry>
         <dmn:inputEntry id="_6406FD4E-9D6D-4D69-83D1-DBDA58A222EB">
-          <dmn:text>-</dmn:text>
+          <dmn:text>false</dmn:text>
         </dmn:inputEntry>
         <dmn:inputEntry id="_19B3DDF5-11A5-4B3E-ACBA-A884BE4ABDA3">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_A742E7FC-DA24-4EDF-B160-00A0756F02A0">
           <dmn:text>-</dmn:text>
         </dmn:inputEntry>
         <dmn:inputEntry id="_447443DC-9D28-46AD-B2EE-D1A843619EEB">
@@ -240,17 +240,17 @@
         <dmn:inputEntry id="_8C7CD908-CB64-4408-8C4B-909AD4FBDA71">
           <dmn:text>-</dmn:text>
         </dmn:inputEntry>
-        <dmn:inputEntry id="_5C0FE2A2-9905-4F7D-A0A2-764FD25CC09C">
-          <dmn:text>-</dmn:text>
-        </dmn:inputEntry>
         <dmn:inputEntry id="_A9D88E01-995B-4AC1-AFAF-4F35F656AB5D">
           <dmn:text>-</dmn:text>
         </dmn:inputEntry>
         <dmn:inputEntry id="_6C6811DE-7A23-4AB2-9CA3-1FBB2413AC9E">
-          <dmn:text>-</dmn:text>
+          <dmn:text>false</dmn:text>
         </dmn:inputEntry>
         <dmn:inputEntry id="_73ADC9B9-CA0D-4840-8F10-061FC5E7E130">
-          <dmn:text>false</dmn:text>
+          <dmn:text>true</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_A2C493FC-0599-40B0-B1CE-B6B5391682F1">
+          <dmn:text>-</dmn:text>
         </dmn:inputEntry>
         <dmn:inputEntry id="_AEBF4CA8-D74D-4A6B-BBAF-A183CAD7A80E">
           <dmn:text>-</dmn:text>
@@ -265,6 +265,38 @@
           <dmn:text/>
         </dmn:annotationEntry>
       </dmn:rule>
+      <dmn:rule id="_3C772865-E077-4859-A72B-75DF95EB2B39">
+        <dmn:inputEntry id="_0EE74BFF-65B9-43AC-AC72-E25BAD03BD64">
+          <dmn:text>"FP17"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_21E7B63E-AAF0-4ED5-B159-9D9D3690A7EA">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_78A61F3B-B08A-4CAE-B58D-AF1889A9FF13">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_7950A938-8072-44EB-8A70-BF2880365856">
+          <dmn:text>true</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_837FEB12-6BF4-45F0-978D-5BD71AEE8C3B">
+          <dmn:text>false</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_89284365-DCCF-472A-812E-D9BD6DBB0CD8">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_7F353F29-0421-4FD7-9E37-C7D5566C8841">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_0C92E72A-E9BD-4E15-8FB8-56B6E36A446C">
+          <dmn:text>285</dmn:text>
+        </dmn:outputEntry>
+        <dmn:outputEntry id="_3466B809-09F1-4373-AE33-B443368CCE52">
+          <dmn:text>"Invalid FP17 Treatment Date"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
       <dmn:rule id="_5C9B17CD-6970-4AE4-8DFC-D69E71076A24">
         <dmn:inputEntry id="_60170571-DA59-44BA-8EA4-E0840B65B6E4">
           <dmn:text>"FP17O"</dmn:text>
@@ -272,26 +304,26 @@
         <dmn:inputEntry id="_BA655FB2-9BAE-4C6F-9415-2231BD1CF491">
           <dmn:text>-</dmn:text>
         </dmn:inputEntry>
-        <dmn:inputEntry id="_24EF9B5E-7CFC-4C53-9319-C04686C70BD0">
-          <dmn:text>9012</dmn:text>
-        </dmn:inputEntry>
         <dmn:inputEntry id="_419FCF8F-FB09-40F5-B60B-84354D8285B3">
           <dmn:text>-</dmn:text>
         </dmn:inputEntry>
         <dmn:inputEntry id="_41121D97-F6B3-4975-B147-53274814586A">
-          <dmn:text>false</dmn:text>
+          <dmn:text>-</dmn:text>
         </dmn:inputEntry>
         <dmn:inputEntry id="_BA8A050B-E5E4-4CD2-A2E9-9FB1F3984062">
           <dmn:text>-</dmn:text>
         </dmn:inputEntry>
+        <dmn:inputEntry id="_44C2DA01-C95E-4FF1-9381-2845728C79DE">
+          <dmn:text>true</dmn:text>
+        </dmn:inputEntry>
         <dmn:inputEntry id="_D31ED78E-6BF4-4A71-8F3F-D39637F53E42">
-          <dmn:text>false</dmn:text>
+          <dmn:text>true</dmn:text>
         </dmn:inputEntry>
         <dmn:outputEntry id="_2C2B4D1A-91EA-40AF-B907-1072BABCBEC2">
-          <dmn:text>285</dmn:text>
+          <dmn:text>0</dmn:text>
         </dmn:outputEntry>
         <dmn:outputEntry id="_67451907-8DA4-432D-9BFB-501B2511C248">
-          <dmn:text>"Invalid FP17 Treatment Date"</dmn:text>
+          <dmn:text>"Valid FP17O Treatment Date"</dmn:text>
         </dmn:outputEntry>
         <dmn:annotationEntry>
           <dmn:text/>
@@ -304,17 +336,17 @@
         <dmn:inputEntry id="_CCCEA92C-6ABB-40C0-86F1-EFD4B9FB275A">
           <dmn:text>-</dmn:text>
         </dmn:inputEntry>
-        <dmn:inputEntry id="_0B3BF4B1-9637-4D81-B209-078BF1504028">
-          <dmn:text>9013</dmn:text>
-        </dmn:inputEntry>
         <dmn:inputEntry id="_FF52D9A5-1E5D-431C-8047-92E5A3AC1A72">
           <dmn:text>-</dmn:text>
         </dmn:inputEntry>
         <dmn:inputEntry id="_3067084B-7C48-48C5-93EA-9E06178FABF5">
-          <dmn:text>false</dmn:text>
+          <dmn:text>-</dmn:text>
         </dmn:inputEntry>
         <dmn:inputEntry id="_CA16A3B8-9313-4802-8863-1D2D1DA5FF33">
           <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_31DA913E-0945-49B0-81DE-652D760624A9">
+          <dmn:text>true</dmn:text>
         </dmn:inputEntry>
         <dmn:inputEntry id="_CE9D5BBA-FA41-431E-97C7-AEF2D33E4961">
           <dmn:text>false</dmn:text>
@@ -323,7 +355,7 @@
           <dmn:text>285</dmn:text>
         </dmn:outputEntry>
         <dmn:outputEntry id="_8A18A44E-52EF-4A05-980C-A28F9648C5D4">
-          <dmn:text>"Invalid FP17 Treatment Date"</dmn:text>
+          <dmn:text>"Invalid FP17O Treatment Date"</dmn:text>
         </dmn:outputEntry>
         <dmn:annotationEntry>
           <dmn:text/>
@@ -336,122 +368,58 @@
         <dmn:inputEntry id="_7254ED2E-7188-4A00-A3E4-038F2942FEFC">
           <dmn:text>-</dmn:text>
         </dmn:inputEntry>
-        <dmn:inputEntry id="_686BD389-8341-4177-A887-D24225088506">
-          <dmn:text>9016</dmn:text>
-        </dmn:inputEntry>
         <dmn:inputEntry id="_32880652-5064-4360-B608-6565E5F8E264">
-          <dmn:text>-</dmn:text>
+          <dmn:text>true</dmn:text>
         </dmn:inputEntry>
         <dmn:inputEntry id="_5C6F3F7F-9D63-425C-8386-1077E22795A0">
-          <dmn:text>false</dmn:text>
+          <dmn:text>true</dmn:text>
         </dmn:inputEntry>
         <dmn:inputEntry id="_DAF7B742-AD09-4169-A36F-874DC5105837">
           <dmn:text>-</dmn:text>
         </dmn:inputEntry>
+        <dmn:inputEntry id="_23A37CC9-DB07-4BD1-AD05-22D3B07E8879">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
         <dmn:inputEntry id="_4A1FFAB1-CB30-40D7-919A-FBB6C7AEA3DE">
-          <dmn:text>false</dmn:text>
+          <dmn:text>-</dmn:text>
         </dmn:inputEntry>
         <dmn:outputEntry id="_304C5BE5-58A8-4DBD-A826-5F4D3F17DB98">
-          <dmn:text>285</dmn:text>
+          <dmn:text>0</dmn:text>
         </dmn:outputEntry>
         <dmn:outputEntry id="_14418DBE-8880-40F9-88C6-8F908DA398B2">
-          <dmn:text>"Invalid FP17 Treatment Date"</dmn:text>
+          <dmn:text>"Valid FP17O Treatment Date"</dmn:text>
         </dmn:outputEntry>
         <dmn:annotationEntry>
           <dmn:text/>
         </dmn:annotationEntry>
       </dmn:rule>
-      <dmn:rule id="_5558084C-BC0B-45B2-8625-474BD8465455">
-        <dmn:inputEntry id="_92CBA615-3CF3-4915-B3BB-E2AC04F0CCAA">
+      <dmn:rule id="_42B5DE54-3CA2-49E0-825D-01CA41EFFFC2">
+        <dmn:inputEntry id="_454F5D49-1C36-4E24-86EC-967DA4499D39">
           <dmn:text>"FP17O"</dmn:text>
         </dmn:inputEntry>
-        <dmn:inputEntry id="_7C86DFDA-3425-4946-B3B2-053644211278">
+        <dmn:inputEntry id="_099E05A7-8F0D-4C93-A385-AAF530605772">
           <dmn:text>-</dmn:text>
         </dmn:inputEntry>
-        <dmn:inputEntry id="_DD25259B-BE5C-449A-A370-7BCEBD705D92">
-          <dmn:text>9012</dmn:text>
-        </dmn:inputEntry>
-        <dmn:inputEntry id="_DF65D1C3-C1C2-4ECE-969B-CB6995A6DF05">
+        <dmn:inputEntry id="_FDD77804-E322-4242-8F7D-4C0423593464">
           <dmn:text>-</dmn:text>
         </dmn:inputEntry>
-        <dmn:inputEntry id="_773BA802-B667-480D-B90A-99EDA40C1718">
-          <dmn:text>true</dmn:text>
-        </dmn:inputEntry>
-        <dmn:inputEntry id="_4FD1B55F-A5B9-472F-BED8-2455050E024C">
-          <dmn:text>-</dmn:text>
-        </dmn:inputEntry>
-        <dmn:inputEntry id="_F571B67A-4C6B-47EA-AB69-3630BB8DCF1B">
+        <dmn:inputEntry id="_BE946CC5-0405-4507-8E78-64C6CB7BCDEC">
           <dmn:text>false</dmn:text>
         </dmn:inputEntry>
-        <dmn:outputEntry id="_A9D1AC47-7FE2-4903-9242-47DB22399B6D">
-          <dmn:text>200</dmn:text>
-        </dmn:outputEntry>
-        <dmn:outputEntry id="_20E27A11-0330-4A02-9ED8-E4ECE0672391">
-          <dmn:text>"Valid Treatment Date"</dmn:text>
-        </dmn:outputEntry>
-        <dmn:annotationEntry>
-          <dmn:text/>
-        </dmn:annotationEntry>
-      </dmn:rule>
-      <dmn:rule id="_BFA364D7-DCFF-4465-94C9-2FAA5CF3B8A6">
-        <dmn:inputEntry id="_5286EB1B-475A-4741-A621-F7329FA58941">
-          <dmn:text>"FP17O"</dmn:text>
-        </dmn:inputEntry>
-        <dmn:inputEntry id="_1A89B98F-F3D2-44F8-9527-463C8B5DC306">
+        <dmn:inputEntry id="_5CC0D7FF-C5F4-45FB-936E-F76B6C710E3A">
           <dmn:text>-</dmn:text>
         </dmn:inputEntry>
-        <dmn:inputEntry id="_C425112B-B3E0-4A06-B2FB-5CB883C7B890">
-          <dmn:text>9013</dmn:text>
-        </dmn:inputEntry>
-        <dmn:inputEntry id="_3E839F60-5C74-4595-BDB1-FF42877257EA">
+        <dmn:inputEntry id="_1C8990DA-0224-4E73-959A-8ADB69876F48">
           <dmn:text>-</dmn:text>
         </dmn:inputEntry>
-        <dmn:inputEntry id="_6F342352-436D-4534-99D9-53A96D8E2A45">
-          <dmn:text>true</dmn:text>
-        </dmn:inputEntry>
-        <dmn:inputEntry id="_47FE68E0-0B00-4533-BB63-7D6DF6958CAF">
-          <dmn:text>-</dmn:text>
-        </dmn:inputEntry>
-        <dmn:inputEntry id="_48188341-9AD9-4795-9E02-971C112EC1CA">
+        <dmn:inputEntry id="_04ED20C0-6EAE-426E-BAA4-0C646002B09B">
           <dmn:text>false</dmn:text>
         </dmn:inputEntry>
-        <dmn:outputEntry id="_D7701CA3-39C5-49DF-93B3-F2659370297D">
-          <dmn:text>200</dmn:text>
+        <dmn:outputEntry id="_7279BB75-677B-4951-99E0-8979052258F3">
+          <dmn:text>285</dmn:text>
         </dmn:outputEntry>
-        <dmn:outputEntry id="_7D487829-D558-43FC-A2E1-2D2E03EA2E4A">
-          <dmn:text>"Valid Treatment Date"</dmn:text>
-        </dmn:outputEntry>
-        <dmn:annotationEntry>
-          <dmn:text/>
-        </dmn:annotationEntry>
-      </dmn:rule>
-      <dmn:rule id="_C57A48DB-5897-4019-B129-5E0C56D6741A">
-        <dmn:inputEntry id="_FAC3B356-66D3-4C79-A255-49929837AE80">
-          <dmn:text>"FP17O"</dmn:text>
-        </dmn:inputEntry>
-        <dmn:inputEntry id="_3AC89626-C827-4DDF-B98E-0C366A2CAB43">
-          <dmn:text>-</dmn:text>
-        </dmn:inputEntry>
-        <dmn:inputEntry id="_03862200-CE62-4376-9FAE-F97941644EB3">
-          <dmn:text>9016</dmn:text>
-        </dmn:inputEntry>
-        <dmn:inputEntry id="_FDC56207-0DF7-4FDD-BA99-FD9B71AA9AA0">
-          <dmn:text>-</dmn:text>
-        </dmn:inputEntry>
-        <dmn:inputEntry id="_25CC7151-5CDE-402E-934F-4EDB06B3F3A2">
-          <dmn:text>true</dmn:text>
-        </dmn:inputEntry>
-        <dmn:inputEntry id="_49CCF18E-3873-459A-8C04-179FBEB87877">
-          <dmn:text>-</dmn:text>
-        </dmn:inputEntry>
-        <dmn:inputEntry id="_80FA22C3-5988-4193-BF3E-7CA11AC623B2">
-          <dmn:text>false</dmn:text>
-        </dmn:inputEntry>
-        <dmn:outputEntry id="_3C49727E-84ED-4002-8874-5D453E90FCC1">
-          <dmn:text>200</dmn:text>
-        </dmn:outputEntry>
-        <dmn:outputEntry id="_59BA2E99-7BF9-4E5D-B142-E82B4023A321">
-          <dmn:text>"Valid Treatment Date"</dmn:text>
+        <dmn:outputEntry id="_5DAC4F87-0A4E-4D05-AFF9-9866107B6485">
+          <dmn:text>"Invalid FP17O Treatment Date"</dmn:text>
         </dmn:outputEntry>
         <dmn:annotationEntry>
           <dmn:text/>
@@ -531,8 +499,14 @@
         </dmn:literalExpression>
       </dmn:contextEntry>
       <dmn:contextEntry>
+        <dmn:variable id="_8C582FD6-BCF4-4108-AEAD-85508B87B6D2" name="Treatment Code Check" typeRef="boolean"/>
+        <dmn:literalExpression id="_34216CF5-716F-4892-B466-9D08D32E2F0E">
+          <dmn:text/>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
+      <dmn:contextEntry>
         <dmn:literalExpression id="_239B235A-B9D5-4D5F-9212-E54FAD7796C9">
-          <dmn:text>AssessmentDate Check</dmn:text>
+          <dmn:text>Treatment Code Check</dmn:text>
         </dmn:literalExpression>
       </dmn:contextEntry>
     </dmn:context>
@@ -617,10 +591,10 @@
             <kie:width>50</kie:width>
             <kie:width>208</kie:width>
             <kie:width>100</kie:width>
-            <kie:width>220</kie:width>
             <kie:width>214</kie:width>
             <kie:width>487</kie:width>
             <kie:width>216</kie:width>
+            <kie:width>100</kie:width>
             <kie:width>304</kie:width>
             <kie:width>205</kie:width>
             <kie:width>297</kie:width>
@@ -650,6 +624,9 @@
             <kie:width>760</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_541DB189-09D9-442C-90DA-EF28A8E2EF32">
+            <kie:width>760</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_34216CF5-716F-4892-B466-9D08D32E2F0E">
             <kie:width>760</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_239B235A-B9D5-4D5F-9212-E54FAD7796C9">
@@ -885,6 +862,7 @@
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="dmnedge-drg-_D5150B51-EC3C-42ED-8657-1A96BE5DFF34" dmnElementRef="_D5150B51-EC3C-42ED-8657-1A96BE5DFF34">
         <di:waypoint x="1288.7777786254883" y="558.2222290039062"/>
+        <di:waypoint x="1302.455497382199" y="433"/>
         <di:waypoint x="1322" y="319"/>
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
