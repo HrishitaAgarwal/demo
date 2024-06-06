@@ -62,6 +62,9 @@
     <dmn:informationRequirement id="_AF0CA41D-A115-4A2D-B0A9-54DA8CEE57BB">
       <dmn:requiredInput href="#_154172B7-5C97-4D4F-AE6C-68C1C09CB68B"/>
     </dmn:informationRequirement>
+    <dmn:informationRequirement id="_D5BAD75F-0C7A-4CE9-B17D-63F62DDB3907">
+      <dmn:requiredDecision href="#_CC20BD21-FD9B-479E-86CA-F7E5A1552514"/>
+    </dmn:informationRequirement>
     <dmn:literalExpression id="_4BC88661-2589-45C3-A659-028B6F0628BC">
       <dmn:text>if Total_NPE &gt; (TCV*PCeiling)/100 then true
     
@@ -310,6 +313,10 @@ else
       <dmndi:DMNEdge id="dmnedge-drg-_AF0CA41D-A115-4A2D-B0A9-54DA8CEE57BB-AUTO-TARGET" dmnElementRef="_AF0CA41D-A115-4A2D-B0A9-54DA8CEE57BB">
         <di:waypoint x="952" y="521"/>
         <di:waypoint x="1084.6666666666665" y="402.22222222222223"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-drg-_D5BAD75F-0C7A-4CE9-B17D-63F62DDB3907-AUTO-TARGET" dmnElementRef="_D5BAD75F-0C7A-4CE9-B17D-63F62DDB3907">
+        <di:waypoint x="770" y="363"/>
+        <di:waypoint x="985.2222222222222" y="361.1111111111111"/>
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="dmnedge-drg-_5FC2443B-9FD5-4EC7-B1C8-525B14D108C2-AUTO-TARGET" dmnElementRef="_5FC2443B-9FD5-4EC7-B1C8-525B14D108C2">
         <di:waypoint x="1084.6666666666665" y="361.1111111111111"/>
