@@ -347,15 +347,15 @@ else
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="dmnedge-drg-_4873D7AB-D160-4EFA-AF26-B2EB0AE83B14" dmnElementRef="_4873D7AB-D160-4EFA-AF26-B2EB0AE83B14">
         <di:waypoint x="605.5981308411215" y="514"/>
-        <di:waypoint x="560" y="575.5448305468315"/>
+        <di:waypoint x="560" y="600.5448305468315"/>
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="dmnedge-drg-_22694696-AC03-4BF7-86CB-EA13E4B2EEEA" dmnElementRef="_22694696-AC03-4BF7-86CB-EA13E4B2EEEA">
         <di:waypoint x="762" y="514"/>
         <di:waypoint x="763.75" y="600.5448305468315"/>
       </dmndi:DMNEdge>
-      <dmndi:DMNEdge id="dmnedge-drg-_52842D25-40FA-43B8-930E-01855A40DF84-AUTO-TARGET" dmnElementRef="_52842D25-40FA-43B8-930E-01855A40DF84">
+      <dmndi:DMNEdge id="dmnedge-drg-_52842D25-40FA-43B8-930E-01855A40DF84" dmnElementRef="_52842D25-40FA-43B8-930E-01855A40DF84">
         <di:waypoint x="952" y="521"/>
-        <di:waypoint x="963.75" y="576.7948305468315"/>
+        <di:waypoint x="963.75" y="601.7948305468315"/>
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
