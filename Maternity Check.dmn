@@ -161,7 +161,7 @@ else
     <dmn:informationRequirement id="_E0856FA4-D5E6-4521-B16C-EC8D5D6123CC">
       <dmn:requiredInput href="#_2127C8C0-CB30-4891-A446-8B18B43FCEF3"/>
     </dmn:informationRequirement>
-    <dmn:decisionTable id="_C3B73D27-FA9E-4A00-9969-9BF285363365" hitPolicy="ANY" preferredOrientation="Rule-as-Row">
+    <dmn:decisionTable id="_C3B73D27-FA9E-4A00-9969-9BF285363365" hitPolicy="UNIQUE" preferredOrientation="Rule-as-Row">
       <dmn:input id="_C86DCFD2-E400-4134-9CDC-50E44536E844">
         <dmn:inputExpression id="_9E44B575-FE6F-44A2-8912-245EF2D8C1DF" typeRef="boolean">
           <dmn:text>Performer.FD_flag</dmn:text>
@@ -368,7 +368,7 @@ else
           <dmn:text>-</dmn:text>
         </dmn:inputEntry>
         <dmn:inputEntry id="_B7437246-EEEB-4249-A611-AFC438C69C0E">
-          <dmn:text>false</dmn:text>
+          <dmn:text>true</dmn:text>
         </dmn:inputEntry>
         <dmn:inputEntry id="_2E9C3C27-73EA-4EDA-81D6-BBB8A927B163">
           <dmn:text>-</dmn:text>
