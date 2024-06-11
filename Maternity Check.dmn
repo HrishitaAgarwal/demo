@@ -232,33 +232,65 @@ else
           <dmn:text/>
         </dmn:annotationEntry>
       </dmn:rule>
-      <dmn:rule id="_3611A621-6281-435A-95CB-21D4A98C6C72">
-        <dmn:inputEntry id="_DFE72719-0432-448D-98A5-65A0ECEA0DBA">
+      <dmn:rule id="_7125E5B1-2AAD-42EF-B6A4-4E48DB2A99F1">
+        <dmn:inputEntry id="_6F03EC0E-6B85-4159-BC39-10BB6196AED7">
           <dmn:text>true</dmn:text>
         </dmn:inputEntry>
-        <dmn:inputEntry id="_94399813-8A07-4C67-AE1E-C69BCDB2B05F">
+        <dmn:inputEntry id="_CB650B6C-EC22-45E5-B53B-AEA5FAB13E88">
           <dmn:text>"F"</dmn:text>
         </dmn:inputEntry>
-        <dmn:inputEntry id="_3391B75A-2735-433D-863B-3D8C225463B8">
+        <dmn:inputEntry id="_138A3A1C-0E11-4BD9-8414-EEF010EF15D7">
           <dmn:text>false</dmn:text>
         </dmn:inputEntry>
-        <dmn:inputEntry id="_BCBD278E-B34B-45BB-B16F-01336ABEF0F0">
+        <dmn:inputEntry id="_09F37EC5-9AA5-433E-948D-49E8232E5004">
           <dmn:text>&gt;= 1</dmn:text>
         </dmn:inputEntry>
-        <dmn:inputEntry id="_4C64284F-6446-4B7C-9FAB-0FB0FC161E9D">
+        <dmn:inputEntry id="_FB67C96A-AAB3-4134-A41C-119905C2AF9F">
           <dmn:text>true</dmn:text>
         </dmn:inputEntry>
-        <dmn:inputEntry id="_C6ADA6F9-8DA2-4DC6-A695-A56239B1F122">
+        <dmn:inputEntry id="_A4F85257-9647-434D-BB42-16760455FE4C">
           <dmn:text>true</dmn:text>
         </dmn:inputEntry>
-        <dmn:inputEntry id="_0A228E63-2551-4883-B9D3-FF8A69EA8830">
+        <dmn:inputEntry id="_ED92C6DB-FCDA-4BB7-B790-867E4E66ADE7">
           <dmn:text>true</dmn:text>
         </dmn:inputEntry>
-        <dmn:outputEntry id="_37B2E286-7113-4ABA-920D-56C06F4A71E9">
+        <dmn:outputEntry id="_9D89ACB4-6120-427E-A967-58C7A3332E14">
           <dmn:text>"Successful"</dmn:text>
         </dmn:outputEntry>
-        <dmn:outputEntry id="_7DB1A455-98F1-4F2A-8D55-72FE05822335">
+        <dmn:outputEntry id="_E8EBF335-B3CA-4AA0-B389-F770460730BE">
           <dmn:text>true</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_3611A621-6281-435A-95CB-21D4A98C6C72">
+        <dmn:inputEntry id="_DFE72719-0432-448D-98A5-65A0ECEA0DBA">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_94399813-8A07-4C67-AE1E-C69BCDB2B05F">
+          <dmn:text>!= "F"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_3391B75A-2735-433D-863B-3D8C225463B8">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_BCBD278E-B34B-45BB-B16F-01336ABEF0F0">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_4C64284F-6446-4B7C-9FAB-0FB0FC161E9D">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_C6ADA6F9-8DA2-4DC6-A695-A56239B1F122">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_0A228E63-2551-4883-B9D3-FF8A69EA8830">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_37B2E286-7113-4ABA-920D-56C06F4A71E9">
+          <dmn:text>"Unsuccessful"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:outputEntry id="_7DB1A455-98F1-4F2A-8D55-72FE05822335">
+          <dmn:text>false</dmn:text>
         </dmn:outputEntry>
         <dmn:annotationEntry>
           <dmn:text/>
