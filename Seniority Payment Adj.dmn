@@ -198,7 +198,7 @@ else false
           <dmn:text>-</dmn:text>
         </dmn:outputEntry>
         <dmn:outputEntry id="_A088AB2A-CFC9-4ADD-9B45-EAC7D85D514B">
-          <dmn:text>"Region and Age check failed"</dmn:text>
+          <dmn:text>"Region or Age check failed"</dmn:text>
         </dmn:outputEntry>
         <dmn:annotationEntry>
           <dmn:text/>
