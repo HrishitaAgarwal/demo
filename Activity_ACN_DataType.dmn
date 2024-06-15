@@ -51,6 +51,9 @@
     <dmn:itemComponent id="_2435AAC3-9491-40D5-AD9F-F7E4A7A9DAE6" name="contract_id" isCollection="false">
       <dmn:typeRef>number</dmn:typeRef>
     </dmn:itemComponent>
+    <dmn:itemComponent id="_EB09BCB5-AE7E-4838-8A6D-D952BD13796B" name="completion_date" isCollection="false">
+      <dmn:typeRef>date</dmn:typeRef>
+    </dmn:itemComponent>
     <dmn:itemComponent id="_E4ACB99E-74FF-4A86-80AF-54AEA81B27FC" name="treatment_details" isCollection="true">
       <dmn:itemComponent id="_21B66960-882A-42EB-88CD-E2B9706A7420" name="code" isCollection="false">
         <dmn:typeRef>number</dmn:typeRef>
@@ -75,6 +78,9 @@
     <dmn:itemComponent id="_A556FE38-60D3-4567-AF85-1AB2FE131851" name="history" isCollection="false">
       <dmn:typeRef>Activity_history</dmn:typeRef>
     </dmn:itemComponent>
+  </dmn:itemDefinition>
+  <dmn:itemDefinition id="_21A8567B-9911-4909-897A-FA5AE254E448" name="welsh_ref_date" isCollection="false">
+    <dmn:typeRef>date</dmn:typeRef>
   </dmn:itemDefinition>
   <dmndi:DMNDI>
     <dmndi:DMNDiagram id="_AFC81192-B074-4718-8BB0-017A43E85E56" name="DRG">
