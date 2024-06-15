@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dmn:definitions xmlns:dmn="http://www.omg.org/spec/DMN/20180521/MODEL/" xmlns="https://kiegroup.org/dmn/_B2469E2B-EF10-411A-97A0-5C461A2AAEA9" xmlns:feel="http://www.omg.org/spec/DMN/20180521/FEEL/" xmlns:kie="http://www.drools.org/kie/dmn/1.2" xmlns:dmndi="http://www.omg.org/spec/DMN/20180521/DMNDI/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" id="_58DE6231-9AE6-4276-8D69-30B75124226F" name="Provider Abatement" typeLanguage="http://www.omg.org/spec/DMN/20180521/FEEL/" namespace="https://kiegroup.org/dmn/_B2469E2B-EF10-411A-97A0-5C461A2AAEA9">
+  <dmn:extensionElements/>
+  <dmn:itemDefinition id="_B094D15E-2DCE-4AB9-BC35-A54BBDDAD4E2" name="Abat_data" isCollection="false">
+    <dmn:itemComponent id="_69B77B90-D703-4CF5-8DF1-246B1927094E" name="perc" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_CE314221-F586-4705-BB3C-4FEC69FB0784" name="reimb_start" isCollection="false">
+      <dmn:typeRef>date</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_66184344-9BF8-420C-B156-95AE06AB71CA" name="pay_adj_end" isCollection="false">
+      <dmn:typeRef>date</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_DE227FA1-B755-467C-A186-BD749F2AE9BE" name="rate_year_amt" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_ABD611E1-7680-4D00-AA8C-D4F5E0650674" name="monthly_pay_amt" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+  </dmn:itemDefinition>
+  <dmn:decisionService id="_00ED32A5-8DDA-4C9F-801A-2A0400871470" name="DS Provider Abatement">
+    <dmn:extensionElements/>
+    <dmn:variable id="_A9046AAA-7045-4BA2-B8BE-64947CC65164" name="DS Provider Abatement"/>
+  </dmn:decisionService>
+  <dmn:inputData id="_421E4E5B-B1F1-4863-AFE0-EC1A4BE6136E" name="inp">
+    <dmn:extensionElements/>
+    <dmn:variable id="_B0CEA9E7-74A0-4D55-9C8E-4EE05EE74E61" name="inp" typeRef="Abat_data"/>
+  </dmn:inputData>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="_D31BEF14-C468-4A4E-BF68-E0AC17B400EE" name="DRG">
+      <di:extension>
+        <kie:ComponentsWidthsExtension/>
+      </di:extension>
+      <dmndi:DMNShape id="dmnshape-drg-_00ED32A5-8DDA-4C9F-801A-2A0400871470" dmnElementRef="_00ED32A5-8DDA-4C9F-801A-2A0400871470" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="407" y="117" width="423" height="307"/>
+        <dmndi:DMNLabel/>
+        <dmndi:DMNDecisionServiceDividerLine>
+          <di:waypoint x="407" y="300"/>
+          <di:waypoint x="830" y="300"/>
+        </dmndi:DMNDecisionServiceDividerLine>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_421E4E5B-B1F1-4863-AFE0-EC1A4BE6136E" dmnElementRef="_421E4E5B-B1F1-4863-AFE0-EC1A4BE6136E" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="585" y="465" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</dmn:definitions>
