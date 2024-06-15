@@ -68,6 +68,14 @@
       <dmn:typeRef>Activity_history</dmn:typeRef>
     </dmn:itemComponent>
   </dmn:itemDefinition>
+  <dmn:itemDefinition id="_2322ABB0-5A92-4664-A3FA-6437F85548D5" name="Activity_Check_Data" isCollection="false">
+    <dmn:itemComponent id="_713683AF-2E3B-4C30-B5DA-FEA9B7A6C7DB" name="activity" isCollection="false">
+      <dmn:typeRef>Activity_Data</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_A556FE38-60D3-4567-AF85-1AB2FE131851" name="history" isCollection="false">
+      <dmn:typeRef>Activity_history</dmn:typeRef>
+    </dmn:itemComponent>
+  </dmn:itemDefinition>
   <dmndi:DMNDI>
     <dmndi:DMNDiagram id="_AFC81192-B074-4718-8BB0-017A43E85E56" name="DRG">
       <di:extension>
