@@ -85,6 +85,10 @@ then true else false
       </dmn:literalExpression>
     </dmn:encapsulatedLogic>
   </dmn:businessKnowledgeModel>
+  <dmn:inputData id="_E68A4EEC-90CB-4F3E-8E37-64ACB9880301" name="InputData-1">
+    <dmn:extensionElements/>
+    <dmn:variable id="_D8AB71B1-CE09-4654-80F3-B621EB1085D6" name="InputData-1"/>
+  </dmn:inputData>
   <dmndi:DMNDI>
     <dmndi:DMNDiagram id="_E24350CA-A35E-433E-948F-543F01F48EB6" name="DRG">
       <di:extension>
@@ -172,6 +176,15 @@ then true else false
           <dmndi:FontColor red="0" green="0" blue="0"/>
         </dmndi:DMNStyle>
         <dc:Bounds x="213" y="204" width="201" height="79"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_E68A4EEC-90CB-4F3E-8E37-64ACB9880301" dmnElementRef="_E68A4EEC-90CB-4F3E-8E37-64ACB9880301" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="847" y="387" width="100" height="50"/>
         <dmndi:DMNLabel/>
       </dmndi:DMNShape>
       <dmndi:DMNEdge id="dmnedge-drg-_00FA1E66-56EF-4263-9F79-5E4E213C789D-AUTO-TARGET" dmnElementRef="_00FA1E66-56EF-4263-9F79-5E4E213C789D">
