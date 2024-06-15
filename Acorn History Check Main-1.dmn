@@ -43,7 +43,7 @@
       <dmn:formalParameter id="_D91880A3-2AB9-4789-AA21-684F91285246" name="activity" typeRef="AcornInfo.Activity_Data"/>
       <dmn:literalExpression id="_F59AC7E4-6E08-4684-BDD0-BEE453FBB5E1">
         <dmn:text>if activity.claim_ref = history.claim_ref and
-activity.provider_num = history.provider_num and
+activity.provider_num = history.provider_num
 then true else false</dmn:text>
       </dmn:literalExpression>
     </dmn:encapsulatedLogic>

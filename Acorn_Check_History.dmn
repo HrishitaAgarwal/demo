@@ -20,7 +20,7 @@
       <dmn:contextEntry>
         <dmn:variable id="_08B05B69-B207-4262-9305-FBFC555E6DBC" name="ContextEntry-1"/>
         <dmn:literalExpression id="_E03BCE0C-5E9C-4E05-945C-7C46A2BE652B">
-          <dmn:text>for x element in a return (main.DS_ACORN History Check(a[x element]))</dmn:text>
+          <dmn:text>for x element in a return (main.DS_ACORN History Check(a [x element]))</dmn:text>
         </dmn:literalExpression>
       </dmn:contextEntry>
     </dmn:context>
@@ -39,6 +39,19 @@
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
+      <dmndi:DMNShape id="dmnshape-drg-_ED7D1FAE-6E12-467A-9819-E3E4BF44A6E2" dmnElementRef="included1:_ED7D1FAE-6E12-467A-9819-E3E4BF44A6E2" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="221" y="104" width="200" height="200"/>
+        <dmndi:DMNLabel/>
+        <dmndi:DMNDecisionServiceDividerLine>
+          <di:waypoint x="221" y="204"/>
+          <di:waypoint x="421" y="204"/>
+        </dmndi:DMNDecisionServiceDividerLine>
+      </dmndi:DMNShape>
       <dmndi:DMNShape id="dmnshape-drg-_585022B1-873D-4B28-9B35-D8F888B2444B" dmnElementRef="_585022B1-873D-4B28-9B35-D8F888B2444B" isCollapsed="false">
         <dmndi:DMNStyle>
           <dmndi:FillColor red="255" green="255" blue="255"/>
@@ -56,19 +69,6 @@
         </dmndi:DMNStyle>
         <dc:Bounds x="664" y="179" width="100" height="50"/>
         <dmndi:DMNLabel/>
-      </dmndi:DMNShape>
-      <dmndi:DMNShape id="dmnshape-drg-_ED7D1FAE-6E12-467A-9819-E3E4BF44A6E2" dmnElementRef="included1:_ED7D1FAE-6E12-467A-9819-E3E4BF44A6E2" isCollapsed="false">
-        <dmndi:DMNStyle>
-          <dmndi:FillColor red="255" green="255" blue="255"/>
-          <dmndi:StrokeColor red="0" green="0" blue="0"/>
-          <dmndi:FontColor red="0" green="0" blue="0"/>
-        </dmndi:DMNStyle>
-        <dc:Bounds x="221" y="104" width="200" height="200"/>
-        <dmndi:DMNLabel/>
-        <dmndi:DMNDecisionServiceDividerLine>
-          <di:waypoint x="221" y="204"/>
-          <di:waypoint x="421" y="204"/>
-        </dmndi:DMNDecisionServiceDividerLine>
       </dmndi:DMNShape>
       <dmndi:DMNEdge id="dmnedge-drg-_FB6D73FB-B23D-4546-8379-55CD4190D788" dmnElementRef="_FB6D73FB-B23D-4546-8379-55CD4190D788">
         <di:waypoint x="717" y="355"/>
