@@ -137,9 +137,9 @@ then false else true</dmn:text>
         </dmn:literalExpression>
       </dmn:contextEntry>
       <dmn:contextEntry>
-        <dmn:variable id="_87C06000-E7CB-4979-AC05-C74F3DF80513" name="diff" typeRef="boolean"/>
+        <dmn:variable id="_87C06000-E7CB-4979-AC05-C74F3DF80513" name="diff" typeRef="number"/>
         <dmn:literalExpression id="_DC14D3FF-32E4-44C9-A770-43B7C5B0C18A">
-          <dmn:text>years and months duration(Completion_Date, a.activity.accept_date)</dmn:text>
+          <dmn:text>(years and months duration(Completion_Date, a.activity.accept_date)).years</dmn:text>
         </dmn:literalExpression>
       </dmn:contextEntry>
       <dmn:contextEntry>
@@ -155,7 +155,7 @@ then false else true</dmn:text>
         </dmn:literalExpression>
       </dmn:contextEntry>
       <dmn:contextEntry>
-        <dmn:variable id="_C4A2E881-19AE-455B-9D3F-9AA5E765BEDF" name="ContextEntry-11"/>
+        <dmn:variable id="_C4A2E881-19AE-455B-9D3F-9AA5E765BEDF" name="History Found" typeRef="string"/>
         <dmn:decisionTable id="_A90207D0-D6A0-4D74-BAC0-562E7C6F660F" hitPolicy="UNIQUE" preferredOrientation="Rule-as-Row">
           <dmn:input id="_19B9E962-5B18-4FCE-821C-30F18BDF2579">
             <dmn:inputExpression id="_A4CF2AFA-CC32-4CE7-A859-C81198EC6139" typeRef="boolean">
@@ -163,8 +163,8 @@ then false else true</dmn:text>
             </dmn:inputExpression>
           </dmn:input>
           <dmn:input id="_AB655204-325A-4823-BB8B-218EDEB03E0E">
-            <dmn:inputExpression>
-              <dmn:text>input-3</dmn:text>
+            <dmn:inputExpression typeRef="boolean">
+              <dmn:text>Check3</dmn:text>
             </dmn:inputExpression>
           </dmn:input>
           <dmn:input id="_0D577C9B-553D-4CD1-B919-52F8B9D6FACD">
@@ -173,8 +173,8 @@ then false else true</dmn:text>
             </dmn:inputExpression>
           </dmn:input>
           <dmn:input id="_11CCDAD2-A88D-4471-840B-BBAC5094D661">
-            <dmn:inputExpression>
-              <dmn:text>input-4</dmn:text>
+            <dmn:inputExpression typeRef="boolean">
+              <dmn:text>diff</dmn:text>
             </dmn:inputExpression>
           </dmn:input>
           <dmn:output id="_7B60F4BD-EA1D-446E-B802-25D1680470DE"/>
