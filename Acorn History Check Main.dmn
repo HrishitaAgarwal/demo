@@ -7,12 +7,16 @@
     <dmn:variable id="_04FB941E-7C38-42D0-A980-0CBCE4214965" name="DS_ACORN History Check"/>
     <dmn:outputDecision href="#_E29BE001-049C-4B38-92D1-F8754FD1E2DA"/>
     <dmn:inputData href="#_2EA0ECB6-5D91-4DEC-A478-52D699DEBDCA"/>
+    <dmn:inputData href="#_5BA97403-B001-4FD1-8BA3-26D382CC5163"/>
   </dmn:decisionService>
   <dmn:decision id="_E29BE001-049C-4B38-92D1-F8754FD1E2DA" name="Acorn History Check">
     <dmn:extensionElements/>
     <dmn:variable id="_02F21D4E-8545-4A04-B4C5-4088394AAAC6" name="Acorn History Check"/>
     <dmn:informationRequirement id="_00FA1E66-56EF-4263-9F79-5E4E213C789D">
       <dmn:requiredInput href="#_2EA0ECB6-5D91-4DEC-A478-52D699DEBDCA"/>
+    </dmn:informationRequirement>
+    <dmn:informationRequirement id="_597D30F4-ACD8-4AB5-BA87-76E4E6389D0D">
+      <dmn:requiredInput href="#_5BA97403-B001-4FD1-8BA3-26D382CC5163"/>
     </dmn:informationRequirement>
     <dmn:knowledgeRequirement id="_838805C1-DF43-4160-A15C-4D2DDE03DD1B">
       <dmn:requiredKnowledge href="#_C341A6E7-B2E9-4B21-9BE4-A35EC4DC01A3"/>
@@ -21,7 +25,7 @@
       <dmn:contextEntry>
         <dmn:variable id="_8BB0D713-CF39-43A8-9731-71537E2910A2" name="FirstCond" typeRef="boolean"/>
         <dmn:literalExpression id="_D624C45B-4710-47E6-A10C-C2BC9F6E942F">
-          <dmn:text>for x element in AcornData.AcHistory return BKM_1(x element, AcornData.Activity)</dmn:text>
+          <dmn:text>BKM_1(a, b)</dmn:text>
         </dmn:literalExpression>
       </dmn:contextEntry>
       <dmn:contextEntry>
@@ -31,9 +35,9 @@
       </dmn:contextEntry>
     </dmn:context>
   </dmn:decision>
-  <dmn:inputData id="_2EA0ECB6-5D91-4DEC-A478-52D699DEBDCA" name="AcornData">
+  <dmn:inputData id="_2EA0ECB6-5D91-4DEC-A478-52D699DEBDCA" name="a">
     <dmn:extensionElements/>
-    <dmn:variable id="_81255C5E-285A-4C58-A0C7-6017ADB2182E" name="AcornData" typeRef="AcornInfo.Activity_ACN"/>
+    <dmn:variable id="_81255C5E-285A-4C58-A0C7-6017ADB2182E" name="a" typeRef="AcornInfo.Activity_Data"/>
   </dmn:inputData>
   <dmn:businessKnowledgeModel id="_C341A6E7-B2E9-4B21-9BE4-A35EC4DC01A3" name="BKM_1">
     <dmn:extensionElements/>
@@ -49,6 +53,10 @@ then false else "" ""</dmn:text>
       </dmn:literalExpression>
     </dmn:encapsulatedLogic>
   </dmn:businessKnowledgeModel>
+  <dmn:inputData id="_5BA97403-B001-4FD1-8BA3-26D382CC5163" name="b">
+    <dmn:extensionElements/>
+    <dmn:variable id="_6D746049-5126-47EA-8BFB-97B46C6A7016" name="b" typeRef="AcornInfo.Activity_history"/>
+  </dmn:inputData>
   <dmndi:DMNDI>
     <dmndi:DMNDiagram id="_E24350CA-A35E-433E-948F-543F01F48EB6" name="DRG">
       <di:extension>
@@ -101,7 +109,7 @@ then false else "" ""</dmn:text>
           <dmndi:StrokeColor red="0" green="0" blue="0"/>
           <dmndi:FontColor red="0" green="0" blue="0"/>
         </dmndi:DMNStyle>
-        <dc:Bounds x="662" y="369" width="211" height="77"/>
+        <dc:Bounds x="424" y="391" width="211" height="77"/>
         <dmndi:DMNLabel/>
       </dmndi:DMNShape>
       <dmndi:DMNShape id="dmnshape-drg-_C341A6E7-B2E9-4B21-9BE4-A35EC4DC01A3" dmnElementRef="_C341A6E7-B2E9-4B21-9BE4-A35EC4DC01A3" isCollapsed="false">
@@ -113,13 +121,26 @@ then false else "" ""</dmn:text>
         <dc:Bounds x="195" y="77" width="224" height="82"/>
         <dmndi:DMNLabel/>
       </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_5BA97403-B001-4FD1-8BA3-26D382CC5163" dmnElementRef="_5BA97403-B001-4FD1-8BA3-26D382CC5163" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="773" y="405.22222232818604" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
       <dmndi:DMNEdge id="dmnedge-drg-_00FA1E66-56EF-4263-9F79-5E4E213C789D-AUTO-TARGET" dmnElementRef="_00FA1E66-56EF-4263-9F79-5E4E213C789D">
-        <di:waypoint x="767.5" y="407.5"/>
+        <di:waypoint x="529.5" y="429.5"/>
         <di:waypoint x="769" y="154"/>
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="dmnedge-drg-_838805C1-DF43-4160-A15C-4D2DDE03DD1B-AUTO-TARGET" dmnElementRef="_838805C1-DF43-4160-A15C-4D2DDE03DD1B">
         <di:waypoint x="307" y="118"/>
         <di:waypoint x="670" y="115.5"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-drg-_597D30F4-ACD8-4AB5-BA87-76E4E6389D0D-AUTO-TARGET" dmnElementRef="_597D30F4-ACD8-4AB5-BA87-76E4E6389D0D">
+        <di:waypoint x="823" y="430.22222232818604"/>
+        <di:waypoint x="769" y="154"/>
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
