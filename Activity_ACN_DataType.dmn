@@ -60,11 +60,11 @@
       </dmn:itemComponent>
     </dmn:itemComponent>
   </dmn:itemDefinition>
-  <dmn:itemDefinition id="_6451B290-04E5-4126-A9F9-F09B8B4D76DD" name="Activity_ACN" isCollection="false">
+  <dmn:itemDefinition id="_6451B290-04E5-4126-A9F9-F09B8B4D76DD" name="Activity_ACN" isCollection="true">
     <dmn:itemComponent id="_F81350D2-D834-47C0-A4B5-418F13072A35" name="Activity" isCollection="false">
       <dmn:typeRef>Activity_Data</dmn:typeRef>
     </dmn:itemComponent>
-    <dmn:itemComponent id="_5006A53A-FB49-4AB9-A5AF-FF937883E1B6" name="AcHistory" isCollection="true">
+    <dmn:itemComponent id="_5006A53A-FB49-4AB9-A5AF-FF937883E1B6" name="AcHistory" isCollection="false">
       <dmn:typeRef>Activity_history</dmn:typeRef>
     </dmn:itemComponent>
   </dmn:itemDefinition>
