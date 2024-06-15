@@ -5,7 +5,7 @@
   <dmn:import id="_14932948-4E78-46B0-A600-291E2D2BBEB2" name="main" namespace="https://kiegroup.org/dmn/_DD1F3F62-9021-49A1-AF17-93B45A50053E" locationURI="Acorn History Check Main-1.dmn" importType="http://www.omg.org/spec/DMN/20180521/MODEL/"/>
   <dmn:inputData id="_585022B1-873D-4B28-9B35-D8F888B2444B" name="a">
     <dmn:extensionElements/>
-    <dmn:variable id="_E939701F-12B7-4A64-9C74-4CAC125E9A38" name="a" typeRef="data.Activity_ACN"/>
+    <dmn:variable id="_E939701F-12B7-4A64-9C74-4CAC125E9A38" name="a" typeRef="data.Activity_Check_Data"/>
   </dmn:inputData>
   <dmn:decision id="_AC91182E-314D-40A1-9CAA-DC73993F752E" name="History Check">
     <dmn:extensionElements/>
@@ -20,7 +20,7 @@
       <dmn:contextEntry>
         <dmn:variable id="_08B05B69-B207-4262-9305-FBFC555E6DBC" name="ContextEntry-1"/>
         <dmn:literalExpression id="_E03BCE0C-5E9C-4E05-945C-7C46A2BE652B">
-          <dmn:text>for x element in a return (main.DS_ACORN History Check(a [x element]))</dmn:text>
+          <dmn:text>main.DS_ACORN History Check (a)</dmn:text>
         </dmn:literalExpression>
       </dmn:contextEntry>
     </dmn:context>
@@ -32,10 +32,10 @@
           <kie:ComponentWidths dmnElementRef="_6CCD14A4-12BC-4142-BE08-E6A167BA57EA">
             <kie:width>50</kie:width>
             <kie:width>343</kie:width>
-            <kie:width>552</kie:width>
+            <kie:width>832</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_E03BCE0C-5E9C-4E05-945C-7C46A2BE652B">
-            <kie:width>552</kie:width>
+            <kie:width>832</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
@@ -45,11 +45,11 @@
           <dmndi:StrokeColor red="0" green="0" blue="0"/>
           <dmndi:FontColor red="0" green="0" blue="0"/>
         </dmndi:DMNStyle>
-        <dc:Bounds x="221" y="104" width="200" height="200"/>
+        <dc:Bounds x="196" y="104" width="200" height="200"/>
         <dmndi:DMNLabel/>
         <dmndi:DMNDecisionServiceDividerLine>
-          <di:waypoint x="221" y="204"/>
-          <di:waypoint x="421" y="204"/>
+          <di:waypoint x="196" y="204"/>
+          <di:waypoint x="396" y="204"/>
         </dmndi:DMNDecisionServiceDividerLine>
       </dmndi:DMNShape>
       <dmndi:DMNShape id="dmnshape-drg-_585022B1-873D-4B28-9B35-D8F888B2444B" dmnElementRef="_585022B1-873D-4B28-9B35-D8F888B2444B" isCollapsed="false">
@@ -58,7 +58,7 @@
           <dmndi:StrokeColor red="0" green="0" blue="0"/>
           <dmndi:FontColor red="0" green="0" blue="0"/>
         </dmndi:DMNStyle>
-        <dc:Bounds x="667" y="330" width="100" height="50"/>
+        <dc:Bounds x="572" y="298" width="100" height="50"/>
         <dmndi:DMNLabel/>
       </dmndi:DMNShape>
       <dmndi:DMNShape id="dmnshape-drg-_AC91182E-314D-40A1-9CAA-DC73993F752E" dmnElementRef="_AC91182E-314D-40A1-9CAA-DC73993F752E" isCollapsed="false">
@@ -67,16 +67,16 @@
           <dmndi:StrokeColor red="0" green="0" blue="0"/>
           <dmndi:FontColor red="0" green="0" blue="0"/>
         </dmndi:DMNStyle>
-        <dc:Bounds x="664" y="179" width="100" height="50"/>
+        <dc:Bounds x="564" y="179" width="100" height="50"/>
         <dmndi:DMNLabel/>
       </dmndi:DMNShape>
       <dmndi:DMNEdge id="dmnedge-drg-_FB6D73FB-B23D-4546-8379-55CD4190D788" dmnElementRef="_FB6D73FB-B23D-4546-8379-55CD4190D788">
-        <di:waypoint x="717" y="355"/>
-        <di:waypoint x="714" y="204"/>
+        <di:waypoint x="622" y="323"/>
+        <di:waypoint x="614" y="204"/>
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="dmnedge-drg-_28FBA8AB-C910-48D3-B2A7-5D1A49659A7A" dmnElementRef="_28FBA8AB-C910-48D3-B2A7-5D1A49659A7A">
-        <di:waypoint x="321" y="204"/>
-        <di:waypoint x="664" y="204"/>
+        <di:waypoint x="296" y="204"/>
+        <di:waypoint x="564" y="204"/>
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
