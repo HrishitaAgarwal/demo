@@ -143,7 +143,7 @@ then false else true</dmn:text>
         </dmn:literalExpression>
       </dmn:contextEntry>
       <dmn:contextEntry>
-        <dmn:variable id="_BF3140C1-C6B6-41D0-990F-097A12A57CDD" name="Recall_check" typeRef="boolean"/>
+        <dmn:variable id="_BF3140C1-C6B6-41D0-990F-097A12A57CDD" name="Recall_check" typeRef="number"/>
         <dmn:literalExpression id="_A4E0FEFA-16A1-48D3-9F76-0A2971A70ED6">
           <dmn:text>a.history.treatment_details [code = 9172].band</dmn:text>
         </dmn:literalExpression>
@@ -177,6 +177,11 @@ then false else true</dmn:text>
               <dmn:text>diff</dmn:text>
             </dmn:inputExpression>
           </dmn:input>
+          <dmn:input id="_767C04CC-766F-4C23-8831-46FE24A0E227">
+            <dmn:inputExpression typeRef="number">
+              <dmn:text>Months_9172</dmn:text>
+            </dmn:inputExpression>
+          </dmn:input>
           <dmn:output id="_7B60F4BD-EA1D-446E-B802-25D1680470DE"/>
           <dmn:annotation name="annotation-1"/>
           <dmn:rule id="_DAC19516-A9C3-4B0C-B19C-A37EBAB2BE6A">
@@ -192,8 +197,34 @@ then false else true</dmn:text>
             <dmn:inputEntry id="_447D37CD-A113-4B02-BB17-06DF7B46A4E0">
               <dmn:text>&lt; 1</dmn:text>
             </dmn:inputEntry>
+            <dmn:inputEntry id="_67778D69-FD7A-4946-A0A0-FC255E553748">
+              <dmn:text>-</dmn:text>
+            </dmn:inputEntry>
             <dmn:outputEntry id="_E89E6FF7-1AFC-4B5B-A467-7A1FA4A92799">
               <dmn:text>"Within 12"</dmn:text>
+            </dmn:outputEntry>
+            <dmn:annotationEntry>
+              <dmn:text/>
+            </dmn:annotationEntry>
+          </dmn:rule>
+          <dmn:rule id="_620E4E89-AC89-432D-B0D8-2B7413D978A6">
+            <dmn:inputEntry id="_B806E563-0F7E-419C-A8E1-EFD31E9BEC4F">
+              <dmn:text>true</dmn:text>
+            </dmn:inputEntry>
+            <dmn:inputEntry id="_AF4772CB-A017-4F4D-9B08-7D53CB955150">
+              <dmn:text>false</dmn:text>
+            </dmn:inputEntry>
+            <dmn:inputEntry id="_EF82D879-B9D4-4B37-B4DD-B15FB0F35AF9">
+              <dmn:text>true</dmn:text>
+            </dmn:inputEntry>
+            <dmn:inputEntry id="_F081C6D6-57FE-4F7B-B1D4-1DEE08C6C093">
+              <dmn:text>-</dmn:text>
+            </dmn:inputEntry>
+            <dmn:inputEntry id="_622AC312-251C-47A7-ABB0-D34C1B7B0972">
+              <dmn:text>&gt; 1</dmn:text>
+            </dmn:inputEntry>
+            <dmn:outputEntry id="_10440F77-60A9-4F9A-9DB0-1D798E5C2FC8">
+              <dmn:text>"Recall"</dmn:text>
             </dmn:outputEntry>
             <dmn:annotationEntry>
               <dmn:text/>
@@ -294,7 +325,8 @@ then true else false
             <kie:width>100</kie:width>
             <kie:width>100</kie:width>
             <kie:width>100</kie:width>
-            <kie:width>767</kie:width>
+            <kie:width>100</kie:width>
+            <kie:width>667</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_F59AC7E4-6E08-4684-BDD0-BEE453FBB5E1">
             <kie:width>902</kie:width>
@@ -331,7 +363,7 @@ then true else false
           <dmndi:StrokeColor red="0" green="0" blue="0"/>
           <dmndi:FontColor red="0" green="0" blue="0"/>
         </dmndi:DMNStyle>
-        <dc:Bounds x="670" y="118" width="198" height="77"/>
+        <dc:Bounds x="670" y="153" width="198" height="77"/>
         <dmndi:DMNLabel/>
       </dmndi:DMNShape>
       <dmndi:DMNShape id="dmnshape-drg-_2EA0ECB6-5D91-4DEC-A478-52D699DEBDCA" dmnElementRef="_2EA0ECB6-5D91-4DEC-A478-52D699DEBDCA" isCollapsed="false">
@@ -381,23 +413,23 @@ then true else false
       </dmndi:DMNShape>
       <dmndi:DMNEdge id="dmnedge-drg-_00FA1E66-56EF-4263-9F79-5E4E213C789D-AUTO-TARGET" dmnElementRef="_00FA1E66-56EF-4263-9F79-5E4E213C789D">
         <di:waypoint x="701" y="399.5"/>
-        <di:waypoint x="769" y="195"/>
+        <di:waypoint x="769" y="230"/>
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="dmnedge-drg-_74675372-C449-4872-B6C4-B40E02138773-AUTO-TARGET" dmnElementRef="_74675372-C449-4872-B6C4-B40E02138773">
         <di:waypoint x="313.5" y="243.5"/>
-        <di:waypoint x="769" y="195"/>
+        <di:waypoint x="769" y="230"/>
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="dmnedge-drg-_B685747D-9121-4402-88A5-8A7EAA7F8D6A-AUTO-TARGET" dmnElementRef="_B685747D-9121-4402-88A5-8A7EAA7F8D6A">
         <di:waypoint x="897" y="410"/>
-        <di:waypoint x="769" y="195"/>
+        <di:waypoint x="769" y="230"/>
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="dmnedge-drg-_62888CD8-6A46-41CA-8528-A6887EB82C09-AUTO-TARGET" dmnElementRef="_62888CD8-6A46-41CA-8528-A6887EB82C09">
         <di:waypoint x="1071" y="426"/>
-        <di:waypoint x="769" y="195"/>
+        <di:waypoint x="769" y="230"/>
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="dmnedge-drg-_838805C1-DF43-4160-A15C-4D2DDE03DD1B-AUTO-TARGET" dmnElementRef="_838805C1-DF43-4160-A15C-4D2DDE03DD1B">
         <di:waypoint x="307" y="118"/>
-        <di:waypoint x="670" y="156.5"/>
+        <di:waypoint x="670" y="191.5"/>
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
