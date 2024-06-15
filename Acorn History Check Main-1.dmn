@@ -41,8 +41,14 @@ then true else false</dmn:text>
         </dmn:literalExpression>
       </dmn:contextEntry>
       <dmn:contextEntry>
+        <dmn:variable id="_3CB6CC8F-B8DE-4793-B42A-0EA248E165C4" name="ThirdCond" typeRef="boolean"/>
+        <dmn:literalExpression id="_C85C5FFD-C668-4BEB-925D-FE28964CAFF0">
+          <dmn:text>some x in a.history.treatment_details.code satisfies x in [9326, 9327, 9328, 9329, 9330, 9330]</dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
+      <dmn:contextEntry>
         <dmn:literalExpression id="_CBD7C051-1BCE-4ABB-A7DD-CAFFA6E8D76C">
-          <dmn:text>FirstCond</dmn:text>
+          <dmn:text>ThirdCond</dmn:text>
         </dmn:literalExpression>
       </dmn:contextEntry>
     </dmn:context>
@@ -95,6 +101,9 @@ then true else false
             <kie:width>900</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_45CF6D7D-5E81-4E17-ADFA-2763186618A6">
+            <kie:width>900</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_C85C5FFD-C668-4BEB-925D-FE28964CAFF0">
             <kie:width>900</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_CBD7C051-1BCE-4ABB-A7DD-CAFFA6E8D76C">
