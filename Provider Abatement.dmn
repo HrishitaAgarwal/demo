@@ -36,7 +36,16 @@
     </dmn:informationRequirement>
     <dmn:context id="_76B83401-FD81-4898-89AF-8ECFC923509B">
       <dmn:contextEntry>
-        <dmn:variable id="_E62C6FCF-0B43-44B4-A239-8161E64C0B76" name="ContextEntry-1"/>
+        <dmn:variable id="_E62C6FCF-0B43-44B4-A239-8161E64C0B76" name="Period" typeRef="number"/>
+        <dmn:literalExpression id="_E594B14A-5F58-42BA-BBF3-17FFD6F1E3CD">
+          <dmn:text>(years and months duration(inp.reimb_start, inp.pay_adj_end).months) + (years and months duration(inp.reimb_start, inp.pay_adj_end).years)*12</dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
+      <dmn:contextEntry>
+        <dmn:variable id="_0EA10D1E-031C-40C6-84CD-B4C79CC81499" name="months" typeRef="number"/>
+        <dmn:literalExpression id="_CF5AF03B-4C87-4415-9865-F9A280A7B571">
+          <dmn:text>Period + 1</dmn:text>
+        </dmn:literalExpression>
       </dmn:contextEntry>
     </dmn:context>
   </dmn:decision>
@@ -47,7 +56,13 @@
           <kie:ComponentWidths dmnElementRef="_76B83401-FD81-4898-89AF-8ECFC923509B">
             <kie:width>50</kie:width>
             <kie:width>367</kie:width>
-            <kie:width>150</kie:width>
+            <kie:width>960</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_E594B14A-5F58-42BA-BBF3-17FFD6F1E3CD">
+            <kie:width>960</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_CF5AF03B-4C87-4415-9865-F9A280A7B571">
+            <kie:width>960</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
