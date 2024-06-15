@@ -21,7 +21,12 @@
       <dmn:contextEntry>
         <dmn:variable id="_8BB0D713-CF39-43A8-9731-71537E2910A2" name="FirstCond" typeRef="boolean"/>
         <dmn:literalExpression id="_D624C45B-4710-47E6-A10C-C2BC9F6E942F">
-          <dmn:text>for x element in AcornData.AcHistory return BKM_1 (x element, AcornData.Activity)</dmn:text>
+          <dmn:text>for x element in AcornData.AcHistory return BKM_1(x element, AcornData.Activity)</dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
+      <dmn:contextEntry>
+        <dmn:literalExpression id="_CBD7C051-1BCE-4ABB-A7DD-CAFFA6E8D76C">
+          <dmn:text>FirstCond</dmn:text>
         </dmn:literalExpression>
       </dmn:contextEntry>
     </dmn:context>
@@ -56,12 +61,15 @@ then false else "" ""</dmn:text>
           <kie:ComponentWidths dmnElementRef="_D624C45B-4710-47E6-A10C-C2BC9F6E942F">
             <kie:width>900</kie:width>
           </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_CBD7C051-1BCE-4ABB-A7DD-CAFFA6E8D76C">
+            <kie:width>900</kie:width>
+          </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_F59AC7E4-6E08-4684-BDD0-BEE453FBB5E1">
-            <kie:width>674</kie:width>
+            <kie:width>902</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_1271128C-72F4-42CD-A2B4-A723208EE248">
             <kie:width>50</kie:width>
-            <kie:width>674</kie:width>
+            <kie:width>902</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
@@ -102,7 +110,7 @@ then false else "" ""</dmn:text>
           <dmndi:StrokeColor red="0" green="0" blue="0"/>
           <dmndi:FontColor red="0" green="0" blue="0"/>
         </dmndi:DMNStyle>
-        <dc:Bounds x="184" y="24" width="224" height="82"/>
+        <dc:Bounds x="195" y="77" width="224" height="82"/>
         <dmndi:DMNLabel/>
       </dmndi:DMNShape>
       <dmndi:DMNEdge id="dmnedge-drg-_00FA1E66-56EF-4263-9F79-5E4E213C789D-AUTO-TARGET" dmnElementRef="_00FA1E66-56EF-4263-9F79-5E4E213C789D">
@@ -110,7 +118,7 @@ then false else "" ""</dmn:text>
         <di:waypoint x="769" y="154"/>
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="dmnedge-drg-_838805C1-DF43-4160-A15C-4D2DDE03DD1B-AUTO-TARGET" dmnElementRef="_838805C1-DF43-4160-A15C-4D2DDE03DD1B">
-        <di:waypoint x="296" y="65"/>
+        <di:waypoint x="307" y="118"/>
         <di:waypoint x="670" y="115.5"/>
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
