@@ -17,11 +17,27 @@
     <dmn:knowledgeRequirement id="_838805C1-DF43-4160-A15C-4D2DDE03DD1B">
       <dmn:requiredKnowledge href="#_C341A6E7-B2E9-4B21-9BE4-A35EC4DC01A3"/>
     </dmn:knowledgeRequirement>
+    <dmn:knowledgeRequirement id="_74675372-C449-4872-B6C4-B40E02138773">
+      <dmn:requiredKnowledge href="#_921343A0-327F-4462-9C72-432F2511C927"/>
+    </dmn:knowledgeRequirement>
     <dmn:context id="_F74EB675-01EF-4FE2-9094-C861B2FF9B8C">
       <dmn:contextEntry>
         <dmn:variable id="_8BB0D713-CF39-43A8-9731-71537E2910A2" name="FirstCond" typeRef="boolean"/>
         <dmn:literalExpression id="_D624C45B-4710-47E6-A10C-C2BC9F6E942F">
           <dmn:text>BKM_1(a.activity, a.history)</dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
+      <dmn:contextEntry>
+        <dmn:variable id="_D5069A28-3757-4691-814A-080707E267C7" name="Check1" typeRef="boolean"/>
+        <dmn:literalExpression id="_3671B6E5-40F5-4AD5-8258-5799E6D78002">
+          <dmn:text>if (a.activity.SQ_ind = 1 or a.activity.SQ_ind = 2) and FirstCond
+then true else false</dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
+      <dmn:contextEntry>
+        <dmn:variable id="_D5824C13-4619-4E7C-A9A5-17AEE783A7DF" name="SecondCond" typeRef="boolean"/>
+        <dmn:literalExpression id="_45CF6D7D-5E81-4E17-ADFA-2763186618A6">
+          <dmn:text>BKM_2(a.activity, a.history)</dmn:text>
         </dmn:literalExpression>
       </dmn:contextEntry>
       <dmn:contextEntry>
@@ -48,6 +64,21 @@ then true else false</dmn:text>
       </dmn:literalExpression>
     </dmn:encapsulatedLogic>
   </dmn:businessKnowledgeModel>
+  <dmn:businessKnowledgeModel id="_921343A0-327F-4462-9C72-432F2511C927" name="BKM_2">
+    <dmn:extensionElements/>
+    <dmn:variable id="_D2B665F8-B9C5-4BBD-8289-BE41AD8E70FF" name="BKM_2"/>
+    <dmn:encapsulatedLogic id="_F44754B8-63DC-4555-9114-6FCE8B4ED329" kind="FEEL">
+      <dmn:formalParameter id="_3AE4DE04-FD0D-47B1-ABE3-CEF40C2E1301" name="activity" typeRef="AcornInfo.Activity_Data"/>
+      <dmn:formalParameter id="_4FC6FA14-C476-49E0-B05D-1CCAC959A6BA" name="history" typeRef="AcornInfo.Activity_history"/>
+      <dmn:literalExpression id="_D24708EF-913C-4FC9-A320-5AF3C8047AA3">
+        <dmn:text>if activity.provider_num = history.provider_num or
+activity.contract_id = history.contract_id 
+then true else false
+
+</dmn:text>
+      </dmn:literalExpression>
+    </dmn:encapsulatedLogic>
+  </dmn:businessKnowledgeModel>
   <dmndi:DMNDI>
     <dmndi:DMNDiagram id="_E24350CA-A35E-433E-948F-543F01F48EB6" name="DRG">
       <di:extension>
@@ -60,6 +91,12 @@ then true else false</dmn:text>
           <kie:ComponentWidths dmnElementRef="_D624C45B-4710-47E6-A10C-C2BC9F6E942F">
             <kie:width>900</kie:width>
           </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_3671B6E5-40F5-4AD5-8258-5799E6D78002">
+            <kie:width>900</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_45CF6D7D-5E81-4E17-ADFA-2763186618A6">
+            <kie:width>900</kie:width>
+          </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_CBD7C051-1BCE-4ABB-A7DD-CAFFA6E8D76C">
             <kie:width>900</kie:width>
           </kie:ComponentWidths>
@@ -69,6 +106,13 @@ then true else false</dmn:text>
           <kie:ComponentWidths dmnElementRef="_1271128C-72F4-42CD-A2B4-A723208EE248">
             <kie:width>50</kie:width>
             <kie:width>902</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_D24708EF-913C-4FC9-A320-5AF3C8047AA3">
+            <kie:width>715</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_F44754B8-63DC-4555-9114-6FCE8B4ED329">
+            <kie:width>50</kie:width>
+            <kie:width>715</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
@@ -91,7 +135,7 @@ then true else false</dmn:text>
           <dmndi:StrokeColor red="0" green="0" blue="0"/>
           <dmndi:FontColor red="0" green="0" blue="0"/>
         </dmndi:DMNStyle>
-        <dc:Bounds x="670" y="77" width="198" height="77"/>
+        <dc:Bounds x="670" y="99" width="198" height="77"/>
         <dmndi:DMNLabel/>
       </dmndi:DMNShape>
       <dmndi:DMNShape id="dmnshape-drg-_2EA0ECB6-5D91-4DEC-A478-52D699DEBDCA" dmnElementRef="_2EA0ECB6-5D91-4DEC-A478-52D699DEBDCA" isCollapsed="false">
@@ -112,13 +156,26 @@ then true else false</dmn:text>
         <dc:Bounds x="195" y="77" width="224" height="82"/>
         <dmndi:DMNLabel/>
       </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_921343A0-327F-4462-9C72-432F2511C927" dmnElementRef="_921343A0-327F-4462-9C72-432F2511C927" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="213" y="204" width="201" height="79"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
       <dmndi:DMNEdge id="dmnedge-drg-_00FA1E66-56EF-4263-9F79-5E4E213C789D-AUTO-TARGET" dmnElementRef="_00FA1E66-56EF-4263-9F79-5E4E213C789D">
         <di:waypoint x="701" y="399.5"/>
-        <di:waypoint x="769" y="154"/>
+        <di:waypoint x="769" y="176"/>
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="dmnedge-drg-_838805C1-DF43-4160-A15C-4D2DDE03DD1B-AUTO-TARGET" dmnElementRef="_838805C1-DF43-4160-A15C-4D2DDE03DD1B">
         <di:waypoint x="307" y="118"/>
-        <di:waypoint x="670" y="115.5"/>
+        <di:waypoint x="670" y="137.5"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-drg-_74675372-C449-4872-B6C4-B40E02138773-AUTO-TARGET" dmnElementRef="_74675372-C449-4872-B6C4-B40E02138773">
+        <di:waypoint x="313.5" y="243.5"/>
+        <di:waypoint x="769" y="176"/>
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
