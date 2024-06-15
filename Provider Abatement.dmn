@@ -47,6 +47,18 @@
           <dmn:text>Period + 1</dmn:text>
         </dmn:literalExpression>
       </dmn:contextEntry>
+      <dmn:contextEntry>
+        <dmn:variable id="_2404789E-5A7B-4605-9DD6-DE26E3114333" name="Pay before abatement" typeRef="number"/>
+        <dmn:literalExpression id="_4793687B-B9D5-4E40-ABCC-8B11EF53E54D">
+          <dmn:text>round up(inp.rate_year_amt/months, 2)</dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
+      <dmn:contextEntry>
+        <dmn:variable id="_FA1F6492-C8DE-4297-BC7B-765CA947D7BA" name="Pay after abatement" typeRef="number"/>
+        <dmn:literalExpression id="_C0A8D551-43C4-40D0-86C0-C827E266C706">
+          <dmn:text>(1-inp.perc/100)*Pay before abatement</dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
     </dmn:context>
   </dmn:decision>
   <dmndi:DMNDI>
@@ -62,6 +74,12 @@
             <kie:width>960</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_CF5AF03B-4C87-4415-9865-F9A280A7B571">
+            <kie:width>960</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_4793687B-B9D5-4E40-ABCC-8B11EF53E54D">
+            <kie:width>960</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_C0A8D551-43C4-40D0-86C0-C827E266C706">
             <kie:width>960</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
