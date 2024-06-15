@@ -2,17 +2,24 @@
 <dmn:definitions xmlns:dmn="http://www.omg.org/spec/DMN/20180521/MODEL/" xmlns="https://kiegroup.org/dmn/_DD1F3F62-9021-49A1-AF17-93B45A50053E" xmlns:feel="http://www.omg.org/spec/DMN/20180521/FEEL/" xmlns:kie="http://www.drools.org/kie/dmn/1.2" xmlns:dmndi="http://www.omg.org/spec/DMN/20180521/DMNDI/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:included1="https://kiegroup.org/dmn/_FE4D5E73-44FC-40E9-B563-9B25662F688A" id="_D592C6B1-BD70-44C0-9B53-A2F051DF43DC" name="Acorn History Check Main" typeLanguage="http://www.omg.org/spec/DMN/20180521/FEEL/" namespace="https://kiegroup.org/dmn/_DD1F3F62-9021-49A1-AF17-93B45A50053E">
   <dmn:extensionElements/>
   <dmn:import id="_90C8AF65-0967-492B-AEDF-3DCD0870A37D" name="AcornInfo" namespace="https://kiegroup.org/dmn/_FE4D5E73-44FC-40E9-B563-9B25662F688A" locationURI="Activity_ACN_DataType.dmn" importType="http://www.omg.org/spec/DMN/20180521/MODEL/"/>
+  <dmn:itemDefinition id="_705609B1-16BC-412E-A721-05923C818BE0" name="Welsh_Refe_Date" isCollection="false">
+    <dmn:typeRef>date</dmn:typeRef>
+  </dmn:itemDefinition>
   <dmn:decisionService id="_ED7D1FAE-6E12-467A-9819-E3E4BF44A6E2" name="DS_ACORN History Check">
     <dmn:extensionElements/>
     <dmn:variable id="_04FB941E-7C38-42D0-A980-0CBCE4214965" name="DS_ACORN History Check"/>
     <dmn:outputDecision href="#_E29BE001-049C-4B38-92D1-F8754FD1E2DA"/>
     <dmn:inputData href="#_2EA0ECB6-5D91-4DEC-A478-52D699DEBDCA"/>
+    <dmn:inputData href="#_E68A4EEC-90CB-4F3E-8E37-64ACB9880301"/>
   </dmn:decisionService>
   <dmn:decision id="_E29BE001-049C-4B38-92D1-F8754FD1E2DA" name="Acorn History Check">
     <dmn:extensionElements/>
     <dmn:variable id="_02F21D4E-8545-4A04-B4C5-4088394AAAC6" name="Acorn History Check"/>
     <dmn:informationRequirement id="_00FA1E66-56EF-4263-9F79-5E4E213C789D">
       <dmn:requiredInput href="#_2EA0ECB6-5D91-4DEC-A478-52D699DEBDCA"/>
+    </dmn:informationRequirement>
+    <dmn:informationRequirement id="_B685747D-9121-4402-88A5-8A7EAA7F8D6A">
+      <dmn:requiredInput href="#_E68A4EEC-90CB-4F3E-8E37-64ACB9880301"/>
     </dmn:informationRequirement>
     <dmn:knowledgeRequirement id="_838805C1-DF43-4160-A15C-4D2DDE03DD1B">
       <dmn:requiredKnowledge href="#_C341A6E7-B2E9-4B21-9BE4-A35EC4DC01A3"/>
@@ -47,8 +54,76 @@ then true else false</dmn:text>
         </dmn:literalExpression>
       </dmn:contextEntry>
       <dmn:contextEntry>
+        <dmn:variable id="_D065B187-D6BC-4255-BFBE-F31B2301DF9A" name="ThirdCond2" typeRef="boolean"/>
+        <dmn:literalExpression id="_CF424C51-4035-47A9-BC23-783A5727BFA0">
+          <dmn:text>some x in a.history.treatment_details.code satisfies x in [9179]</dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
+      <dmn:contextEntry>
+        <dmn:variable id="_30DA0DF6-3280-408F-97F9-6BABBB29CB2C" name="Check2" typeRef="boolean"/>
+        <dmn:decisionTable id="_127D4A75-47AA-4453-9285-8C7AD95995BC" hitPolicy="UNIQUE" preferredOrientation="Rule-as-Row">
+          <dmn:input id="_8AC6C5CA-5B86-4F20-9E73-9551B0E35EC5">
+            <dmn:inputExpression id="_842A0509-ED47-4197-A2A6-D4B43EA349F4" typeRef="date">
+              <dmn:text>a.activity.accept_date</dmn:text>
+            </dmn:inputExpression>
+          </dmn:input>
+          <dmn:input id="_D08D1F34-EBD1-433C-A864-B40180B3496E">
+            <dmn:inputExpression id="_6B51F443-2B35-46E2-8433-66DB2184BA94" typeRef="boolean">
+              <dmn:text>ThirdCond</dmn:text>
+            </dmn:inputExpression>
+          </dmn:input>
+          <dmn:input id="_6DB0D9FA-798A-4336-8CCD-028B17E91E96">
+            <dmn:inputExpression typeRef="boolean">
+              <dmn:text>ThirdCond2</dmn:text>
+            </dmn:inputExpression>
+          </dmn:input>
+          <dmn:output id="_3067920F-61A8-470D-9B53-8AF0E6F0EB83"/>
+          <dmn:annotation name="annotation-1"/>
+          <dmn:rule id="_F7105EBF-0D4B-44E9-B7BB-01C7EB4548D3">
+            <dmn:inputEntry id="_0317E38B-7A5C-4160-9498-669A99201261">
+              <dmn:text>&lt; date(Welsh_Ref_Date)</dmn:text>
+            </dmn:inputEntry>
+            <dmn:inputEntry id="_C5F67472-CCE6-44E8-8DE8-73A01D3F13D0">
+              <dmn:text>true</dmn:text>
+            </dmn:inputEntry>
+            <dmn:inputEntry id="_D9C00D80-3A04-4CEF-9DE0-37B92BFBCAE8">
+              <dmn:text>-</dmn:text>
+            </dmn:inputEntry>
+            <dmn:outputEntry id="_E4F46C86-DE7B-4BA9-A515-AC6732B6722E">
+              <dmn:text>true</dmn:text>
+            </dmn:outputEntry>
+            <dmn:annotationEntry>
+              <dmn:text/>
+            </dmn:annotationEntry>
+          </dmn:rule>
+          <dmn:rule id="_AB4D13AF-1E1D-47CE-BD81-4EA2AAB83D04">
+            <dmn:inputEntry id="_CF683DAC-B65B-46DB-AB30-895BF24D8A81">
+              <dmn:text>&gt;= date(Welsh_Ref_Date)</dmn:text>
+            </dmn:inputEntry>
+            <dmn:inputEntry id="_1914D663-C13D-44E9-B696-BDC09C81EBB9">
+              <dmn:text>-</dmn:text>
+            </dmn:inputEntry>
+            <dmn:inputEntry id="_3C95EC06-94EF-47CC-AD1C-3D13A0203EC8">
+              <dmn:text>true</dmn:text>
+            </dmn:inputEntry>
+            <dmn:outputEntry id="_4598A00E-798C-4327-8749-7C97F5256703">
+              <dmn:text>true</dmn:text>
+            </dmn:outputEntry>
+            <dmn:annotationEntry>
+              <dmn:text/>
+            </dmn:annotationEntry>
+          </dmn:rule>
+        </dmn:decisionTable>
+      </dmn:contextEntry>
+      <dmn:contextEntry>
+        <dmn:variable id="_242181C1-F80E-445C-9231-EFA440946DB2" name="Check3"/>
+        <dmn:literalExpression id="_46611B20-B741-44F1-9CE2-B0BAEE06C13C">
+          <dmn:text>if Check2 = null then false else true</dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
+      <dmn:contextEntry>
         <dmn:literalExpression id="_CBD7C051-1BCE-4ABB-A7DD-CAFFA6E8D76C">
-          <dmn:text>ThirdCond</dmn:text>
+          <dmn:text>Check3</dmn:text>
         </dmn:literalExpression>
       </dmn:contextEntry>
     </dmn:context>
@@ -85,9 +160,9 @@ then true else false
       </dmn:literalExpression>
     </dmn:encapsulatedLogic>
   </dmn:businessKnowledgeModel>
-  <dmn:inputData id="_E68A4EEC-90CB-4F3E-8E37-64ACB9880301" name="InputData-1">
+  <dmn:inputData id="_E68A4EEC-90CB-4F3E-8E37-64ACB9880301" name="Welsh_Ref_Date">
     <dmn:extensionElements/>
-    <dmn:variable id="_D8AB71B1-CE09-4654-80F3-B621EB1085D6" name="InputData-1"/>
+    <dmn:variable id="_D8AB71B1-CE09-4654-80F3-B621EB1085D6" name="Welsh_Ref_Date" typeRef="Welsh_Refe_Date"/>
   </dmn:inputData>
   <dmndi:DMNDI>
     <dmndi:DMNDiagram id="_E24350CA-A35E-433E-948F-543F01F48EB6" name="DRG">
@@ -96,22 +171,36 @@ then true else false
           <kie:ComponentWidths dmnElementRef="_F74EB675-01EF-4FE2-9094-C861B2FF9B8C">
             <kie:width>50</kie:width>
             <kie:width>306</kie:width>
-            <kie:width>900</kie:width>
+            <kie:width>1337</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_D624C45B-4710-47E6-A10C-C2BC9F6E942F">
-            <kie:width>900</kie:width>
+            <kie:width>1337</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_3671B6E5-40F5-4AD5-8258-5799E6D78002">
-            <kie:width>900</kie:width>
+            <kie:width>1337</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_45CF6D7D-5E81-4E17-ADFA-2763186618A6">
-            <kie:width>900</kie:width>
+            <kie:width>1337</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_C85C5FFD-C668-4BEB-925D-FE28964CAFF0">
-            <kie:width>900</kie:width>
+            <kie:width>1337</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_CF424C51-4035-47A9-BC23-783A5727BFA0">
+            <kie:width>1337</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_127D4A75-47AA-4453-9285-8C7AD95995BC">
+            <kie:width>50</kie:width>
+            <kie:width>385</kie:width>
+            <kie:width>221</kie:width>
+            <kie:width>168</kie:width>
+            <kie:width>109</kie:width>
+            <kie:width>384</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_46611B20-B741-44F1-9CE2-B0BAEE06C13C">
+            <kie:width>1337</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_CBD7C051-1BCE-4ABB-A7DD-CAFFA6E8D76C">
-            <kie:width>900</kie:width>
+            <kie:width>1337</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_F59AC7E4-6E08-4684-BDD0-BEE453FBB5E1">
             <kie:width>902</kie:width>
@@ -148,7 +237,7 @@ then true else false
           <dmndi:StrokeColor red="0" green="0" blue="0"/>
           <dmndi:FontColor red="0" green="0" blue="0"/>
         </dmndi:DMNStyle>
-        <dc:Bounds x="670" y="99" width="198" height="77"/>
+        <dc:Bounds x="670" y="119" width="198" height="77"/>
         <dmndi:DMNLabel/>
       </dmndi:DMNShape>
       <dmndi:DMNShape id="dmnshape-drg-_2EA0ECB6-5D91-4DEC-A478-52D699DEBDCA" dmnElementRef="_2EA0ECB6-5D91-4DEC-A478-52D699DEBDCA" isCollapsed="false">
@@ -184,20 +273,24 @@ then true else false
           <dmndi:StrokeColor red="0" green="0" blue="0"/>
           <dmndi:FontColor red="0" green="0" blue="0"/>
         </dmndi:DMNStyle>
-        <dc:Bounds x="847" y="387" width="100" height="50"/>
+        <dc:Bounds x="847" y="385" width="100" height="50"/>
         <dmndi:DMNLabel/>
       </dmndi:DMNShape>
       <dmndi:DMNEdge id="dmnedge-drg-_00FA1E66-56EF-4263-9F79-5E4E213C789D-AUTO-TARGET" dmnElementRef="_00FA1E66-56EF-4263-9F79-5E4E213C789D">
         <di:waypoint x="701" y="399.5"/>
-        <di:waypoint x="769" y="176"/>
+        <di:waypoint x="769" y="196"/>
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="dmnedge-drg-_838805C1-DF43-4160-A15C-4D2DDE03DD1B-AUTO-TARGET" dmnElementRef="_838805C1-DF43-4160-A15C-4D2DDE03DD1B">
         <di:waypoint x="307" y="118"/>
-        <di:waypoint x="670" y="137.5"/>
+        <di:waypoint x="670" y="157.5"/>
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="dmnedge-drg-_74675372-C449-4872-B6C4-B40E02138773-AUTO-TARGET" dmnElementRef="_74675372-C449-4872-B6C4-B40E02138773">
         <di:waypoint x="313.5" y="243.5"/>
-        <di:waypoint x="769" y="176"/>
+        <di:waypoint x="769" y="196"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-drg-_B685747D-9121-4402-88A5-8A7EAA7F8D6A-AUTO-TARGET" dmnElementRef="_B685747D-9121-4402-88A5-8A7EAA7F8D6A">
+        <di:waypoint x="897" y="410"/>
+        <di:waypoint x="769" y="196"/>
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
