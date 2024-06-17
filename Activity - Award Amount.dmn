@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dmn:definitions xmlns:dmn="http://www.omg.org/spec/DMN/20180521/MODEL/" xmlns="https://kiegroup.org/dmn/_C33A5FCC-2A28-451F-A9B5-2158CA9833E0" xmlns:feel="http://www.omg.org/spec/DMN/20180521/FEEL/" xmlns:kie="http://www.drools.org/kie/dmn/1.2" xmlns:dmndi="http://www.omg.org/spec/DMN/20180521/DMNDI/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" id="_6420E349-7AEB-4AC2-BB3A-0246FE32CB86" name="Activity - Award Amount" typeLanguage="http://www.omg.org/spec/DMN/20180521/FEEL/" namespace="https://kiegroup.org/dmn/_C33A5FCC-2A28-451F-A9B5-2158CA9833E0">
+  <dmn:extensionElements/>
+  <dmn:itemDefinition id="_4A5627B3-D615-4175-94ED-C0F4AF5DF62F" name="Code" isCollection="false">
+    <dmn:typeRef>number</dmn:typeRef>
+  </dmn:itemDefinition>
+  <dmn:itemDefinition id="_BB6320A1-041C-46B9-9485-7B9C7443A656" name="Activity_Unit" isCollection="true">
+    <dmn:itemComponent id="_DB090589-C16F-46EC-84E1-3C102D532943" name="ref_id" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_2E7022D0-DC25-472C-BB69-9068AD59E785" name="region" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+      <dmn:allowedValues kie:constraintType="enumeration" id="_FB043F9F-B698-4C42-9AAB-5E726672FF63">
+        <dmn:text>1, 2, 3</dmn:text>
+      </dmn:allowedValues>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_7F7829D2-DE0C-47A0-840F-8A7BC597D9C6" name="unit_amt" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_CD861776-4E3F-4C87-BF42-905CA6E5A175" name="unit_type" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+      <dmn:allowedValues kie:constraintType="enumeration" id="_7856FDA3-1EAF-4440-A87A-CE5AFD414FDF">
+        <dmn:text>"D", "O"</dmn:text>
+      </dmn:allowedValues>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_D895180B-2B6D-4D34-8FBB-63C5085331A0" name="start_date" isCollection="false">
+      <dmn:typeRef>date</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_43A701C9-FE5E-4B1C-A32D-B20B6F9BC3E1" name="end_date" isCollection="false">
+      <dmn:typeRef>date</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_753EAA9B-DC02-43B0-AB06-6058D18C24B9" name="max_age" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_24985C59-9DE7-443F-B1B5-1618D5B678CF" name="min_age" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_AF5A497B-6738-4E1A-880B-AA6FFEED8400" name="sub_cat" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+  </dmn:itemDefinition>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="_CAFC82FC-3EF0-4CED-AB17-E95E38CA27AB" name="DRG">
+      <di:extension>
+        <kie:ComponentsWidthsExtension/>
+      </di:extension>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</dmn:definitions>
