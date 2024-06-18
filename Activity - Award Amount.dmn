@@ -39,6 +39,20 @@
       <dmn:typeRef>string</dmn:typeRef>
     </dmn:itemComponent>
   </dmn:itemDefinition>
+  <dmn:itemDefinition id="_7719A870-9830-418E-9B4C-F496614F87BE" name="Activity_data" isCollection="false">
+    <dmn:itemComponent id="_3F4486EF-EAF5-4E17-8ECF-DBDF9C363BFD" name="region" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+      <dmn:allowedValues kie:constraintType="enumeration" id="_45B9723B-476D-4944-AC39-2E346417266E">
+        <dmn:text>1, 2, 3</dmn:text>
+      </dmn:allowedValues>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_7C4265C9-6334-4E1D-978F-43FB68727DD3" name="age" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_5E2A6442-48AC-40B0-ACF6-F8F778E20E72" name="sub_cat" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+  </dmn:itemDefinition>
   <dmndi:DMNDI>
     <dmndi:DMNDiagram id="_CAFC82FC-3EF0-4CED-AB17-E95E38CA27AB" name="DRG">
       <di:extension>
