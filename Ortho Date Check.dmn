@@ -13,14 +13,14 @@
     </dmn:knowledgeRequirement>
     <dmn:context id="_21710AB7-09D7-4613-987B-C4C94680434F">
       <dmn:contextEntry>
-        <dmn:variable id="_FCF13323-5C22-48A8-A94C-E60F858FCE4B" name="Treatment type" typeRef="string"/>
+        <dmn:variable id="_FCF13323-5C22-48A8-A94C-E60F858FCE4B" name="Treatment type" typeRef="AR.Output"/>
         <dmn:literalExpression id="_9C3CB402-95DB-442D-BE21-8B8971BA6C60">
-          <dmn:text>if inp.activity.type = "Assessment &amp; Review" then "AR" else ""</dmn:text>
+          <dmn:text>if inp.activity.treatment_type = "Assess &amp; Review" then (AR(inp)) else ""</dmn:text>
         </dmn:literalExpression>
       </dmn:contextEntry>
       <dmn:contextEntry>
         <dmn:literalExpression id="_06102C3E-CAB6-4627-BA46-BA098858F79B">
-          <dmn:text>AR(inp)</dmn:text>
+          <dmn:text>Treatment type</dmn:text>
         </dmn:literalExpression>
       </dmn:contextEntry>
     </dmn:context>
