@@ -15,7 +15,7 @@
       <dmn:contextEntry>
         <dmn:variable id="_FCF13323-5C22-48A8-A94C-E60F858FCE4B" name="Treatment type" typeRef="AR.Output"/>
         <dmn:literalExpression id="_9C3CB402-95DB-442D-BE21-8B8971BA6C60">
-          <dmn:text>if inp.activity.treatment_type = "Assess &amp; Review" then (AR(inp)) else ""</dmn:text>
+          <dmn:text>if inp.activity.treatment_type = "Assess &amp; Review" then (AR.DS1Orthodatecheck_AssessandReview(inp)) else ""</dmn:text>
         </dmn:literalExpression>
       </dmn:contextEntry>
       <dmn:contextEntry>
@@ -36,13 +36,13 @@
           <kie:ComponentWidths dmnElementRef="_21710AB7-09D7-4613-987B-C4C94680434F">
             <kie:width>50</kie:width>
             <kie:width>245</kie:width>
-            <kie:width>697</kie:width>
+            <kie:width>785</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_9C3CB402-95DB-442D-BE21-8B8971BA6C60">
-            <kie:width>697</kie:width>
+            <kie:width>785</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_06102C3E-CAB6-4627-BA46-BA098858F79B">
-            <kie:width>697</kie:width>
+            <kie:width>785</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
