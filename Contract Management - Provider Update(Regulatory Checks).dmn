@@ -62,7 +62,7 @@ else ""</dmn:text>
         </dmn:literalExpression>
       </dmn:contextEntry>
       <dmn:contextEntry>
-        <dmn:decisionTable id="_9CB29F39-6EEF-4841-AB9A-698CE539D9B0" hitPolicy="UNIQUE" preferredOrientation="Rule-as-Row">
+        <dmn:decisionTable id="_9CB29F39-6EEF-4841-AB9A-698CE539D9B0" hitPolicy="COLLECT" preferredOrientation="Rule-as-Row">
           <dmn:input id="_94CFE4E9-3928-43A0-8CFF-F0B8ED0A0C20">
             <dmn:inputExpression id="_6797A575-7238-42AF-A003-F86B6190BA5E" typeRef="boolean">
               <dmn:text>Part Check</dmn:text>
