@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dmn:definitions xmlns:dmn="http://www.omg.org/spec/DMN/20180521/MODEL/" xmlns="https://kiegroup.org/dmn/_017C4F65-033C-46EA-B580-24615F8CF75A" xmlns:feel="http://www.omg.org/spec/DMN/20180521/FEEL/" xmlns:kie="http://www.drools.org/kie/dmn/1.2" xmlns:dmndi="http://www.omg.org/spec/DMN/20180521/DMNDI/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" id="_FE814B99-12F1-4B59-B1BF-51A57FB4C514" name="Treatment Charges" typeLanguage="http://www.omg.org/spec/DMN/20180521/FEEL/" namespace="https://kiegroup.org/dmn/_017C4F65-033C-46EA-B580-24615F8CF75A">
+  <dmn:extensionElements/>
+  <dmn:itemDefinition id="_0039E420-251A-4079-BBF7-A4E5AD2FF6FD" name="Input" isCollection="false">
+    <dmn:itemComponent id="_28466CE9-204D-451E-A2E8-CA755372E30E" name="Band" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_ED2D5C75-D36D-428D-A327-512849442C1B" name="Region" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_62402596-89D6-4A28-ACDC-6942875676B4" name="Tr_date" isCollection="false">
+      <dmn:typeRef>date</dmn:typeRef>
+    </dmn:itemComponent>
+  </dmn:itemDefinition>
+  <dmn:inputData id="_7F0CA4E8-6D0A-424F-9D14-EF0EADFB0AD4" name="inp">
+    <dmn:extensionElements/>
+    <dmn:variable id="_8901671A-5CC5-40A1-B7C7-5007D4205E45" name="inp" typeRef="Input"/>
+  </dmn:inputData>
+  <dmn:decision id="_77F137F7-DD6F-4740-9D7E-BA8995A8BAFC" name="Treatment Charges">
+    <dmn:extensionElements/>
+    <dmn:variable id="_9A8A10B8-ED5C-4EF5-BE20-8E7C91E91C86" name="Treatment Charges" typeRef="number"/>
+    <dmn:informationRequirement id="_4141546A-DE01-44E6-98A3-A7A2E726799D">
+      <dmn:requiredInput href="#_7F0CA4E8-6D0A-424F-9D14-EF0EADFB0AD4"/>
+    </dmn:informationRequirement>
+    <dmn:decisionTable id="_6979D06E-0C16-4BD5-8B6E-1AC080113158" hitPolicy="UNIQUE" preferredOrientation="Rule-as-Row">
+      <dmn:input id="_FE98BCF6-EF30-4B01-B049-163346AB624B">
+        <dmn:inputExpression id="_1C67035C-A685-47D8-8E07-96E2560AE743" typeRef="string">
+          <dmn:text>inp.Band</dmn:text>
+        </dmn:inputExpression>
+      </dmn:input>
+      <dmn:input id="_06625EF1-9648-43A0-81C0-C9B674AE2A8A">
+        <dmn:inputExpression id="_3F52998A-34C8-44E3-99B4-710AD163FF62" typeRef="string">
+          <dmn:text>inp.Region</dmn:text>
+        </dmn:inputExpression>
+      </dmn:input>
+      <dmn:input id="_D9C53478-957D-4483-9F54-4D0A7177F030">
+        <dmn:inputExpression id="_6E660FB9-E20A-402C-B6F1-F6E59D90711B" typeRef="date">
+          <dmn:text>inp.Tr_date</dmn:text>
+        </dmn:inputExpression>
+      </dmn:input>
+      <dmn:output id="_D12A8FD8-32A5-4033-90F9-3E1C585D3DB3" name="status" typeRef="string"/>
+      <dmn:output id="_1D574713-5D69-48C3-A71A-9B59977F979A" name="output-1" typeRef="number"/>
+      <dmn:annotation name="annotation-1"/>
+      <dmn:rule id="_1365A549-90BA-46A3-A3FF-35DFA8217BB1">
+        <dmn:inputEntry id="_C82F8E14-0EA5-420F-8D8E-2B6201467298">
+          <dmn:text>"Band 1"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_E4FBA09D-A989-4163-AE5C-02D2DB8DD224">
+          <dmn:text>"Wales"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_81F03E5B-8E1E-47D6-A76E-BB4D894B113B">
+          <dmn:text>[date("2006-01-04")..date("2012-08-31")]</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_ECF08597-FBDB-421D-AD40-720E41E23974">
+          <dmn:text>"active"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:outputEntry id="_D0642A4B-ABF9-44A5-ADC5-CA37275FF245">
+          <dmn:text>12</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_3274B2D3-2414-49B1-A149-D84F03159756">
+        <dmn:inputEntry id="_2843BF77-34C5-4B9A-9E0C-94D019AC12B3">
+          <dmn:text>"Band 1"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_3E8AE44B-69DE-4DEF-ABE2-96115601EA03">
+          <dmn:text>"Isle of Man"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_50286953-3B3C-4729-93CE-23C50CB4BB0B">
+          <dmn:text>[date("2006-01-04")..date("2010-08-31")]</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_68C4B1D1-8480-46B1-B148-F6C4F567635F">
+          <dmn:text>"active"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:outputEntry id="_39D1EDBF-603D-4B91-8B26-A87595A2AD17">
+          <dmn:text>15.5</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_A2E25004-F695-4022-9172-2FA0DE0C2018">
+        <dmn:inputEntry id="_F9C42D40-7BE7-4F53-A63F-5863E4A63CDD">
+          <dmn:text>"Band 1"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_AED2BE57-670C-40F5-A139-6A2013627053">
+          <dmn:text>"Isle of Man"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_3BBF398D-7F1D-4CEF-8DCC-D5AE3FC6958C">
+          <dmn:text>&gt; date("2015-04-01")</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_F8B5FE6F-5789-45C1-ADD5-6234411A3E6C">
+          <dmn:text>"active"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:outputEntry id="_74CBAD16-5483-464E-9CB2-8A5D4A519FFD">
+          <dmn:text>18.5</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_C95044BB-7810-4176-8D2A-095355C25DEB">
+        <dmn:inputEntry id="_13291C20-5E23-43CF-86DA-A5CC47332909">
+          <dmn:text>"Band 1"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_D4997222-D3DD-4CDF-9361-98E616DCA1C2">
+          <dmn:text>"Wales"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_2CBA10B9-D1EC-46A0-A814-3CAA293E6964">
+          <dmn:text>&gt; date("2015-04-01")</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_CF792B0A-861A-4127-A521-F57877347FE5">
+          <dmn:text>"active"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:outputEntry id="_348FE97A-0BF6-477C-B18A-0F1F00A65B08">
+          <dmn:text>13.5</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_4CFC02A5-FE0F-4E2B-B435-1A51B5FDB1D8">
+        <dmn:inputEntry id="_5DDD96FD-72B7-40C4-BACC-E3DB9566AE9C">
+          <dmn:text>"Band 1"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_D632E6A7-73A0-484C-B644-8F95B33A45E6">
+          <dmn:text>"England"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_65A46C27-6616-4B57-8D12-0D9A58B6D2D7">
+          <dmn:text>&gt; date("2015-04-01")</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_9B001B3E-BBFD-41F3-A64E-58E54F6E604C">
+          <dmn:text>"active"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:outputEntry id="_6E9EC27A-B663-4531-8AAE-50320D84B39A">
+          <dmn:text>18.8</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
+    </dmn:decisionTable>
+  </dmn:decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="_6C9F578E-D838-4747-BE7B-6D369205676A" name="DRG">
+      <di:extension>
+        <kie:ComponentsWidthsExtension>
+          <kie:ComponentWidths dmnElementRef="_6979D06E-0C16-4BD5-8B6E-1AC080113158">
+            <kie:width>50</kie:width>
+            <kie:width>100</kie:width>
+            <kie:width>100</kie:width>
+            <kie:width>442</kie:width>
+            <kie:width>100</kie:width>
+            <kie:width>262</kie:width>
+            <kie:width>100</kie:width>
+          </kie:ComponentWidths>
+        </kie:ComponentsWidthsExtension>
+      </di:extension>
+      <dmndi:DMNShape id="dmnshape-drg-_7F0CA4E8-6D0A-424F-9D14-EF0EADFB0AD4" dmnElementRef="_7F0CA4E8-6D0A-424F-9D14-EF0EADFB0AD4" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="612" y="431" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_77F137F7-DD6F-4740-9D7E-BA8995A8BAFC" dmnElementRef="_77F137F7-DD6F-4740-9D7E-BA8995A8BAFC" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="613" y="250" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="dmnedge-drg-_4141546A-DE01-44E6-98A3-A7A2E726799D" dmnElementRef="_4141546A-DE01-44E6-98A3-A7A2E726799D">
+        <di:waypoint x="662" y="456"/>
+        <di:waypoint x="663" y="275"/>
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</dmn:definitions>
