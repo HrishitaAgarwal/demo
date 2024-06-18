@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dmn:definitions xmlns:dmn="http://www.omg.org/spec/DMN/20180521/MODEL/" xmlns="https://kiegroup.org/dmn/_4F63FF5F-9D81-40D6-9DE7-78834BF56F3C" xmlns:feel="http://www.omg.org/spec/DMN/20180521/FEEL/" xmlns:kie="http://www.drools.org/kie/dmn/1.2" xmlns:dmndi="http://www.omg.org/spec/DMN/20180521/DMNDI/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" id="_F4B7A9FB-B0E6-4B50-A516-ED7269F62482" name="Contract Management - Provider Update(Regulatory Checks)" typeLanguage="http://www.omg.org/spec/DMN/20180521/FEEL/" namespace="https://kiegroup.org/dmn/_4F63FF5F-9D81-40D6-9DE7-78834BF56F3C">
+  <dmn:extensionElements/>
+  <dmn:itemDefinition id="_8242909D-EAC0-4ACB-A1F4-5B21E03E028A" name="inp" isCollection="false">
+    <dmn:itemComponent id="_B8E1BCDF-26D7-4EF8-A8A3-DC01FDEE0E94" name="BO" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_F6B2B3CE-1DEB-480F-8E77-6F8FDEF12984" name="min_BO" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_2498F72F-B59C-4BC9-BF3A-A7CE38DE2A90" name="GDC_part" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_90D285FA-A2D7-42FA-8307-56FA467E0029" name="min_GDC_part" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_DBB756AB-727D-4554-A03D-BCB9C88944E4" name="GDC reg BO" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_3B169E52-79E4-4292-A29D-85231260DF94" name="Maj_owner_flag" isCollection="false">
+      <dmn:typeRef>boolean</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_058EF591-5848-4E78-AAB5-40AA4E58B422" name="type_provider" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+  </dmn:itemDefinition>
+  <dmn:inputData id="_A221B859-D58F-4408-8A93-D1EC82F47248" name="inp">
+    <dmn:extensionElements/>
+    <dmn:variable id="_53555C18-D1BC-4825-AFDA-CC597EB393B5" name="inp" typeRef="inp"/>
+  </dmn:inputData>
+  <dmn:decision id="_C789CF52-FC7E-452D-86C7-FB00A10DBF93" name="Business Owner Update">
+    <dmn:extensionElements/>
+    <dmn:variable id="_9514B54D-8DC2-4689-B201-1BF23DA92B91" name="Business Owner Update" typeRef="Any"/>
+    <dmn:informationRequirement id="_9378F02E-B2AF-47B6-B854-C9335146E777">
+      <dmn:requiredInput href="#_A221B859-D58F-4408-8A93-D1EC82F47248"/>
+    </dmn:informationRequirement>
+    <dmn:context id="_B714B0ED-F9BD-41C2-875F-68D69851F689">
+      <dmn:contextEntry>
+        <dmn:variable id="_BD9A67FB-8F56-4719-9360-43C98AEBC93B" name="Part Check" typeRef="boolean"/>
+        <dmn:literalExpression id="_771CC9CF-9957-463D-BB39-F51C033E3979">
+          <dmn:text>if inp.GDC_part &gt; inp.min_GDC_part then true else false</dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
+      <dmn:contextEntry>
+        <dmn:variable id="_B42C9FC6-5AEE-4DA3-871A-8D555B1628CD" name="BO_Check" typeRef="boolean"/>
+        <dmn:literalExpression id="_0400FED9-8865-45F5-876D-E2C07B6921A8">
+          <dmn:text>if inp.BO &gt; inp.min_BO then true else false</dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
+      <dmn:contextEntry>
+        <dmn:variable id="_77E57706-9FB0-4A8A-A4D1-36BB4A911D7B" name="GDC Reg Check" typeRef="boolean"/>
+        <dmn:literalExpression id="_38240EBD-353E-4893-9E50-5749916BEAF8">
+          <dmn:text>if inp.type_provider = "Incorporated" and inp.Maj_owner_flag then
+true else false</dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
+      <dmn:contextEntry>
+        <dmn:variable id="_2B747E2E-851D-4DDF-B305-8CB571A2AEB4" name="Check2" typeRef="boolean"/>
+        <dmn:literalExpression id="_AB18F078-F8E6-4B57-8FDF-644E97E2B1DE">
+          <dmn:text>if GDC Reg Check then if inp.GDC reg BO &gt; (inp.BO/2) then true else false
+else ""</dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
+      <dmn:contextEntry>
+        <dmn:decisionTable id="_9CB29F39-6EEF-4841-AB9A-698CE539D9B0" hitPolicy="UNIQUE" preferredOrientation="Rule-as-Row">
+          <dmn:input id="_94CFE4E9-3928-43A0-8CFF-F0B8ED0A0C20">
+            <dmn:inputExpression id="_6797A575-7238-42AF-A003-F86B6190BA5E" typeRef="boolean">
+              <dmn:text>Part Check</dmn:text>
+            </dmn:inputExpression>
+          </dmn:input>
+          <dmn:input id="_349DFCE0-EB03-4100-B9A6-86D1C8A06E16">
+            <dmn:inputExpression id="_648A8C72-A32A-4CED-B482-221E6D312096" typeRef="boolean">
+              <dmn:text>BO_Check</dmn:text>
+            </dmn:inputExpression>
+          </dmn:input>
+          <dmn:input id="_DFADCC59-53BD-4E9E-B4D6-01CEE18F2219">
+            <dmn:inputExpression id="_8E873819-55AA-4589-A176-B093A6CE2A96" typeRef="boolean">
+              <dmn:text>Check2</dmn:text>
+            </dmn:inputExpression>
+          </dmn:input>
+          <dmn:output id="_A8EAF7A3-9299-4749-8752-CEB33846BF35"/>
+          <dmn:annotation name="annotation-1"/>
+          <dmn:rule id="_A3161B6C-802C-44FF-885D-9B1DB08E6FF1">
+            <dmn:inputEntry id="_71D599B6-D786-4BB4-8E41-2C197CC113DD">
+              <dmn:text>true</dmn:text>
+            </dmn:inputEntry>
+            <dmn:inputEntry id="_975B1450-C771-48FD-AA76-5A88FCADDD90">
+              <dmn:text>-</dmn:text>
+            </dmn:inputEntry>
+            <dmn:inputEntry id="_85518F86-389B-44A0-AC0D-EB3C2E2DD544">
+              <dmn:text>-</dmn:text>
+            </dmn:inputEntry>
+            <dmn:outputEntry id="_430363D5-0A4C-44E0-876F-E47B53689E62">
+              <dmn:text>"Participant CHeck is successful"</dmn:text>
+            </dmn:outputEntry>
+            <dmn:annotationEntry>
+              <dmn:text/>
+            </dmn:annotationEntry>
+          </dmn:rule>
+          <dmn:rule id="_0666EAA8-34C4-4B1B-B641-0387D736AE75">
+            <dmn:inputEntry id="_58DB1BA6-F6C7-442B-AA1A-6B4680123831">
+              <dmn:text>-</dmn:text>
+            </dmn:inputEntry>
+            <dmn:inputEntry id="_FB5FC35B-9092-46E0-84BC-62CEA8EA80D0">
+              <dmn:text>true</dmn:text>
+            </dmn:inputEntry>
+            <dmn:inputEntry id="_98F00957-B1D6-4EE7-90EF-D5BF08BB5F25">
+              <dmn:text>-</dmn:text>
+            </dmn:inputEntry>
+            <dmn:outputEntry id="_87D1F3C4-DE9B-4651-BCD9-4410212181D0">
+              <dmn:text>"Business Owner CHeck is successful"</dmn:text>
+            </dmn:outputEntry>
+            <dmn:annotationEntry>
+              <dmn:text/>
+            </dmn:annotationEntry>
+          </dmn:rule>
+          <dmn:rule id="_65F6E927-F23C-49C1-AFF9-23AEBD908DEA">
+            <dmn:inputEntry id="_8BE2CFDE-D813-4A89-A426-A79DE578EAF4">
+              <dmn:text>-</dmn:text>
+            </dmn:inputEntry>
+            <dmn:inputEntry id="_3C7C2847-8B2F-47C7-94CE-541BF7D8CBCB">
+              <dmn:text>-</dmn:text>
+            </dmn:inputEntry>
+            <dmn:inputEntry id="_23581119-6301-481D-A021-13CAA2EBB957">
+              <dmn:text>true</dmn:text>
+            </dmn:inputEntry>
+            <dmn:outputEntry id="_3F2AC1B9-268D-4A81-B9FA-97F45C5CD836">
+              <dmn:text>"GDC registered check is successful"</dmn:text>
+            </dmn:outputEntry>
+            <dmn:annotationEntry>
+              <dmn:text/>
+            </dmn:annotationEntry>
+          </dmn:rule>
+          <dmn:rule id="_EAC0B1F7-18B0-4CE3-81BF-266B173D429D">
+            <dmn:inputEntry id="_650095E6-EF80-4D0D-9246-0E87B8BC60CE">
+              <dmn:text>false</dmn:text>
+            </dmn:inputEntry>
+            <dmn:inputEntry id="_91329672-458B-46E2-BFC1-960E1C1B2C57">
+              <dmn:text>-</dmn:text>
+            </dmn:inputEntry>
+            <dmn:inputEntry id="_AF330CCD-7BAC-47E7-8D5C-BE60E288EA41">
+              <dmn:text>-</dmn:text>
+            </dmn:inputEntry>
+            <dmn:outputEntry id="_A8C9A903-6585-41B9-9E9E-3F7D9E858719">
+              <dmn:text>"Participant CHeck is unsuccessful"</dmn:text>
+            </dmn:outputEntry>
+            <dmn:annotationEntry>
+              <dmn:text/>
+            </dmn:annotationEntry>
+          </dmn:rule>
+          <dmn:rule id="_51FF92B5-6603-4030-B0C4-25F1C0590FDB">
+            <dmn:inputEntry id="_05FBA5BF-54EE-484B-83A1-04840222F499">
+              <dmn:text>-</dmn:text>
+            </dmn:inputEntry>
+            <dmn:inputEntry id="_67591E9C-3FF9-42F7-8C21-B5F4675AECCB">
+              <dmn:text>false</dmn:text>
+            </dmn:inputEntry>
+            <dmn:inputEntry id="_E152010D-0094-491A-8C58-CFDDF606471A">
+              <dmn:text>-</dmn:text>
+            </dmn:inputEntry>
+            <dmn:outputEntry id="_A6C66E9B-5839-4D53-8CD5-B15B34167BBB">
+              <dmn:text>"Business Owner CHeck is unsuccessful"</dmn:text>
+            </dmn:outputEntry>
+            <dmn:annotationEntry>
+              <dmn:text/>
+            </dmn:annotationEntry>
+          </dmn:rule>
+          <dmn:rule id="_FF32F470-E4C0-4D75-AD5C-7701C8F72ACD">
+            <dmn:inputEntry id="_9457F7AC-58F8-4CA8-BF22-22E426DDDE6B">
+              <dmn:text>-</dmn:text>
+            </dmn:inputEntry>
+            <dmn:inputEntry id="_4861458C-DE59-4BFD-A853-26BEB1889BA2">
+              <dmn:text>-</dmn:text>
+            </dmn:inputEntry>
+            <dmn:inputEntry id="_160482CF-5712-48B9-9791-E4154C316DB1">
+              <dmn:text>false</dmn:text>
+            </dmn:inputEntry>
+            <dmn:outputEntry id="_442DD23B-00B5-4E49-B13C-EC32F6C7F17A">
+              <dmn:text>"Warning : GDC registered check is unsuccessful"</dmn:text>
+            </dmn:outputEntry>
+            <dmn:annotationEntry>
+              <dmn:text/>
+            </dmn:annotationEntry>
+          </dmn:rule>
+        </dmn:decisionTable>
+      </dmn:contextEntry>
+    </dmn:context>
+  </dmn:decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="_E5C126F0-9611-4450-8C1B-F1C4C9CFD18F" name="DRG">
+      <di:extension>
+        <kie:ComponentsWidthsExtension>
+          <kie:ComponentWidths dmnElementRef="_B714B0ED-F9BD-41C2-875F-68D69851F689">
+            <kie:width>50</kie:width>
+            <kie:width>120</kie:width>
+            <kie:width>1005</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_771CC9CF-9957-463D-BB39-F51C033E3979">
+            <kie:width>1005</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_0400FED9-8865-45F5-876D-E2C07B6921A8">
+            <kie:width>1005</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_38240EBD-353E-4893-9E50-5749916BEAF8">
+            <kie:width>1005</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_AB18F078-F8E6-4B57-8FDF-644E97E2B1DE">
+            <kie:width>1005</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_9CB29F39-6EEF-4841-AB9A-698CE539D9B0">
+            <kie:width>50</kie:width>
+            <kie:width>100</kie:width>
+            <kie:width>100</kie:width>
+            <kie:width>100</kie:width>
+            <kie:width>465</kie:width>
+            <kie:width>170</kie:width>
+          </kie:ComponentWidths>
+        </kie:ComponentsWidthsExtension>
+      </di:extension>
+      <dmndi:DMNShape id="dmnshape-drg-_A221B859-D58F-4408-8A93-D1EC82F47248" dmnElementRef="_A221B859-D58F-4408-8A93-D1EC82F47248" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="602" y="411" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_C789CF52-FC7E-452D-86C7-FB00A10DBF93" dmnElementRef="_C789CF52-FC7E-452D-86C7-FB00A10DBF93" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="603" y="244" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="dmnedge-drg-_9378F02E-B2AF-47B6-B854-C9335146E777" dmnElementRef="_9378F02E-B2AF-47B6-B854-C9335146E777">
+        <di:waypoint x="652" y="436"/>
+        <di:waypoint x="653" y="269"/>
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</dmn:definitions>
