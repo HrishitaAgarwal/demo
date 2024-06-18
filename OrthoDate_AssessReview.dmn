@@ -44,19 +44,19 @@
       <dmn:typeRef>Ortho_reform_start_date</dmn:typeRef>
     </dmn:itemComponent>
   </dmn:itemDefinition>
-  <dmn:inputData id="_39123A4A-DBFE-4689-97AD-02184A299D0F" name="act">
-    <dmn:extensionElements/>
-    <dmn:variable id="_509559D6-985F-4A13-9691-7FB5B1DD4079" name="act" typeRef="ortho_review"/>
-  </dmn:inputData>
   <dmn:decisionService id="_36B78A1B-80A1-45B2-B694-B4822529655E" name="DS1Orthodatecheck_AssessandReview">
     <dmn:extensionElements/>
-    <dmn:variable id="_91F87514-AFEB-4F89-B41A-A5EA0B410C51" name="DS1Orthodatecheck_AssessandReview"/>
+    <dmn:variable id="_91F87514-AFEB-4F89-B41A-A5EA0B410C51" name="DS1Orthodatecheck_AssessandReview" typeRef="Any"/>
     <dmn:outputDecision href="#_7B373258-DEE8-445F-8D9B-2E5EAA88F699"/>
     <dmn:encapsulatedDecision href="#_B3F906E7-048C-408B-B552-ED0B414611CC"/>
     <dmn:encapsulatedDecision href="#_B8761A13-FD2C-4A10-BD45-F510C00B0001"/>
     <dmn:encapsulatedDecision href="#_5503BF7B-363D-4B4C-9E6C-EDA33227BED2"/>
     <dmn:inputData href="#_39123A4A-DBFE-4689-97AD-02184A299D0F"/>
   </dmn:decisionService>
+  <dmn:inputData id="_39123A4A-DBFE-4689-97AD-02184A299D0F" name="act">
+    <dmn:extensionElements/>
+    <dmn:variable id="_509559D6-985F-4A13-9691-7FB5B1DD4079" name="act" typeRef="ortho_review"/>
+  </dmn:inputData>
   <dmn:decision id="_7B373258-DEE8-445F-8D9B-2E5EAA88F699" name="OrthoDateCheck">
     <dmn:extensionElements/>
     <dmn:variable id="_954D997B-C6A5-4832-84F4-214D20BDC0FC" name="OrthoDateCheck" typeRef="Any"/>
@@ -79,17 +79,17 @@
         </dmn:inputExpression>
       </dmn:input>
       <dmn:input id="_17D0B19C-2A7D-4E55-A6CA-34C48DE25067">
-        <dmn:inputExpression typeRef="date">
+        <dmn:inputExpression id="_F06CE911-BCEF-4CF8-A997-59B0DE617E6D" typeRef="date">
           <dmn:text>act.activity.referral_date</dmn:text>
         </dmn:inputExpression>
       </dmn:input>
       <dmn:input id="_38C73207-B476-4811-9173-E99DF55C5C20">
-        <dmn:inputExpression typeRef="boolean">
+        <dmn:inputExpression id="_673917A3-8E92-48DB-9FC5-60A30EF99FF9" typeRef="boolean">
           <dmn:text>treatment data</dmn:text>
         </dmn:inputExpression>
       </dmn:input>
       <dmn:input id="_3C682143-AEC2-4711-954B-20EEF5A16E8E">
-        <dmn:inputExpression typeRef="date">
+        <dmn:inputExpression id="_A82E3FE9-3DC7-43C4-AE82-A5E83D5E2B4D" typeRef="date">
           <dmn:text>Assess Date</dmn:text>
         </dmn:inputExpression>
       </dmn:input>
@@ -256,15 +256,6 @@
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
-      <dmndi:DMNShape id="dmnshape-drg-_39123A4A-DBFE-4689-97AD-02184A299D0F" dmnElementRef="_39123A4A-DBFE-4689-97AD-02184A299D0F" isCollapsed="false">
-        <dmndi:DMNStyle>
-          <dmndi:FillColor red="255" green="255" blue="255"/>
-          <dmndi:StrokeColor red="0" green="0" blue="0"/>
-          <dmndi:FontColor red="0" green="0" blue="0"/>
-        </dmndi:DMNStyle>
-        <dc:Bounds x="862" y="512" width="100" height="50"/>
-        <dmndi:DMNLabel/>
-      </dmndi:DMNShape>
       <dmndi:DMNShape id="dmnshape-drg-_36B78A1B-80A1-45B2-B694-B4822529655E" dmnElementRef="_36B78A1B-80A1-45B2-B694-B4822529655E" isCollapsed="false">
         <dmndi:DMNStyle>
           <dmndi:FillColor red="255" green="255" blue="255"/>
@@ -277,6 +268,15 @@
           <di:waypoint x="687" y="282"/>
           <di:waypoint x="1327" y="282"/>
         </dmndi:DMNDecisionServiceDividerLine>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_39123A4A-DBFE-4689-97AD-02184A299D0F" dmnElementRef="_39123A4A-DBFE-4689-97AD-02184A299D0F" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="862" y="512" width="100" height="50"/>
+        <dmndi:DMNLabel/>
       </dmndi:DMNShape>
       <dmndi:DMNShape id="dmnshape-drg-_7B373258-DEE8-445F-8D9B-2E5EAA88F699" dmnElementRef="_7B373258-DEE8-445F-8D9B-2E5EAA88F699" isCollapsed="false">
         <dmndi:DMNStyle>
