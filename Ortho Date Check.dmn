@@ -20,7 +20,7 @@
       </dmn:contextEntry>
       <dmn:contextEntry>
         <dmn:literalExpression id="_06102C3E-CAB6-4627-BA46-BA098858F79B">
-          <dmn:text>(AR(inp))</dmn:text>
+          <dmn:text>AR(inp)</dmn:text>
         </dmn:literalExpression>
       </dmn:contextEntry>
     </dmn:context>

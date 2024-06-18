@@ -44,6 +44,14 @@
       <dmn:typeRef>Ortho_reform_start_date</dmn:typeRef>
     </dmn:itemComponent>
   </dmn:itemDefinition>
+  <dmn:itemDefinition id="_25DDAD96-ACD5-47EE-B56F-E6E04C010544" name="Output" isCollection="true">
+    <dmn:itemComponent id="_1C09D2E2-470A-401F-B120-3926283C9B0E" name="dt" isCollection="false">
+      <dmn:typeRef>date</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_9262A759-9DFE-407D-B2B7-C49F4AF8441F" name="num" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+  </dmn:itemDefinition>
   <dmn:decisionService id="_36B78A1B-80A1-45B2-B694-B4822529655E" name="DS1Orthodatecheck_AssessandReview">
     <dmn:extensionElements/>
     <dmn:variable id="_91F87514-AFEB-4F89-B41A-A5EA0B410C51" name="DS1Orthodatecheck_AssessandReview" typeRef="Any"/>
@@ -59,7 +67,7 @@
   </dmn:inputData>
   <dmn:decision id="_7B373258-DEE8-445F-8D9B-2E5EAA88F699" name="OrthoDateCheck">
     <dmn:extensionElements/>
-    <dmn:variable id="_954D997B-C6A5-4832-84F4-214D20BDC0FC" name="OrthoDateCheck" typeRef="Any"/>
+    <dmn:variable id="_954D997B-C6A5-4832-84F4-214D20BDC0FC" name="OrthoDateCheck" typeRef="Output"/>
     <dmn:informationRequirement id="_32358AAC-DAC2-4B95-8164-31AF7BCD9DCE">
       <dmn:requiredDecision href="#_B8761A13-FD2C-4A10-BD45-F510C00B0001"/>
     </dmn:informationRequirement>
