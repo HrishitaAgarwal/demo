@@ -93,11 +93,6 @@
           <dmn:text>Assess Date</dmn:text>
         </dmn:inputExpression>
       </dmn:input>
-      <dmn:input id="_35CF7C92-4FD5-4C2A-8679-56DD20EA0FDF">
-        <dmn:inputExpression id="_36029289-DC4A-428C-9AFC-D30F6A4452FA" typeRef="Ortho_reform_start_date">
-          <dmn:text>act.reform_date</dmn:text>
-        </dmn:inputExpression>
-      </dmn:input>
       <dmn:output id="_90A0A21E-1CF4-4DB3-ACD1-4125FC791A62" name="Assessment_Date" typeRef="date"/>
       <dmn:output id="_0A4CC100-E135-4ED6-A428-0FCFB3F3BE8B" name="Error Code" typeRef="number"/>
       <dmn:annotation name="annotation-1"/>
@@ -112,9 +107,6 @@
           <dmn:text>false</dmn:text>
         </dmn:inputEntry>
         <dmn:inputEntry id="_B5011D1E-4EA4-4D15-BC99-3CD9FF6780B9">
-          <dmn:text>-</dmn:text>
-        </dmn:inputEntry>
-        <dmn:inputEntry id="_AE4D8255-8FC0-4645-8DF2-925AC89B6146">
           <dmn:text>-</dmn:text>
         </dmn:inputEntry>
         <dmn:outputEntry id="_1184B71B-97C5-4B06-B55B-C5AC72C5A9B5">
@@ -139,9 +131,6 @@
         </dmn:inputEntry>
         <dmn:inputEntry id="_B1DD0D77-9EF0-4D19-BD63-D7A0D65BA248">
           <dmn:text>&gt; act.reform_date</dmn:text>
-        </dmn:inputEntry>
-        <dmn:inputEntry id="_240F015C-3474-4736-ABDE-2A656C91F82B">
-          <dmn:text>-</dmn:text>
         </dmn:inputEntry>
         <dmn:outputEntry id="_EB6EB078-2B91-4D2D-AB21-8F1E8DDADB3B">
           <dmn:text>Assess Date</dmn:text>
@@ -221,7 +210,6 @@
             <kie:width>196</kie:width>
             <kie:width>461</kie:width>
             <kie:width>325</kie:width>
-            <kie:width>231</kie:width>
             <kie:width>198</kie:width>
             <kie:width>121</kie:width>
             <kie:width>100</kie:width>
