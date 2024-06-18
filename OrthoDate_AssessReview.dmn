@@ -54,7 +54,7 @@
   </dmn:itemDefinition>
   <dmn:decisionService id="_36B78A1B-80A1-45B2-B694-B4822529655E" name="DS1Orthodatecheck_AssessandReview">
     <dmn:extensionElements/>
-    <dmn:variable id="_91F87514-AFEB-4F89-B41A-A5EA0B410C51" name="DS1Orthodatecheck_AssessandReview" typeRef="Any"/>
+    <dmn:variable id="_91F87514-AFEB-4F89-B41A-A5EA0B410C51" name="DS1Orthodatecheck_AssessandReview" typeRef="Output"/>
     <dmn:outputDecision href="#_7B373258-DEE8-445F-8D9B-2E5EAA88F699"/>
     <dmn:encapsulatedDecision href="#_B3F906E7-048C-408B-B552-ED0B414611CC"/>
     <dmn:encapsulatedDecision href="#_B8761A13-FD2C-4A10-BD45-F510C00B0001"/>
