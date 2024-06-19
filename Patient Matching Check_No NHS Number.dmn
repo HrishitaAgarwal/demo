@@ -77,7 +77,7 @@
       <dmn:contextEntry>
         <dmn:variable id="_38D4DA14-2F1F-434E-8C9E-0509594EA509" name="Match1" typeRef="Patient"/>
         <dmn:literalExpression id="_8CAE1F8E-C385-4B29-8B68-9FA2ACA97B81">
-          <dmn:text>pL[sex = p.sex and forename = p.name and surname = p.surname and contractid = p.contract_id and LKpostcode = p.LK_postcode and date(dob) = date(p.dob)]</dmn:text>
+          <dmn:text>pL[sex = p.sex and forename = p.name and (surname = p.surname or prev_surname = p.surname) and contractid = p.contract_id and LKpostcode = p.LK_postcode and date(dob) = date(p.dob)]</dmn:text>
         </dmn:literalExpression>
       </dmn:contextEntry>
       <dmn:contextEntry>
