@@ -186,8 +186,14 @@
         </dmn:literalExpression>
       </dmn:contextEntry>
       <dmn:contextEntry>
-        <dmn:variable id="_DC267150-3809-40E9-A1FF-76C3CA689144" name="ContextEntry-12"/>
+        <dmn:variable id="_DC267150-3809-40E9-A1FF-76C3CA689144" name="Op10" typeRef="number"/>
         <dmn:literalExpression id="_551DEE10-9C0D-4C85-88ED-FB7E69AA3DED">
+          <dmn:text>for x in Op8 return (for y in Op8.treatment_details return BKM_2(x,y))</dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
+      <dmn:contextEntry>
+        <dmn:variable id="_0BB819F8-DAE2-4E6D-9172-B6C496F5807B" name="Op11"/>
+        <dmn:literalExpression id="_C88696DB-076E-435A-9009-C029BA9C22B3">
           <dmn:text/>
         </dmn:literalExpression>
       </dmn:contextEntry>
@@ -261,6 +267,9 @@
             <kie:width>942</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_551DEE10-9C0D-4C85-88ED-FB7E69AA3DED">
+            <kie:width>942</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_C88696DB-076E-435A-9009-C029BA9C22B3">
             <kie:width>942</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_B055B963-8A69-4201-929D-E0F38B995653">
