@@ -60,14 +60,14 @@
     <dmn:itemComponent id="_5FBAA48D-061B-4545-AE60-50CD4B550E3B" name="pract_id" isCollection="false">
       <dmn:typeRef>number</dmn:typeRef>
     </dmn:itemComponent>
+    <dmn:itemComponent id="_09F1623E-B321-49FA-9BA9-F3DC4404B891" name="band" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
     <dmn:itemComponent id="_E4ACB99E-74FF-4A86-80AF-54AEA81B27FC" name="treatment_details" isCollection="true">
       <dmn:itemComponent id="_21B66960-882A-42EB-88CD-E2B9706A7420" name="code" isCollection="false">
         <dmn:typeRef>number</dmn:typeRef>
       </dmn:itemComponent>
-      <dmn:itemComponent id="_8B035732-3005-4819-BE65-6CA31402A509" name="Ins" isCollection="false">
-        <dmn:typeRef>number</dmn:typeRef>
-      </dmn:itemComponent>
-      <dmn:itemComponent id="_631A7271-BA49-4F2B-B503-67C4E1D05347" name="band" isCollection="false">
+      <dmn:itemComponent id="_01C422A8-F2EF-469F-85D1-0022832A5D16" name="ins" isCollection="false">
         <dmn:typeRef>number</dmn:typeRef>
       </dmn:itemComponent>
     </dmn:itemComponent>
@@ -182,7 +182,7 @@
       <dmn:contextEntry>
         <dmn:variable id="_C3DB6862-FA50-46AA-9AAA-C39466AAA2E6" name="Op9" typeRef="Any"/>
         <dmn:literalExpression id="_87073BA0-7E06-49FF-89A2-C8DE754FC188">
-          <dmn:text>for x element in Op8.treatment_details return BKM_2(x element)</dmn:text>
+          <dmn:text>for x element in Op8 return x element.treatment_details[code = 9172]</dmn:text>
         </dmn:literalExpression>
       </dmn:contextEntry>
       <dmn:contextEntry>
