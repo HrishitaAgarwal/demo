@@ -188,7 +188,7 @@
       <dmn:contextEntry>
         <dmn:variable id="_DC267150-3809-40E9-A1FF-76C3CA689144" name="Op10" typeRef="number"/>
         <dmn:literalExpression id="_551DEE10-9C0D-4C85-88ED-FB7E69AA3DED">
-          <dmn:text>for x in Op8 return (for y in Op8.treatment_details return BKM_2(x,y))</dmn:text>
+          <dmn:text>for x in Op8 return (for y in Op8.treatment_details return BKM_2(x.accept_date,y))</dmn:text>
         </dmn:literalExpression>
       </dmn:contextEntry>
       <dmn:contextEntry>
