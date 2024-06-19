@@ -98,6 +98,11 @@
           <dmn:text>if count(Match2) &gt; 0 then true else false</dmn:text>
         </dmn:literalExpression>
       </dmn:contextEntry>
+      <dmn:contextEntry>
+        <dmn:literalExpression id="_D043A626-F228-4D30-8929-DE21F8540AD3">
+          <dmn:text>if CheckMatch1 or CheckMatch2 then true else false</dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
     </dmn:context>
   </dmn:decision>
   <dmndi:DMNDI>
@@ -119,6 +124,9 @@
             <kie:width>1117</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_66D52B70-DE4C-418A-893D-72A30926B300">
+            <kie:width>1117</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_D043A626-F228-4D30-8929-DE21F8540AD3">
             <kie:width>1117</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
