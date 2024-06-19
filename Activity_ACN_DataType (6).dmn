@@ -92,9 +92,6 @@
     <dmn:itemComponent id="_16B4F71F-3CC3-4645-B3B3-B32A5751D037" name="code" isCollection="false">
       <dmn:typeRef>number</dmn:typeRef>
     </dmn:itemComponent>
-    <dmn:itemComponent id="_478AC558-3367-4612-9335-6382A367B96C" name="band" isCollection="false">
-      <dmn:typeRef>number</dmn:typeRef>
-    </dmn:itemComponent>
     <dmn:itemComponent id="_C97FAED1-8534-4BA4-9E84-C703E9E16979" name="Ins" isCollection="false">
       <dmn:typeRef>number</dmn:typeRef>
     </dmn:itemComponent>
@@ -174,7 +171,7 @@
         </dmn:literalExpression>
       </dmn:contextEntry>
       <dmn:contextEntry>
-        <dmn:variable id="_E974D086-1082-44C6-A37D-F2FD3BC10B65" name="Op8" typeRef="Any"/>
+        <dmn:variable id="_E974D086-1082-44C6-A37D-F2FD3BC10B65" name="Op8" typeRef="Activity_history"/>
         <dmn:literalExpression id="_CA07967C-D470-40D5-924D-8E55D3F45D3F">
           <dmn:text>Op7[some x in treatment_details.code satisfies x in [9172]]</dmn:text>
         </dmn:literalExpression>
@@ -186,15 +183,21 @@
         </dmn:literalExpression>
       </dmn:contextEntry>
       <dmn:contextEntry>
-        <dmn:variable id="_DC267150-3809-40E9-A1FF-76C3CA689144" name="Op10" typeRef="number"/>
+        <dmn:variable id="_DC267150-3809-40E9-A1FF-76C3CA689144" name="Op10" typeRef="Any"/>
         <dmn:literalExpression id="_551DEE10-9C0D-4C85-88ED-FB7E69AA3DED">
-          <dmn:text>for x in Op8 return (for y in Op8.treatment_details return BKM_2(x.accept_date,y))</dmn:text>
+          <dmn:text>for x in Op8 return (for y in x.treatment_details return BKM_2(x,y))</dmn:text>
         </dmn:literalExpression>
       </dmn:contextEntry>
       <dmn:contextEntry>
-        <dmn:variable id="_0BB819F8-DAE2-4E6D-9172-B6C496F5807B" name="Op11"/>
-        <dmn:literalExpression id="_C88696DB-076E-435A-9009-C029BA9C22B3">
-          <dmn:text/>
+        <dmn:variable id="_4C5051F0-7084-4D29-8906-DD843E5ADB25" name="Op11" typeRef="Any"/>
+        <dmn:literalExpression id="_4AE5459B-7121-462C-98DF-F9BFA1409239">
+          <dmn:text>for x in Op10 return any(x)</dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
+      <dmn:contextEntry>
+        <dmn:variable id="_CC48861D-AC69-457D-83E4-2C142FA0EFC4" name="Recall" typeRef="boolean"/>
+        <dmn:literalExpression id="_9C514D3A-561A-47EE-BDF8-BF51165EE981">
+          <dmn:text>any(Op11)</dmn:text>
         </dmn:literalExpression>
       </dmn:contextEntry>
     </dmn:context>
@@ -218,9 +221,11 @@
     <dmn:extensionElements/>
     <dmn:variable id="_589FA2CC-C1E5-4D52-B581-3F354ED9971E" name="BKM_2" typeRef="number"/>
     <dmn:encapsulatedLogic id="_8725CF78-FEFE-4911-9127-A856147E9B7A" kind="FEEL">
-      <dmn:formalParameter id="_CEED7823-A38D-49D4-BDCF-98E7C3826D17" name="t" typeRef="treat"/>
+      <dmn:formalParameter id="_CEED7823-A38D-49D4-BDCF-98E7C3826D17" name="d" typeRef="Activity_history"/>
+      <dmn:formalParameter id="_AA232AE5-363A-4DBF-A5B3-CE255F3E0B4A" name="t" typeRef="treat"/>
       <dmn:literalExpression id="_30797571-25D1-4AB2-A874-0CF0CC57D692">
-        <dmn:text>if t.code = 9172 then t.Ins else ""</dmn:text>
+        <dmn:text>if t.code = 9172 then 
+if ((years and months duration(d.comp_date, d.accept_date)).months &lt; t.ins then true else false) else false</dmn:text>
       </dmn:literalExpression>
     </dmn:encapsulatedLogic>
   </dmn:businessKnowledgeModel>
@@ -269,7 +274,10 @@
           <kie:ComponentWidths dmnElementRef="_551DEE10-9C0D-4C85-88ED-FB7E69AA3DED">
             <kie:width>942</kie:width>
           </kie:ComponentWidths>
-          <kie:ComponentWidths dmnElementRef="_C88696DB-076E-435A-9009-C029BA9C22B3">
+          <kie:ComponentWidths dmnElementRef="_4AE5459B-7121-462C-98DF-F9BFA1409239">
+            <kie:width>942</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_9C514D3A-561A-47EE-BDF8-BF51165EE981">
             <kie:width>942</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_B055B963-8A69-4201-929D-E0F38B995653">
@@ -280,11 +288,11 @@
             <kie:width>550</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_30797571-25D1-4AB2-A874-0CF0CC57D692">
-            <kie:width>474</kie:width>
+            <kie:width>817</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_8725CF78-FEFE-4911-9127-A856147E9B7A">
             <kie:width>50</kie:width>
-            <kie:width>474</kie:width>
+            <kie:width>817</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
