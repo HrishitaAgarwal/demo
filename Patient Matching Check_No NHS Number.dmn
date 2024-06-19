@@ -26,6 +26,9 @@
     <dmn:itemComponent id="_92A63A53-049F-40BF-BECC-A13D93495270" name="prev_surname" isCollection="false">
       <dmn:typeRef>string</dmn:typeRef>
     </dmn:itemComponent>
+    <dmn:itemComponent id="_B5F81804-C771-42EA-8EDB-8A0A3DD61E02" name="LKcontract" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
   </dmn:itemDefinition>
   <dmn:itemDefinition id="_38DF4BEF-AA8F-4653-9B2D-BE304AA0D19F" name="Patient" isCollection="false">
     <dmn:itemComponent id="_6D48BBCE-A7C3-4AA4-B332-3460433FE12F" name="name" isCollection="false">
@@ -83,6 +86,18 @@
           <dmn:text>if count(Match1) &gt; 0 then true else false</dmn:text>
         </dmn:literalExpression>
       </dmn:contextEntry>
+      <dmn:contextEntry>
+        <dmn:variable id="_7F922ACC-8FF5-4550-9195-65AE083304C3" name="Match2" typeRef="Patient"/>
+        <dmn:literalExpression id="_06F809E7-611B-406B-8A30-6A30392647A2">
+          <dmn:text>pL[sex = p.sex and forename = p.name and surname = p.surname and LKcontract = p.contract_id and postcode = p.postcode and date(dob) = date(p.dob)]</dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
+      <dmn:contextEntry>
+        <dmn:variable id="_8175D7B5-741D-4555-9B9A-A94111C28DAD" name="CheckMatch2" typeRef="boolean"/>
+        <dmn:literalExpression id="_66D52B70-DE4C-418A-893D-72A30926B300">
+          <dmn:text>if count(Match2) &gt; 0 then true else false</dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
     </dmn:context>
   </dmn:decision>
   <dmndi:DMNDI>
@@ -98,6 +113,12 @@
             <kie:width>1117</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_34C9EC6B-AFB1-40D0-8EE2-03DD54317DC1">
+            <kie:width>1117</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_06F809E7-611B-406B-8A30-6A30392647A2">
+            <kie:width>1117</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_66D52B70-DE4C-418A-893D-72A30926B300">
             <kie:width>1117</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
