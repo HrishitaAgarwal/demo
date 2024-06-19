@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dmn:definitions xmlns:dmn="http://www.omg.org/spec/DMN/20180521/MODEL/" xmlns="https://kiegroup.org/dmn/_55CA6BFC-865C-475E-BC1C-80879261C1E6" xmlns:feel="http://www.omg.org/spec/DMN/20180521/FEEL/" xmlns:kie="http://www.drools.org/kie/dmn/1.2" xmlns:dmndi="http://www.omg.org/spec/DMN/20180521/DMNDI/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" id="_640CDE87-24ED-4EED-B527-8144C7551867" name="Patient Matching Check_No NHS Number" typeLanguage="http://www.omg.org/spec/DMN/20180521/FEEL/" namespace="https://kiegroup.org/dmn/_55CA6BFC-865C-475E-BC1C-80879261C1E6">
+  <dmn:extensionElements/>
+  <dmn:itemDefinition id="_0F1CFC85-24DF-487B-949E-AEECD0F77976" name="Patient_List" isCollection="true">
+    <dmn:itemComponent id="_7B29A950-7309-400E-9CC3-E4B3A4C0F02D" name="forename" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_2639583A-3529-4D45-A439-C2E6278578D5" name="surname" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_9DA105D8-4104-4816-8EA1-BEBB54D9AACD" name="sex" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_9821D90D-0263-4794-951A-B9ADB8F2C6A5" name="dob" isCollection="false">
+      <dmn:typeRef>date</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_B5D11444-BD05-4D69-9B98-1A807C079127" name="LKpostcode" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_AD828AD8-F3B4-4B0D-8D26-D53A7DA0CB8D" name="contractid" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_D549BA81-3A93-4E82-8ADE-B2736D7A1E11" name="postcode" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_92A63A53-049F-40BF-BECC-A13D93495270" name="prev_surname" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+  </dmn:itemDefinition>
+  <dmn:itemDefinition id="_38DF4BEF-AA8F-4653-9B2D-BE304AA0D19F" name="Patient" isCollection="false">
+    <dmn:itemComponent id="_6D48BBCE-A7C3-4AA4-B332-3460433FE12F" name="name" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_B13FBC93-A08A-4422-B823-C749C1DB81AB" name="surname" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_56AE06F8-EC45-4FAE-9995-1A9888B03CCA" name="sex" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_5B87C735-5AF7-4699-9293-ED8D29E052F6" name="dob" isCollection="false">
+      <dmn:typeRef>date</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_4E0F5917-BA45-4F36-A9B0-A6BCF4CCBBFB" name="LK_postcode" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_705C1312-087A-4826-B801-45051C5E4222" name="postcode" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_3D743FE5-7C1A-42F1-BBD3-D4E1E83B0724" name="contract_id" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_D7E986C7-7F5E-448E-BFCD-CB2C34941162" name="prev_surname" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+  </dmn:itemDefinition>
+  <dmn:inputData id="_A3456C37-E771-43FB-8024-1544E3DF7C9A" name="pL">
+    <dmn:extensionElements/>
+    <dmn:variable id="_EDB6189A-0112-4BD4-847E-0F7F408FE560" name="pL"/>
+  </dmn:inputData>
+  <dmn:inputData id="_6D7BF51C-E1C7-40FF-81B1-E44AF8FB7849" name="p">
+    <dmn:extensionElements/>
+    <dmn:variable id="_BA414C9F-3D26-4B53-B790-1CC898E47655" name="p"/>
+  </dmn:inputData>
+  <dmn:decision id="_75F4D02D-114B-4F44-8C76-67817B15CA57" name="Patient Matching">
+    <dmn:extensionElements/>
+    <dmn:variable id="_0D7AD6C8-5A0B-4B7B-B905-946A654F1474" name="Patient Matching" typeRef="boolean"/>
+    <dmn:informationRequirement id="_90DA5BDF-059E-4FF3-9DC7-F0700D5AACF1">
+      <dmn:requiredInput href="#_A3456C37-E771-43FB-8024-1544E3DF7C9A"/>
+    </dmn:informationRequirement>
+    <dmn:informationRequirement id="_4D96AABC-48F6-4028-8C11-ACDF6D1C31FA">
+      <dmn:requiredInput href="#_6D7BF51C-E1C7-40FF-81B1-E44AF8FB7849"/>
+    </dmn:informationRequirement>
+    <dmn:context id="_08F7AEBF-CF37-4DAC-9800-5CE42A16D98F">
+      <dmn:contextEntry>
+        <dmn:variable id="_38D4DA14-2F1F-434E-8C9E-0509594EA509" name="Match1" typeRef="Any"/>
+        <dmn:literalExpression id="_8CAE1F8E-C385-4B29-8B68-9FA2ACA97B81">
+          <dmn:text>pL[pL.Patient_List.surname</dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
+    </dmn:context>
+  </dmn:decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="_EE1585F7-A3A3-4EE1-A043-0BF1DB58D78E" name="DRG">
+      <di:extension>
+        <kie:ComponentsWidthsExtension>
+          <kie:ComponentWidths dmnElementRef="_08F7AEBF-CF37-4DAC-9800-5CE42A16D98F">
+            <kie:width>50</kie:width>
+            <kie:width>298</kie:width>
+            <kie:width>358</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_8CAE1F8E-C385-4B29-8B68-9FA2ACA97B81">
+            <kie:width>358</kie:width>
+          </kie:ComponentWidths>
+        </kie:ComponentsWidthsExtension>
+      </di:extension>
+      <dmndi:DMNShape id="dmnshape-drg-_A3456C37-E771-43FB-8024-1544E3DF7C9A" dmnElementRef="_A3456C37-E771-43FB-8024-1544E3DF7C9A" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="563" y="402" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_6D7BF51C-E1C7-40FF-81B1-E44AF8FB7849" dmnElementRef="_6D7BF51C-E1C7-40FF-81B1-E44AF8FB7849" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="744" y="402" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_75F4D02D-114B-4F44-8C76-67817B15CA57" dmnElementRef="_75F4D02D-114B-4F44-8C76-67817B15CA57" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="684" y="193" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="dmnedge-drg-_90DA5BDF-059E-4FF3-9DC7-F0700D5AACF1-AUTO-TARGET" dmnElementRef="_90DA5BDF-059E-4FF3-9DC7-F0700D5AACF1">
+        <di:waypoint x="613" y="427"/>
+        <di:waypoint x="734" y="243"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-drg-_4D96AABC-48F6-4028-8C11-ACDF6D1C31FA-AUTO-TARGET" dmnElementRef="_4D96AABC-48F6-4028-8C11-ACDF6D1C31FA">
+        <di:waypoint x="794" y="427"/>
+        <di:waypoint x="734" y="243"/>
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</dmn:definitions>
