@@ -55,26 +55,32 @@
   </dmn:itemDefinition>
   <dmn:inputData id="_A3456C37-E771-43FB-8024-1544E3DF7C9A" name="pL">
     <dmn:extensionElements/>
-    <dmn:variable id="_EDB6189A-0112-4BD4-847E-0F7F408FE560" name="pL"/>
+    <dmn:variable id="_EDB6189A-0112-4BD4-847E-0F7F408FE560" name="pL" typeRef="Patient_List"/>
   </dmn:inputData>
   <dmn:inputData id="_6D7BF51C-E1C7-40FF-81B1-E44AF8FB7849" name="p">
     <dmn:extensionElements/>
-    <dmn:variable id="_BA414C9F-3D26-4B53-B790-1CC898E47655" name="p"/>
+    <dmn:variable id="_BA414C9F-3D26-4B53-B790-1CC898E47655" name="p" typeRef="Patient"/>
   </dmn:inputData>
   <dmn:decision id="_75F4D02D-114B-4F44-8C76-67817B15CA57" name="Patient Matching">
     <dmn:extensionElements/>
     <dmn:variable id="_0D7AD6C8-5A0B-4B7B-B905-946A654F1474" name="Patient Matching" typeRef="boolean"/>
-    <dmn:informationRequirement id="_90DA5BDF-059E-4FF3-9DC7-F0700D5AACF1">
-      <dmn:requiredInput href="#_A3456C37-E771-43FB-8024-1544E3DF7C9A"/>
-    </dmn:informationRequirement>
     <dmn:informationRequirement id="_4D96AABC-48F6-4028-8C11-ACDF6D1C31FA">
       <dmn:requiredInput href="#_6D7BF51C-E1C7-40FF-81B1-E44AF8FB7849"/>
     </dmn:informationRequirement>
+    <dmn:informationRequirement id="_36E6A5BF-2953-4815-970E-4B71B2C7CD07">
+      <dmn:requiredInput href="#_A3456C37-E771-43FB-8024-1544E3DF7C9A"/>
+    </dmn:informationRequirement>
     <dmn:context id="_08F7AEBF-CF37-4DAC-9800-5CE42A16D98F">
       <dmn:contextEntry>
-        <dmn:variable id="_38D4DA14-2F1F-434E-8C9E-0509594EA509" name="Match1" typeRef="Any"/>
+        <dmn:variable id="_38D4DA14-2F1F-434E-8C9E-0509594EA509" name="Match1" typeRef="Patient"/>
         <dmn:literalExpression id="_8CAE1F8E-C385-4B29-8B68-9FA2ACA97B81">
-          <dmn:text>pL[pL.Patient_List.surname</dmn:text>
+          <dmn:text>pL[sex = p.sex and forename = p.name and surname = p.surname and contractid = p.contract_id and LKpostcode = p.LK_postcode and date(dob) = date(p.dob)]</dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
+      <dmn:contextEntry>
+        <dmn:variable id="_918A456D-2E21-4F20-BF2F-C89CD6AB51C9" name="CheckMatch1" typeRef="boolean"/>
+        <dmn:literalExpression id="_34C9EC6B-AFB1-40D0-8EE2-03DD54317DC1">
+          <dmn:text>if count(Match1) &gt; 0 then true else false</dmn:text>
         </dmn:literalExpression>
       </dmn:contextEntry>
     </dmn:context>
@@ -86,10 +92,13 @@
           <kie:ComponentWidths dmnElementRef="_08F7AEBF-CF37-4DAC-9800-5CE42A16D98F">
             <kie:width>50</kie:width>
             <kie:width>298</kie:width>
-            <kie:width>358</kie:width>
+            <kie:width>1117</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_8CAE1F8E-C385-4B29-8B68-9FA2ACA97B81">
-            <kie:width>358</kie:width>
+            <kie:width>1117</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_34C9EC6B-AFB1-40D0-8EE2-03DD54317DC1">
+            <kie:width>1117</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
@@ -120,12 +129,12 @@
         <dc:Bounds x="684" y="193" width="100" height="50"/>
         <dmndi:DMNLabel/>
       </dmndi:DMNShape>
-      <dmndi:DMNEdge id="dmnedge-drg-_90DA5BDF-059E-4FF3-9DC7-F0700D5AACF1-AUTO-TARGET" dmnElementRef="_90DA5BDF-059E-4FF3-9DC7-F0700D5AACF1">
-        <di:waypoint x="613" y="427"/>
-        <di:waypoint x="734" y="243"/>
-      </dmndi:DMNEdge>
       <dmndi:DMNEdge id="dmnedge-drg-_4D96AABC-48F6-4028-8C11-ACDF6D1C31FA-AUTO-TARGET" dmnElementRef="_4D96AABC-48F6-4028-8C11-ACDF6D1C31FA">
         <di:waypoint x="794" y="427"/>
+        <di:waypoint x="734" y="243"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-drg-_36E6A5BF-2953-4815-970E-4B71B2C7CD07-AUTO-TARGET" dmnElementRef="_36E6A5BF-2953-4815-970E-4B71B2C7CD07">
+        <di:waypoint x="613" y="427"/>
         <di:waypoint x="734" y="243"/>
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
