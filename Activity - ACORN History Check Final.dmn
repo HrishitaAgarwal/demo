@@ -212,6 +212,148 @@
           <dmn:text>some x in a.Activity.treatment_details satisfies x.code in [9326, 9327, 9328, 9329, 9330, 9332]</dmn:text>
         </dmn:literalExpression>
       </dmn:contextEntry>
+      <dmn:contextEntry>
+        <dmn:decisionTable id="_1FAF2D72-0DCC-49DA-B871-E1A6AB9AACC1" hitPolicy="UNIQUE" preferredOrientation="Rule-as-Row">
+          <dmn:input id="_45091D5D-5B8F-489D-8B87-B69A077FE17F">
+            <dmn:inputExpression id="_B99152AF-C8D2-403A-9ED5-A0A9CCDA9E34" typeRef="boolean">
+              <dmn:text>Within12 Check</dmn:text>
+            </dmn:inputExpression>
+          </dmn:input>
+          <dmn:input id="_D47580C8-FDF5-4DE1-BF0E-A55B9763E23D">
+            <dmn:inputExpression typeRef="boolean">
+              <dmn:text>Overdue</dmn:text>
+            </dmn:inputExpression>
+          </dmn:input>
+          <dmn:input id="_8C5A73AB-867B-4FF1-B3AB-06DB014EF332">
+            <dmn:inputExpression id="_94E2EE8A-B482-4559-917A-218AE8EF50C2" typeRef="boolean">
+              <dmn:text>Recall</dmn:text>
+            </dmn:inputExpression>
+          </dmn:input>
+          <dmn:input id="_12DC46F6-45D2-42AE-A747-22003002BC08">
+            <dmn:inputExpression typeRef="boolean">
+              <dmn:text>ACORN incoming claim</dmn:text>
+            </dmn:inputExpression>
+          </dmn:input>
+          <dmn:output id="_325E7286-C2CD-468B-A257-275EB9CC7D21" name="Error Code" typeRef="number"/>
+          <dmn:output id="_D2BF0AB2-4E5D-42CA-B51C-1FCD73F46008" name="Comment" typeRef="string"/>
+          <dmn:annotation name="annotation-1"/>
+          <dmn:rule id="_FBD92B65-AF9F-4E59-9F03-B9568FA98031">
+            <dmn:inputEntry id="_BE1DF940-C891-403A-B8CC-E7B636B37924">
+              <dmn:text>true</dmn:text>
+            </dmn:inputEntry>
+            <dmn:inputEntry id="_032FBBBA-9414-402F-B903-D15170A59F69">
+              <dmn:text>-</dmn:text>
+            </dmn:inputEntry>
+            <dmn:inputEntry id="_01AE035D-2767-495A-8F9B-A911587DCCA6">
+              <dmn:text>-</dmn:text>
+            </dmn:inputEntry>
+            <dmn:inputEntry id="_13E1D1B9-B775-4B76-82C4-18E9F5B2CFC3">
+              <dmn:text>-</dmn:text>
+            </dmn:inputEntry>
+            <dmn:outputEntry id="_026453A3-3D72-4072-B5FC-A8D962FF1256">
+              <dmn:text>000</dmn:text>
+            </dmn:outputEntry>
+            <dmn:outputEntry id="_25E112D0-2A79-4D22-89BF-7FE4F13FC34F">
+              <dmn:text>"History record found within 12 months"</dmn:text>
+            </dmn:outputEntry>
+            <dmn:annotationEntry>
+              <dmn:text/>
+            </dmn:annotationEntry>
+          </dmn:rule>
+          <dmn:rule id="_E8E284E7-9E73-4206-A8ED-B5FD7877A869">
+            <dmn:inputEntry id="_56CAD825-D6CD-40C0-AACB-130758298C5C">
+              <dmn:text>false</dmn:text>
+            </dmn:inputEntry>
+            <dmn:inputEntry id="_A31E8F0F-DB94-47C2-96E1-8A239B859805">
+              <dmn:text>-</dmn:text>
+            </dmn:inputEntry>
+            <dmn:inputEntry id="_5E8627C2-BA87-4966-9DA3-501411922F42">
+              <dmn:text>true</dmn:text>
+            </dmn:inputEntry>
+            <dmn:inputEntry id="_6A14E8DE-B6D7-4CA8-8241-D81290ECBDCD">
+              <dmn:text>-</dmn:text>
+            </dmn:inputEntry>
+            <dmn:outputEntry id="_3BCD5CCE-3BBB-4E71-B567-3D5ACAC59134">
+              <dmn:text>000</dmn:text>
+            </dmn:outputEntry>
+            <dmn:outputEntry id="_3C99C3AA-4A65-4904-961F-4F54CF13883A">
+              <dmn:text>"History record found with recall"</dmn:text>
+            </dmn:outputEntry>
+            <dmn:annotationEntry>
+              <dmn:text/>
+            </dmn:annotationEntry>
+          </dmn:rule>
+          <dmn:rule id="_08F82FFA-4294-4045-85C9-F40A4B887C36">
+            <dmn:inputEntry id="_F77733B9-C4B0-482F-B7A6-DAC392C626F0">
+              <dmn:text>false</dmn:text>
+            </dmn:inputEntry>
+            <dmn:inputEntry id="_DDA5FE60-62A4-4CAB-B206-E5779C8BC3CD">
+              <dmn:text>true</dmn:text>
+            </dmn:inputEntry>
+            <dmn:inputEntry id="_339C848D-2386-4902-BA47-B3DC666E6DFF">
+              <dmn:text>false</dmn:text>
+            </dmn:inputEntry>
+            <dmn:inputEntry id="_3AC40255-707B-48ED-9EBF-26429C5FF77F">
+              <dmn:text>-</dmn:text>
+            </dmn:inputEntry>
+            <dmn:outputEntry id="_57BE62D4-FF96-4487-9544-9147ED95E1BA">
+              <dmn:text>275</dmn:text>
+            </dmn:outputEntry>
+            <dmn:outputEntry id="_D751D13A-316F-4BF7-B5DD-CF0D9E3CE416">
+              <dmn:text>"ACORN assessment carried out in incoming activity"</dmn:text>
+            </dmn:outputEntry>
+            <dmn:annotationEntry>
+              <dmn:text/>
+            </dmn:annotationEntry>
+          </dmn:rule>
+          <dmn:rule id="_A8C4748C-DE3A-4032-BBCB-5650CED92087">
+            <dmn:inputEntry id="_AB13162E-FC05-4A18-8475-C027E5620A06">
+              <dmn:text>false</dmn:text>
+            </dmn:inputEntry>
+            <dmn:inputEntry id="_3C8672E2-8A73-4632-A503-9AC164F1CFBD">
+              <dmn:text>false</dmn:text>
+            </dmn:inputEntry>
+            <dmn:inputEntry id="_D4A690A5-5EC7-458B-A02A-E2F5098EE691">
+              <dmn:text>false</dmn:text>
+            </dmn:inputEntry>
+            <dmn:inputEntry id="_D4DD5A64-D0DB-487B-9AFE-2B5CC0B368E6">
+              <dmn:text>true</dmn:text>
+            </dmn:inputEntry>
+            <dmn:outputEntry id="_CDB16241-6434-43D1-927B-4DEAA3768786">
+              <dmn:text>272</dmn:text>
+            </dmn:outputEntry>
+            <dmn:outputEntry id="_ACE2C63D-729B-4229-94EE-73A609D14858">
+              <dmn:text>"ACORN assessment treatment code exists"</dmn:text>
+            </dmn:outputEntry>
+            <dmn:annotationEntry>
+              <dmn:text/>
+            </dmn:annotationEntry>
+          </dmn:rule>
+          <dmn:rule id="_1E8EDCE4-C6B8-46D9-BF3D-5E89D05A691A">
+            <dmn:inputEntry id="_9A475762-FEEF-4B68-AC63-83953A677698">
+              <dmn:text>false</dmn:text>
+            </dmn:inputEntry>
+            <dmn:inputEntry id="_51E63C71-4AE3-43E7-B2BE-79E4BC9C4CC1">
+              <dmn:text>false</dmn:text>
+            </dmn:inputEntry>
+            <dmn:inputEntry id="_3B9CCA23-3E97-498B-B126-E6598D1CBBCC">
+              <dmn:text>false</dmn:text>
+            </dmn:inputEntry>
+            <dmn:inputEntry id="_DFC08F88-0115-455A-917F-4DB9E9B42819">
+              <dmn:text>false</dmn:text>
+            </dmn:inputEntry>
+            <dmn:outputEntry id="_C4AF3FAB-AB5D-4516-B539-E966138ACD42">
+              <dmn:text>271</dmn:text>
+            </dmn:outputEntry>
+            <dmn:outputEntry id="_2576728F-3EBF-4BC2-B53B-7F34BEFBD453">
+              <dmn:text>"No ACORN code found in incoming activity"</dmn:text>
+            </dmn:outputEntry>
+            <dmn:annotationEntry>
+              <dmn:text/>
+            </dmn:annotationEntry>
+          </dmn:rule>
+        </dmn:decisionTable>
+      </dmn:contextEntry>
     </dmn:context>
   </dmn:decision>
   <dmn:inputData id="_81800A18-0C97-40E5-99F9-E2099425A7A8" name="welsh_ref_date">
@@ -248,55 +390,65 @@ if ((years and months duration(d.comp_date, d.accept_date)).months &lt; t.ins th
           <kie:ComponentWidths dmnElementRef="_BB30C2BD-8A39-4899-9B92-CEB797BE58F6">
             <kie:width>50</kie:width>
             <kie:width>311</kie:width>
-            <kie:width>942</kie:width>
+            <kie:width>1146</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_632CB664-6203-4544-BACA-215AEC2BA9FC">
-            <kie:width>942</kie:width>
+            <kie:width>1146</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_853A0B35-64B2-43BA-9DF4-1606772C6A7D">
-            <kie:width>942</kie:width>
+            <kie:width>1146</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_AC9641B2-E3A8-41A0-89B9-DB3A89EC8A55">
-            <kie:width>942</kie:width>
+            <kie:width>1146</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_7FD91FD5-A0AD-4D91-B990-BB543864EF25">
-            <kie:width>942</kie:width>
+            <kie:width>1146</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_0CE44BA1-7243-4FB9-BDFC-29D1A9915CC1">
-            <kie:width>942</kie:width>
+            <kie:width>1146</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_E7CB0339-8486-48C8-A922-BFE24368CEC0">
-            <kie:width>942</kie:width>
+            <kie:width>1146</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_C6C60DB4-E05F-405B-8B42-854711F4EB82">
-            <kie:width>942</kie:width>
+            <kie:width>1146</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_A203B391-6103-4DBE-A5CB-6CA9881EFAD2">
-            <kie:width>942</kie:width>
+            <kie:width>1146</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_DD934A7E-7CEC-4021-A602-95BE96849A4B">
-            <kie:width>942</kie:width>
+            <kie:width>1146</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_CA07967C-D470-40D5-924D-8E55D3F45D3F">
-            <kie:width>942</kie:width>
+            <kie:width>1146</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_87073BA0-7E06-49FF-89A2-C8DE754FC188">
-            <kie:width>942</kie:width>
+            <kie:width>1146</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_551DEE10-9C0D-4C85-88ED-FB7E69AA3DED">
-            <kie:width>942</kie:width>
+            <kie:width>1146</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_4AE5459B-7121-462C-98DF-F9BFA1409239">
-            <kie:width>942</kie:width>
+            <kie:width>1146</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_9C514D3A-561A-47EE-BDF8-BF51165EE981">
-            <kie:width>942</kie:width>
+            <kie:width>1146</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_CEC39B01-DDC6-493D-A946-E81D245002E1">
-            <kie:width>942</kie:width>
+            <kie:width>1146</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_703D836A-AAFA-47CE-A4FF-D8FF47D0C28D">
-            <kie:width>942</kie:width>
+            <kie:width>1146</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_1FAF2D72-0DCC-49DA-B871-E1A6AB9AACC1">
+            <kie:width>50</kie:width>
+            <kie:width>151</kie:width>
+            <kie:width>151</kie:width>
+            <kie:width>150</kie:width>
+            <kie:width>100</kie:width>
+            <kie:width>150</kie:width>
+            <kie:width>274</kie:width>
+            <kie:width>100</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_B055B963-8A69-4201-929D-E0F38B995653">
             <kie:width>550</kie:width>
@@ -320,7 +472,7 @@ if ((years and months duration(d.comp_date, d.accept_date)).months &lt; t.ins th
           <dmndi:StrokeColor red="0" green="0" blue="0"/>
           <dmndi:FontColor red="0" green="0" blue="0"/>
         </dmndi:DMNStyle>
-        <dc:Bounds x="385" y="327" width="100" height="50"/>
+        <dc:Bounds x="651" y="439" width="100" height="50"/>
         <dmndi:DMNLabel/>
       </dmndi:DMNShape>
       <dmndi:DMNShape id="dmnshape-drg-_83077E84-FD92-40A0-89E2-E4DA67C000FA" dmnElementRef="_83077E84-FD92-40A0-89E2-E4DA67C000FA" isCollapsed="false">
@@ -329,7 +481,7 @@ if ((years and months duration(d.comp_date, d.accept_date)).months &lt; t.ins th
           <dmndi:StrokeColor red="0" green="0" blue="0"/>
           <dmndi:FontColor red="0" green="0" blue="0"/>
         </dmndi:DMNStyle>
-        <dc:Bounds x="385" y="117" width="173" height="81"/>
+        <dc:Bounds x="651" y="229" width="173" height="81"/>
         <dmndi:DMNLabel/>
       </dmndi:DMNShape>
       <dmndi:DMNShape id="dmnshape-drg-_81800A18-0C97-40E5-99F9-E2099425A7A8" dmnElementRef="_81800A18-0C97-40E5-99F9-E2099425A7A8" isCollapsed="false">
@@ -338,7 +490,7 @@ if ((years and months duration(d.comp_date, d.accept_date)).months &lt; t.ins th
           <dmndi:StrokeColor red="0" green="0" blue="0"/>
           <dmndi:FontColor red="0" green="0" blue="0"/>
         </dmndi:DMNStyle>
-        <dc:Bounds x="551" y="327" width="100" height="50"/>
+        <dc:Bounds x="817" y="439" width="100" height="50"/>
         <dmndi:DMNLabel/>
       </dmndi:DMNShape>
       <dmndi:DMNShape id="dmnshape-drg-_A61D0707-DF52-4991-B42F-2540FC80FF86" dmnElementRef="_A61D0707-DF52-4991-B42F-2540FC80FF86" isCollapsed="false">
@@ -347,7 +499,7 @@ if ((years and months duration(d.comp_date, d.accept_date)).months &lt; t.ins th
           <dmndi:StrokeColor red="0" green="0" blue="0"/>
           <dmndi:FontColor red="0" green="0" blue="0"/>
         </dmndi:DMNStyle>
-        <dc:Bounds x="189" y="132" width="100" height="50"/>
+        <dc:Bounds x="455" y="244" width="100" height="50"/>
         <dmndi:DMNLabel/>
       </dmndi:DMNShape>
       <dmndi:DMNShape id="dmnshape-drg-_5C541B1B-4F2C-40A3-9E04-17279CBCC64C" dmnElementRef="_5C541B1B-4F2C-40A3-9E04-17279CBCC64C" isCollapsed="false">
@@ -356,24 +508,24 @@ if ((years and months duration(d.comp_date, d.accept_date)).months &lt; t.ins th
           <dmndi:StrokeColor red="0" green="0" blue="0"/>
           <dmndi:FontColor red="0" green="0" blue="0"/>
         </dmndi:DMNStyle>
-        <dc:Bounds x="200" y="253" width="100" height="50"/>
+        <dc:Bounds x="466" y="365" width="100" height="50"/>
         <dmndi:DMNLabel/>
       </dmndi:DMNShape>
       <dmndi:DMNEdge id="dmnedge-drg-_FC405814-8531-4FE9-8893-E59E9BE87C3B-AUTO-TARGET" dmnElementRef="_FC405814-8531-4FE9-8893-E59E9BE87C3B">
-        <di:waypoint x="435" y="352"/>
-        <di:waypoint x="471.5" y="198"/>
+        <di:waypoint x="701" y="464"/>
+        <di:waypoint x="737.5" y="310"/>
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="dmnedge-drg-_6FC825DE-912D-4E2B-8828-97BD9A5813D1-AUTO-TARGET" dmnElementRef="_6FC825DE-912D-4E2B-8828-97BD9A5813D1">
-        <di:waypoint x="601" y="352"/>
-        <di:waypoint x="471.5" y="198"/>
+        <di:waypoint x="867" y="464"/>
+        <di:waypoint x="737.5" y="310"/>
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="dmnedge-drg-_BFFF9F49-8E8A-4A6B-A656-FC191A5E4B61-AUTO-TARGET" dmnElementRef="_BFFF9F49-8E8A-4A6B-A656-FC191A5E4B61">
-        <di:waypoint x="239" y="157"/>
-        <di:waypoint x="385" y="157.5"/>
+        <di:waypoint x="505" y="269"/>
+        <di:waypoint x="651" y="269.5"/>
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="dmnedge-drg-_2C276EE8-577C-46E0-807C-A0600C8DB33C" dmnElementRef="_2C276EE8-577C-46E0-807C-A0600C8DB33C">
-        <di:waypoint x="250" y="278"/>
-        <di:waypoint x="385" y="157.5"/>
+        <di:waypoint x="516" y="390"/>
+        <di:waypoint x="651" y="269.5"/>
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
