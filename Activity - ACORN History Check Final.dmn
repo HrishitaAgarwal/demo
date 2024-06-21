@@ -200,6 +200,18 @@
           <dmn:text>any(Op11)</dmn:text>
         </dmn:literalExpression>
       </dmn:contextEntry>
+      <dmn:contextEntry>
+        <dmn:variable id="_834DB55C-3332-4CC7-9987-943FC3E3D167" name="Overdue" typeRef="boolean"/>
+        <dmn:literalExpression id="_CEC39B01-DDC6-493D-A946-E81D245002E1">
+          <dmn:text>some x in a.Activity.treatment_details satisfies x.code in [9179]</dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
+      <dmn:contextEntry>
+        <dmn:variable id="_598F3D15-7ED9-4EEA-8CAB-88B6B297BE65" name="ACORN incoming claim" typeRef="boolean"/>
+        <dmn:literalExpression id="_703D836A-AAFA-47CE-A4FF-D8FF47D0C28D">
+          <dmn:text>some x in a.Activity.treatment_details satisfies x.code in [9326, 9327, 9328, 9329, 9330, 9332]</dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
     </dmn:context>
   </dmn:decision>
   <dmn:inputData id="_81800A18-0C97-40E5-99F9-E2099425A7A8" name="welsh_ref_date">
@@ -278,6 +290,12 @@ if ((years and months duration(d.comp_date, d.accept_date)).months &lt; t.ins th
             <kie:width>942</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_9C514D3A-561A-47EE-BDF8-BF51165EE981">
+            <kie:width>942</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_CEC39B01-DDC6-493D-A946-E81D245002E1">
+            <kie:width>942</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_703D836A-AAFA-47CE-A4FF-D8FF47D0C28D">
             <kie:width>942</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_B055B963-8A69-4201-929D-E0F38B995653">
