@@ -96,14 +96,49 @@
           <dmn:text>treatment data</dmn:text>
         </dmn:inputExpression>
       </dmn:input>
+      <dmn:input id="_6C4F33C9-E496-4F85-B252-7A5DD4F21CF1">
+        <dmn:inputExpression typeRef="boolean">
+          <dmn:text>act.activity.comm_approve_flag</dmn:text>
+        </dmn:inputExpression>
+      </dmn:input>
       <dmn:input id="_3C682143-AEC2-4711-954B-20EEF5A16E8E">
         <dmn:inputExpression id="_A82E3FE9-3DC7-43C4-AE82-A5E83D5E2B4D" typeRef="date">
           <dmn:text>Assess Date</dmn:text>
         </dmn:inputExpression>
       </dmn:input>
       <dmn:output id="_90A0A21E-1CF4-4DB3-ACD1-4125FC791A62" name="Assessment_Date" typeRef="date"/>
+      <dmn:output id="_9B04015E-9850-408D-A44C-6A1AB54B7968" name="Comment" typeRef="string"/>
       <dmn:output id="_0A4CC100-E135-4ED6-A428-0FCFB3F3BE8B" name="Error Code" typeRef="number"/>
       <dmn:annotation name="annotation-1"/>
+      <dmn:rule id="_C6A208A1-7116-43E0-9EAF-C4365E1E132F">
+        <dmn:inputEntry id="_04759D6F-4186-441A-B1E9-9454EFA8E0D9">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_170360AB-FFFB-44A7-891D-11E1B5DEFB90">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_8B695197-5AEE-45CA-A297-1686B73018A6">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_6E079755-F996-4202-B658-FC8CDA00E1A6">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_9F06F5B7-4D63-4A93-9492-01668671359E">
+          <dmn:text>null</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_A61B2C56-4C81-4E8A-BDC7-E7597476A048">
+          <dmn:text/>
+        </dmn:outputEntry>
+        <dmn:outputEntry id="_814C4B75-9CC9-4ACC-86D3-C796EC78389E">
+          <dmn:text>"Date of assessment not present"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:outputEntry id="_71157CC4-5E19-458B-8821-19EC2F4C4CA7">
+          <dmn:text>858</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
       <dmn:rule id="_7A47CD30-2B61-4C61-8319-AECBF3E454EA">
         <dmn:inputEntry id="_91896D25-3CD1-4255-842A-786D47D91906">
           <dmn:text>-</dmn:text>
@@ -114,14 +149,49 @@
         <dmn:inputEntry id="_60B471DD-5870-40C4-B008-32A7456A6F65">
           <dmn:text>false</dmn:text>
         </dmn:inputEntry>
+        <dmn:inputEntry id="_FF862C4C-8B6B-4DDF-866E-6C31A481EF70">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
         <dmn:inputEntry id="_B5011D1E-4EA4-4D15-BC99-3CD9FF6780B9">
           <dmn:text>-</dmn:text>
         </dmn:inputEntry>
         <dmn:outputEntry id="_1184B71B-97C5-4B06-B55B-C5AC72C5A9B5">
           <dmn:text>Assess Date</dmn:text>
         </dmn:outputEntry>
+        <dmn:outputEntry id="_D6C4B532-7454-444B-A001-C8B9B2A6BBA5">
+          <dmn:text>"Invalid accompanying treatment data"</dmn:text>
+        </dmn:outputEntry>
         <dmn:outputEntry id="_8385144B-318C-4763-A1D7-5BC43C88E0A2">
           <dmn:text>318</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_8EA62ADB-3496-42BE-A982-2EC80C1297C3">
+        <dmn:inputEntry id="_580073ED-7EEF-4FC5-8DE1-CF19D927A4A9">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_3D4FFBB8-A044-4DB2-96B7-76BA47E52B86">
+          <dmn:text>null</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_BF32E153-92CD-4D82-AF85-9CD66DE6638C">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_8CEA8E0C-1D2B-46CC-9655-8BBBDBD03A6A">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_3DC841DB-0582-492B-8CDD-5768436D61E2">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_14FAEB94-A1B7-4950-9831-6CE423A0853F">
+          <dmn:text>Assess Date</dmn:text>
+        </dmn:outputEntry>
+        <dmn:outputEntry id="_F7FBDCDD-3553-4A07-924F-4B75C847360E">
+          <dmn:text>"Date of referral not present"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:outputEntry id="_53504147-A6CE-4D10-9ED8-29053C705A71">
+          <dmn:text>337</dmn:text>
         </dmn:outputEntry>
         <dmn:annotationEntry>
           <dmn:text/>
@@ -132,19 +202,25 @@
           <dmn:text>-</dmn:text>
         </dmn:inputEntry>
         <dmn:inputEntry id="_7F3690D7-62B0-46CB-B303-D38BE8ACB3E5">
-          <dmn:text>null</dmn:text>
+          <dmn:text>-</dmn:text>
         </dmn:inputEntry>
         <dmn:inputEntry id="_FA1CFEF3-813A-4873-96DB-9E1EBB4DD651">
           <dmn:text>-</dmn:text>
         </dmn:inputEntry>
+        <dmn:inputEntry id="_D1D59E60-D6B6-406D-8827-42DB920388C7">
+          <dmn:text>false</dmn:text>
+        </dmn:inputEntry>
         <dmn:inputEntry id="_B1DD0D77-9EF0-4D19-BD63-D7A0D65BA248">
-          <dmn:text>&gt; act.reform_date</dmn:text>
+          <dmn:text>-</dmn:text>
         </dmn:inputEntry>
         <dmn:outputEntry id="_EB6EB078-2B91-4D2D-AB21-8F1E8DDADB3B">
           <dmn:text>Assess Date</dmn:text>
         </dmn:outputEntry>
+        <dmn:outputEntry id="_8F629405-ED0D-4DD8-A03B-42F4999789D3">
+          <dmn:text>"Commissioner Approved not present"</dmn:text>
+        </dmn:outputEntry>
         <dmn:outputEntry id="_25BA4C1A-6EDF-45E1-8867-536D40EB7E41">
-          <dmn:text>337</dmn:text>
+          <dmn:text>335</dmn:text>
         </dmn:outputEntry>
         <dmn:annotationEntry>
           <dmn:text/>
@@ -217,8 +293,10 @@
             <kie:width>356</kie:width>
             <kie:width>196</kie:width>
             <kie:width>461</kie:width>
+            <kie:width>275</kie:width>
             <kie:width>325</kie:width>
             <kie:width>198</kie:width>
+            <kie:width>234</kie:width>
             <kie:width>121</kie:width>
             <kie:width>100</kie:width>
           </kie:ComponentWidths>
