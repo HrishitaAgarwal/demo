@@ -67,13 +67,6 @@
         </dmn:literalExpression>
       </dmn:contextEntry>
       <dmn:contextEntry>
-        <dmn:variable id="_E51505AC-CC40-4AE3-8AF0-BE1FC8AC04F6" name="Cond3" typeRef="Any"/>
-        <dmn:literalExpression id="_6DDBD936-2742-42CF-929A-613699366216">
-          <dmn:text>if p_end = null then Cond1
-else Cond2</dmn:text>
-        </dmn:literalExpression>
-      </dmn:contextEntry>
-      <dmn:contextEntry>
         <dmn:variable id="_1FC73025-1F92-42E1-A0F8-B4642CC60228" name="Cond4" typeRef="boolean"/>
         <dmn:literalExpression id="_4C3D70BD-793B-43A7-9A26-FC966CA508D4">
           <dmn:text>concatenate(Cond1, Cond2)</dmn:text>
@@ -128,9 +121,6 @@ else Cond2</dmn:text>
             <kie:width>981</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_50039592-79DF-4379-9465-97796F754932">
-            <kie:width>981</kie:width>
-          </kie:ComponentWidths>
-          <kie:ComponentWidths dmnElementRef="_6DDBD936-2742-42CF-929A-613699366216">
             <kie:width>981</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_4C3D70BD-793B-43A7-9A26-FC966CA508D4">
