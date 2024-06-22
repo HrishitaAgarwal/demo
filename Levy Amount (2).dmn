@@ -63,7 +63,7 @@
       <dmn:contextEntry>
         <dmn:variable id="_9010C82B-9540-40F2-92BA-42F90E2C237F" name="Sum_NPE_E"/>
         <dmn:literalExpression id="_0ED69AD4-D3AC-409C-8C30-8C1BAA2688EF">
-          <dmn:text>(sum(Cond2.amt))*100/43.9</dmn:text>
+          <dmn:text>round up((sum(Cond2.amt))*100/43.9, 2)</dmn:text>
         </dmn:literalExpression>
       </dmn:contextEntry>
       <dmn:contextEntry>
@@ -79,14 +79,14 @@
         </dmn:literalExpression>
       </dmn:contextEntry>
       <dmn:contextEntry>
-        <dmn:variable id="_E5973BA1-BECC-4A5C-8E9A-77CB91EBD846" name="Final_perf_amt" typeRef="number"/>
+        <dmn:variable id="_E5973BA1-BECC-4A5C-8E9A-77CB91EBD846" name="Perf levy amt" typeRef="number"/>
         <dmn:literalExpression id="_C583BA29-6958-4ECA-808F-78BCD76A617D">
-          <dmn:text>Total_sum*inp/100</dmn:text>
+          <dmn:text>round up(Total_sum*inp/100, 2)</dmn:text>
         </dmn:literalExpression>
       </dmn:contextEntry>
       <dmn:contextEntry>
         <dmn:literalExpression id="_4E1880ED-B56C-4C2F-923B-1F81A77362D8">
-          <dmn:text>[a.per_id, Sum_NPE_E, Sum_FD, Total_sum, Final_perf_amt]</dmn:text>
+          <dmn:text>[a.per_id, Sum_NPE_E, Sum_FD, Total_sum, Perf levy amt]</dmn:text>
         </dmn:literalExpression>
       </dmn:contextEntry>
     </dmn:context>
