@@ -87,7 +87,7 @@ else Cond2</dmn:text>
       </dmn:contextEntry>
       <dmn:contextEntry>
         <dmn:literalExpression id="_E9BC2611-47C1-43DA-82CF-60A07002E911">
-          <dmn:text>if Cond5 then "Overlap found" else "Overlap not found</dmn:text>
+          <dmn:text>if Cond5 then "Overlap found" else "Overlap not found"</dmn:text>
         </dmn:literalExpression>
       </dmn:contextEntry>
     </dmn:context>
