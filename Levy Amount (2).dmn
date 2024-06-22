@@ -17,7 +17,7 @@
       <dmn:typeRef>string</dmn:typeRef>
     </dmn:itemComponent>
   </dmn:itemDefinition>
-  <dmn:itemDefinition id="_EA89F606-B74C-4607-ADBC-F28D07A23C08" name="perf" isCollection="false">
+  <dmn:itemDefinition id="_EA89F606-B74C-4607-ADBC-F28D07A23C08" name="perf" isCollection="true">
     <dmn:itemComponent id="_995195D6-0475-442D-B89E-A68301743014" name="id" isCollection="false">
       <dmn:typeRef>number</dmn:typeRef>
     </dmn:itemComponent>
