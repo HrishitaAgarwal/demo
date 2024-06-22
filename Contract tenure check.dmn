@@ -69,7 +69,7 @@
       <dmn:contextEntry>
         <dmn:variable id="_E51505AC-CC40-4AE3-8AF0-BE1FC8AC04F6" name="Cond3" typeRef="Any"/>
         <dmn:literalExpression id="_6DDBD936-2742-42CF-929A-613699366216">
-          <dmn:text>if date(p_end) = null then Cond1
+          <dmn:text>if p_end = null then Cond1
 else Cond2</dmn:text>
         </dmn:literalExpression>
       </dmn:contextEntry>
@@ -86,8 +86,8 @@ else Cond2</dmn:text>
         </dmn:literalExpression>
       </dmn:contextEntry>
       <dmn:contextEntry>
-        <dmn:literalExpression id="_7B8808B2-FFE5-43DE-B644-C2C801BD2AF1">
-          <dmn:text>if Cond5 then "Overlap found" else "Overlap not found"</dmn:text>
+        <dmn:literalExpression id="_E9BC2611-47C1-43DA-82CF-60A07002E911">
+          <dmn:text>if Cond5 then "Overlap found" else "Overlap not found</dmn:text>
         </dmn:literalExpression>
       </dmn:contextEntry>
     </dmn:context>
@@ -100,7 +100,7 @@ else Cond2</dmn:text>
       <dmn:formalParameter id="_770C2BC0-65EA-4F43-9A0F-6BC62AE93DB2" name="ps" typeRef="date"/>
       <dmn:formalParameter id="_6D7C39BB-5983-4C61-BFB6-6864C070852A" name="pe" typeRef="date"/>
       <dmn:literalExpression id="_781D3E5D-85A1-49CB-91F2-097C67F9985C">
-        <dmn:text>overlaps( [date(d.start)..date(d.end)], [date(ps)..date(pe)] )</dmn:text>
+        <dmn:text>if date(ps) &lt;= date(d.start) or date(ps) &gt;= date(d.end) then false else true </dmn:text>
       </dmn:literalExpression>
     </dmn:encapsulatedLogic>
   </dmn:businessKnowledgeModel>
@@ -122,39 +122,39 @@ else Cond2</dmn:text>
           <kie:ComponentWidths dmnElementRef="_4819B0C8-A3F6-48E7-A8C6-70ED58E84819">
             <kie:width>50</kie:width>
             <kie:width>120</kie:width>
-            <kie:width>686</kie:width>
+            <kie:width>981</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_C0A5858B-C261-47C3-B222-8B4F26934E4F">
-            <kie:width>686</kie:width>
+            <kie:width>981</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_50039592-79DF-4379-9465-97796F754932">
-            <kie:width>686</kie:width>
+            <kie:width>981</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_6DDBD936-2742-42CF-929A-613699366216">
-            <kie:width>686</kie:width>
+            <kie:width>981</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_4C3D70BD-793B-43A7-9A26-FC966CA508D4">
-            <kie:width>686</kie:width>
+            <kie:width>981</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_CF3D6922-294E-4555-BA11-685E4ED37DC0">
-            <kie:width>686</kie:width>
+            <kie:width>981</kie:width>
           </kie:ComponentWidths>
-          <kie:ComponentWidths dmnElementRef="_7B8808B2-FFE5-43DE-B644-C2C801BD2AF1">
-            <kie:width>686</kie:width>
+          <kie:ComponentWidths dmnElementRef="_E9BC2611-47C1-43DA-82CF-60A07002E911">
+            <kie:width>981</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_781D3E5D-85A1-49CB-91F2-097C67F9985C">
-            <kie:width>521</kie:width>
+            <kie:width>964</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_B307DC3A-D07D-439A-B23B-18861DDD6E1B">
             <kie:width>50</kie:width>
-            <kie:width>521</kie:width>
+            <kie:width>964</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_3FAA6EF4-B379-413D-8A0C-CF509F78B559">
-            <kie:width>447</kie:width>
+            <kie:width>855</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_4D79F673-3F72-4139-945D-7EBFAA11F1BA">
             <kie:width>50</kie:width>
-            <kie:width>447</kie:width>
+            <kie:width>855</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
