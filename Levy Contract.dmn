@@ -2,21 +2,92 @@
 <dmn:definitions xmlns:dmn="http://www.omg.org/spec/DMN/20180521/MODEL/" xmlns="https://kiegroup.org/dmn/_285663CA-2972-4BD6-92F8-5B693AE16C4F" xmlns:feel="http://www.omg.org/spec/DMN/20180521/FEEL/" xmlns:kie="http://www.drools.org/kie/dmn/1.2" xmlns:dmndi="http://www.omg.org/spec/DMN/20180521/DMNDI/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:included1="https://kiegroup.org/dmn/_4ABB60EA-8A0B-457C-9987-45DC232A9481" id="_4141A2AB-B513-4E1E-BE8F-EC8AF1E8910D" name="Levy Contract" typeLanguage="http://www.omg.org/spec/DMN/20180521/FEEL/" namespace="https://kiegroup.org/dmn/_285663CA-2972-4BD6-92F8-5B693AE16C4F">
   <dmn:extensionElements/>
   <dmn:import id="_F2BA6715-36C2-4F3C-8876-0F313434396F" name="Levy Perf" namespace="https://kiegroup.org/dmn/_4ABB60EA-8A0B-457C-9987-45DC232A9481" locationURI="Levy Amount (2).dmn" importType="http://www.omg.org/spec/DMN/20180521/MODEL/"/>
+  <dmn:itemDefinition id="_4E3BBAD5-0E51-4915-8589-89B58BE961FC" name="Contrct_Pay_hist" isCollection="true">
+    <dmn:itemComponent id="_BB9ED664-ED80-4E8A-B9D8-EEF50B55BF00" name="Amt" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+  </dmn:itemDefinition>
   <dmn:inputData id="_0FFB2A3F-AEB4-430E-820A-DFEAC49E9B9F" name="inp">
     <dmn:extensionElements/>
     <dmn:variable id="_C747336C-6056-433E-BD17-8D2F797752B6" name="inp" typeRef="Levy Perf.perf"/>
   </dmn:inputData>
-  <dmn:decision id="_74537897-F64F-470D-81B6-C262EE871CE4" name="Decision-1">
+  <dmn:decision id="_74537897-F64F-470D-81B6-C262EE871CE4" name="Contract_Levy">
     <dmn:extensionElements/>
-    <dmn:variable id="_B81A590D-6890-4FFE-B23D-A6079B326C87" name="Decision-1"/>
+    <dmn:variable id="_B81A590D-6890-4FFE-B23D-A6079B326C87" name="Contract_Levy" typeRef="number"/>
     <dmn:informationRequirement id="_4328F7E8-1255-4DD8-B48D-52E674F97CEB">
       <dmn:requiredInput href="#_0FFB2A3F-AEB4-430E-820A-DFEAC49E9B9F"/>
     </dmn:informationRequirement>
+    <dmn:informationRequirement id="_E7D219F0-6D88-40AC-9207-B1A1C38CE0B6">
+      <dmn:requiredInput href="#_0D472AA3-6BE4-40CD-AAD6-A1995AD4A0BE"/>
+    </dmn:informationRequirement>
+    <dmn:informationRequirement id="_2F00D0DA-E894-4BF3-9F5A-CE2527557718">
+      <dmn:requiredInput href="#_0F95588A-3D16-4D60-BF4E-7D8F5FE03F36"/>
+    </dmn:informationRequirement>
+    <dmn:context id="_3A5F400A-C1CA-49D1-8013-076CEEED5E4B">
+      <dmn:contextEntry>
+        <dmn:variable id="_E86BD5A9-A33A-4323-AECD-7D0EFA6F7793" name="Service Pay" typeRef="number"/>
+        <dmn:literalExpression id="_5D5E53DC-4A0C-4954-9931-F2BFB736A3AC">
+          <dmn:text>sum(pay.Amt)</dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
+      <dmn:contextEntry>
+        <dmn:variable id="_18A63C30-7558-407B-8FA5-EA9137A0FC7B" name="Service levy" typeRef="number"/>
+        <dmn:literalExpression id="_BE7A3D20-457F-4FE6-9B85-55DBE4E51A74">
+          <dmn:text>(Service Pay*req_amt) / 100</dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
+      <dmn:contextEntry>
+        <dmn:variable id="_A63CD2EB-2366-4664-8CA5-1BB6A373E076" name="Paid levy by performers" typeRef="number"/>
+        <dmn:literalExpression id="_4724A64B-A57C-4EAB-AABF-0B8B9D00A4C2">
+          <dmn:text>sum(inp.NPE_E_amt)</dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
+      <dmn:contextEntry>
+        <dmn:variable id="_E4098D63-A7EA-45C3-B54C-18C230E8013F" name="Levy Due" typeRef="number"/>
+        <dmn:literalExpression id="_344AAE46-FD16-4CD2-BC6F-E5C15C70850B">
+          <dmn:text>Service levy - Paid levy by performers</dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
+      <dmn:contextEntry>
+        <dmn:literalExpression id="_6C5F2791-4448-4461-B3A0-6CDA5F06E672">
+          <dmn:text>if Levy Due &gt; 0 then Levy Due else "No due amount"</dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
+    </dmn:context>
   </dmn:decision>
+  <dmn:inputData id="_0D472AA3-6BE4-40CD-AAD6-A1995AD4A0BE" name="pay">
+    <dmn:extensionElements/>
+    <dmn:variable id="_68606820-5235-461D-8EE1-D3105FD406D5" name="pay" typeRef="Contrct_Pay_hist"/>
+  </dmn:inputData>
+  <dmn:inputData id="_0F95588A-3D16-4D60-BF4E-7D8F5FE03F36" name="req_amt">
+    <dmn:extensionElements/>
+    <dmn:variable id="_4434F5F9-E956-450D-AC3F-B7B7AF34D60D" name="req_amt" typeRef="Levy Perf.req_amt_p"/>
+  </dmn:inputData>
   <dmndi:DMNDI>
     <dmndi:DMNDiagram id="_A463359B-F55B-4039-AA26-031ADF7269CF" name="DRG">
       <di:extension>
-        <kie:ComponentsWidthsExtension/>
+        <kie:ComponentsWidthsExtension>
+          <kie:ComponentWidths dmnElementRef="_3A5F400A-C1CA-49D1-8013-076CEEED5E4B">
+            <kie:width>50</kie:width>
+            <kie:width>273</kie:width>
+            <kie:width>469</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_5D5E53DC-4A0C-4954-9931-F2BFB736A3AC">
+            <kie:width>469</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_BE7A3D20-457F-4FE6-9B85-55DBE4E51A74">
+            <kie:width>469</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_4724A64B-A57C-4EAB-AABF-0B8B9D00A4C2">
+            <kie:width>469</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_344AAE46-FD16-4CD2-BC6F-E5C15C70850B">
+            <kie:width>469</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_6C5F2791-4448-4461-B3A0-6CDA5F06E672">
+            <kie:width>469</kie:width>
+          </kie:ComponentWidths>
+        </kie:ComponentsWidthsExtension>
       </di:extension>
       <dmndi:DMNShape id="dmnshape-drg-_0FFB2A3F-AEB4-430E-820A-DFEAC49E9B9F" dmnElementRef="_0FFB2A3F-AEB4-430E-820A-DFEAC49E9B9F" isCollapsed="false">
         <dmndi:DMNStyle>
@@ -24,7 +95,7 @@
           <dmndi:StrokeColor red="0" green="0" blue="0"/>
           <dmndi:FontColor red="0" green="0" blue="0"/>
         </dmndi:DMNStyle>
-        <dc:Bounds x="486" y="317" width="100" height="50"/>
+        <dc:Bounds x="502" y="298" width="100" height="50"/>
         <dmndi:DMNLabel/>
       </dmndi:DMNShape>
       <dmndi:DMNShape id="dmnshape-drg-_74537897-F64F-470D-81B6-C262EE871CE4" dmnElementRef="_74537897-F64F-470D-81B6-C262EE871CE4" isCollapsed="false">
@@ -36,9 +107,35 @@
         <dc:Bounds x="502" y="154" width="100" height="50"/>
         <dmndi:DMNLabel/>
       </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_0D472AA3-6BE4-40CD-AAD6-A1995AD4A0BE" dmnElementRef="_0D472AA3-6BE4-40CD-AAD6-A1995AD4A0BE" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="644" y="298" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_0F95588A-3D16-4D60-BF4E-7D8F5FE03F36" dmnElementRef="_0F95588A-3D16-4D60-BF4E-7D8F5FE03F36" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="344" y="298" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
       <dmndi:DMNEdge id="dmnedge-drg-_4328F7E8-1255-4DD8-B48D-52E674F97CEB-AUTO-TARGET" dmnElementRef="_4328F7E8-1255-4DD8-B48D-52E674F97CEB">
-        <di:waypoint x="536" y="342"/>
+        <di:waypoint x="552" y="323"/>
         <di:waypoint x="552" y="204"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-drg-_E7D219F0-6D88-40AC-9207-B1A1C38CE0B6-AUTO-TARGET" dmnElementRef="_E7D219F0-6D88-40AC-9207-B1A1C38CE0B6">
+        <di:waypoint x="694" y="323"/>
+        <di:waypoint x="552" y="204"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-drg-_2F00D0DA-E894-4BF3-9F5A-CE2527557718" dmnElementRef="_2F00D0DA-E894-4BF3-9F5A-CE2527557718">
+        <di:waypoint x="394" y="323"/>
+        <di:waypoint x="552" y="179"/>
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
