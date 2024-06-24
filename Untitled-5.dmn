@@ -15,7 +15,7 @@
       <dmn:requiredDecision href="https://kiegroup.org/dmn/_017C4F65-033C-46EA-B580-24615F8CF75A#_77F137F7-DD6F-4740-9D7E-BA8995A8BAFC"/>
     </dmn:informationRequirement>
     <dmn:literalExpression id="_EF225422-D9C0-492A-AAE1-8A10690EF0A2">
-      <dmn:text>("Charges(inp)")</dmn:text>
+      <dmn:text>Charges.Treatment Charges(inp)</dmn:text>
     </dmn:literalExpression>
   </dmn:decision>
   <dmn:inputData id="_72EF240B-627F-4334-9536-BE6278C30861" name="inp">

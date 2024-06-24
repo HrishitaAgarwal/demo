@@ -35,7 +35,7 @@
         </dmn:inputExpression>
       </dmn:input>
       <dmn:output id="_D12A8FD8-32A5-4033-90F9-3E1C585D3DB3" name="status" typeRef="string"/>
-      <dmn:output id="_1D574713-5D69-48C3-A71A-9B59977F979A" name="output-1" typeRef="number"/>
+      <dmn:output id="_1D574713-5D69-48C3-A71A-9B59977F979A" name="Charges" typeRef="number"/>
       <dmn:annotation name="annotation-1"/>
       <dmn:rule id="_1365A549-90BA-46A3-A3FF-35DFA8217BB1">
         <dmn:inputEntry id="_C82F8E14-0EA5-420F-8D8E-2B6201467298">
