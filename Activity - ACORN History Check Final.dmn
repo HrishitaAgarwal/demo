@@ -355,7 +355,7 @@
       <dmn:formalParameter id="_AA232AE5-363A-4DBF-A5B3-CE255F3E0B4A" name="t" typeRef="treat"/>
       <dmn:literalExpression id="_30797571-25D1-4AB2-A874-0CF0CC57D692">
         <dmn:text>if t.code = 9172 then 
-if ((years and months duration(d.comp_date, d.accept_date)).months &lt; t.ins then true else false) else false</dmn:text>
+if ((years and months duration(d.accept_date, d.comp_date)).months &lt;= t.ins then true else false) else false</dmn:text>
       </dmn:literalExpression>
     </dmn:encapsulatedLogic>
   </dmn:businessKnowledgeModel>
@@ -466,7 +466,7 @@ if ((years and months duration(d.comp_date, d.accept_date)).months &lt; t.ins th
           <dmndi:StrokeColor red="0" green="0" blue="0"/>
           <dmndi:FontColor red="0" green="0" blue="0"/>
         </dmndi:DMNStyle>
-        <dc:Bounds x="817" y="439" width="100" height="50"/>
+        <dc:Bounds x="817" y="439" width="118" height="52"/>
         <dmndi:DMNLabel/>
       </dmndi:DMNShape>
       <dmndi:DMNShape id="dmnshape-drg-_A61D0707-DF52-4991-B42F-2540FC80FF86" dmnElementRef="_A61D0707-DF52-4991-B42F-2540FC80FF86" isCollapsed="false">
@@ -492,7 +492,7 @@ if ((years and months duration(d.comp_date, d.accept_date)).months &lt; t.ins th
         <di:waypoint x="737.5" y="310"/>
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="dmnedge-drg-_6FC825DE-912D-4E2B-8828-97BD9A5813D1-AUTO-TARGET" dmnElementRef="_6FC825DE-912D-4E2B-8828-97BD9A5813D1">
-        <di:waypoint x="867" y="464"/>
+        <di:waypoint x="876" y="465"/>
         <di:waypoint x="737.5" y="310"/>
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="dmnedge-drg-_BFFF9F49-8E8A-4A6B-A656-FC191A5E4B61-AUTO-TARGET" dmnElementRef="_BFFF9F49-8E8A-4A6B-A656-FC191A5E4B61">
