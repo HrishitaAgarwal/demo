@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dmn:definitions xmlns:dmn="http://www.omg.org/spec/DMN/20180521/MODEL/" xmlns="https://kiegroup.org/dmn/_15F8DACE-F569-4999-9756-007FBF82C5C8" xmlns:feel="http://www.omg.org/spec/DMN/20180521/FEEL/" xmlns:kie="http://www.drools.org/kie/dmn/1.2" xmlns:dmndi="http://www.omg.org/spec/DMN/20180521/DMNDI/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:included1="https://kiegroup.org/dmn/_017C4F65-033C-46EA-B580-24615F8CF75A" id="_F603C39E-003D-4A1F-AB3D-ED86B65AD686" name="Untitled-5" typeLanguage="http://www.omg.org/spec/DMN/20180521/FEEL/" namespace="https://kiegroup.org/dmn/_15F8DACE-F569-4999-9756-007FBF82C5C8">
+  <dmn:extensionElements/>
+  <dmn:import id="_A7E95EFE-B96F-41CB-BA00-9B94592A1E7A" name="Charges" namespace="https://kiegroup.org/dmn/_017C4F65-033C-46EA-B580-24615F8CF75A" locationURI="Treatment Charges.dmn" importType="http://www.omg.org/spec/DMN/20180521/MODEL/"/>
+  <dmn:itemDefinition id="_49F5DA69-B338-46DB-AFF1-CCAD715851EF" name="Insert a name" isCollection="false">
+    <dmn:typeRef>Any</dmn:typeRef>
+  </dmn:itemDefinition>
+  <dmn:decision id="_A2B76603-2866-49F8-A475-4882F47A0E70" name="D">
+    <dmn:extensionElements/>
+    <dmn:variable id="_3AADA7F5-0F75-448F-9F12-27677F8F4166" name="D"/>
+    <dmn:informationRequirement id="_92A39046-49C9-4256-814E-8D8186262AA7">
+      <dmn:requiredInput href="#_72EF240B-627F-4334-9536-BE6278C30861"/>
+    </dmn:informationRequirement>
+    <dmn:informationRequirement id="_E4ACACD2-8F86-4836-AA19-3752C1AB173A">
+      <dmn:requiredDecision href="https://kiegroup.org/dmn/_017C4F65-033C-46EA-B580-24615F8CF75A#_77F137F7-DD6F-4740-9D7E-BA8995A8BAFC"/>
+    </dmn:informationRequirement>
+    <dmn:literalExpression id="_EF225422-D9C0-492A-AAE1-8A10690EF0A2">
+      <dmn:text>("Charges(inp)")</dmn:text>
+    </dmn:literalExpression>
+  </dmn:decision>
+  <dmn:inputData id="_72EF240B-627F-4334-9536-BE6278C30861" name="inp">
+    <dmn:extensionElements/>
+    <dmn:variable id="_4867B7DE-6084-4C5E-89E0-FBCE0C8E7CD0" name="inp" typeRef="Charges.Input"/>
+  </dmn:inputData>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="_8F03B3CB-0472-457B-AB1D-A1C64ED2C5AD" name="DRG">
+      <di:extension>
+        <kie:ComponentsWidthsExtension>
+          <kie:ComponentWidths dmnElementRef="_EF225422-D9C0-492A-AAE1-8A10690EF0A2">
+            <kie:width>499</kie:width>
+          </kie:ComponentWidths>
+        </kie:ComponentsWidthsExtension>
+      </di:extension>
+      <dmndi:DMNShape id="dmnshape-drg-_A2B76603-2866-49F8-A475-4882F47A0E70" dmnElementRef="_A2B76603-2866-49F8-A475-4882F47A0E70" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="479" y="133" width="145" height="73"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_72EF240B-627F-4334-9536-BE6278C30861" dmnElementRef="_72EF240B-627F-4334-9536-BE6278C30861" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="501" y="297" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_77F137F7-DD6F-4740-9D7E-BA8995A8BAFC" dmnElementRef="included1:_77F137F7-DD6F-4740-9D7E-BA8995A8BAFC" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="799" y="144" width="209" height="52"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="dmnedge-drg-_92A39046-49C9-4256-814E-8D8186262AA7-AUTO-TARGET" dmnElementRef="_92A39046-49C9-4256-814E-8D8186262AA7">
+        <di:waypoint x="551" y="322"/>
+        <di:waypoint x="551.5" y="206"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-drg-_E4ACACD2-8F86-4836-AA19-3752C1AB173A-AUTO-TARGET" dmnElementRef="_E4ACACD2-8F86-4836-AA19-3752C1AB173A">
+        <di:waypoint x="903.5" y="170"/>
+        <di:waypoint x="624" y="169.5"/>
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</dmn:definitions>
