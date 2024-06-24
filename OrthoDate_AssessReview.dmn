@@ -101,12 +101,12 @@
         </dmn:inputExpression>
       </dmn:input>
       <dmn:input id="_6C4F33C9-E496-4F85-B252-7A5DD4F21CF1">
-        <dmn:inputExpression typeRef="boolean">
+        <dmn:inputExpression id="_254C52C7-07C5-424F-866D-60817A53227B" typeRef="boolean">
           <dmn:text>act.activity.comm_approve_flag</dmn:text>
         </dmn:inputExpression>
       </dmn:input>
       <dmn:input id="_AA55D897-0AE9-408F-85E0-4B6053CB6D1C">
-        <dmn:inputExpression typeRef="boolean">
+        <dmn:inputExpression id="_598D6668-9870-4236-8C95-D63C67C966CA" typeRef="boolean">
           <dmn:text>IOTN</dmn:text>
         </dmn:inputExpression>
       </dmn:input>
@@ -274,6 +274,38 @@
         </dmn:outputEntry>
         <dmn:outputEntry id="_25BA4C1A-6EDF-45E1-8867-536D40EB7E41">
           <dmn:text>335</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_30BE803B-1E26-45A3-987A-AB1C2D943C07">
+        <dmn:inputEntry id="_C2EF9B7C-D573-4058-9CA9-9DAA38804A5B">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_EB189DAB-5BAE-480B-BE53-D612141DF264">
+          <dmn:text>!= null</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_C3040A6E-3134-4776-AB6C-6E14202C6D4E">
+          <dmn:text>true</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_A3A3A61E-FD42-4D39-975A-FC1FEFF92BF1">
+          <dmn:text>true</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_6B3A3495-E931-48D5-BE7A-B83F1499BA43">
+          <dmn:text>true</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_2CC5837A-901F-4CFA-91C3-28F678B152C9">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_5C68EB07-41C2-4F16-B043-0AEDD077B9EA">
+          <dmn:text>Assess Date</dmn:text>
+        </dmn:outputEntry>
+        <dmn:outputEntry id="_FDAF6A61-5FBE-4CF6-9F4B-71B1EDEFEB9A">
+          <dmn:text>"Ortho checks successful"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:outputEntry id="_11CFDE87-B1D3-47D4-BCF1-6BB3581897F6">
+          <dmn:text>0</dmn:text>
         </dmn:outputEntry>
         <dmn:annotationEntry>
           <dmn:text/>
