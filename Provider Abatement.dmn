@@ -25,7 +25,7 @@
   </dmn:inputData>
   <dmn:decision id="_F27C8328-56E8-4F7C-A42B-12707DA218DB" name="Abatement DM">
     <dmn:extensionElements/>
-    <dmn:variable id="_D2498460-93E1-41C6-A808-558ED18164C8" name="Abatement DM"/>
+    <dmn:variable id="_D2498460-93E1-41C6-A808-558ED18164C8" name="Abatement DM" typeRef="number"/>
     <dmn:informationRequirement id="_531B40A6-5CBA-475A-9333-166A0B0863C5">
       <dmn:requiredInput href="#_421E4E5B-B1F1-4863-AFE0-EC1A4BE6136E"/>
     </dmn:informationRequirement>
@@ -81,7 +81,7 @@
     </dmn:informationRequirement>
     <dmn:decisionTable id="_89A0B6DC-C04B-4E67-875E-9743AC26021A" hitPolicy="UNIQUE" preferredOrientation="Rule-as-Row">
       <dmn:input id="_699C5E1C-8F5D-47F4-B13A-C0A641EF9871">
-        <dmn:inputExpression typeRef="string">
+        <dmn:inputExpression id="_DF926226-9410-40F3-8541-8CEFC866F260" typeRef="string">
           <dmn:text>stat</dmn:text>
         </dmn:inputExpression>
       </dmn:input>
@@ -92,6 +92,20 @@
       </dmn:input>
       <dmn:output id="_57FE1481-F8D6-4E8B-AFA7-0C3BFD6E947B"/>
       <dmn:annotation name="annotation-1"/>
+      <dmn:rule id="_F00A3FDC-C737-4A22-83F3-8D209DDEEBA1">
+        <dmn:inputEntry id="_5C4A8F21-B8AE-4BFB-86A5-3DCFEF5DD44A">
+          <dmn:text>"Active"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_2479E1B0-1AC5-4F67-9264-EDA6A0B3DA14">
+          <dmn:text>[50..75]</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_C303370E-BC7D-42FF-8568-FB044ADB632C">
+          <dmn:text>20</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
       <dmn:rule id="_D833BA8C-050D-49AE-A0DB-4F589C3D1819">
         <dmn:inputEntry id="_4EBA1245-DCDD-4AC7-A4A0-810DB10C6C1A">
           <dmn:text>"Active"</dmn:text>
@@ -186,11 +200,11 @@
           <dmndi:StrokeColor red="0" green="0" blue="0"/>
           <dmndi:FontColor red="0" green="0" blue="0"/>
         </dmndi:DMNStyle>
-        <dc:Bounds x="368" y="62" width="423" height="307"/>
+        <dc:Bounds x="330" y="60" width="423" height="307"/>
         <dmndi:DMNLabel/>
         <dmndi:DMNDecisionServiceDividerLine>
-          <di:waypoint x="368" y="245"/>
-          <di:waypoint x="791" y="245"/>
+          <di:waypoint x="330" y="243"/>
+          <di:waypoint x="753" y="243"/>
         </dmndi:DMNDecisionServiceDividerLine>
       </dmndi:DMNShape>
       <dmndi:DMNShape id="dmnshape-drg-_421E4E5B-B1F1-4863-AFE0-EC1A4BE6136E" dmnElementRef="_421E4E5B-B1F1-4863-AFE0-EC1A4BE6136E" isCollapsed="false">
@@ -208,7 +222,7 @@
           <dmndi:StrokeColor red="0" green="0" blue="0"/>
           <dmndi:FontColor red="0" green="0" blue="0"/>
         </dmndi:DMNStyle>
-        <dc:Bounds x="121" y="70.31578947368416" width="171" height="59"/>
+        <dc:Bounds x="401" y="130.31578947368416" width="171" height="59"/>
         <dmndi:DMNLabel/>
       </dmndi:DMNShape>
       <dmndi:DMNShape id="dmnshape-drg-_C850F5B8-601D-426E-9A96-BDF77FD77852" dmnElementRef="_C850F5B8-601D-426E-9A96-BDF77FD77852" isCollapsed="false">
@@ -240,11 +254,11 @@
       </dmndi:DMNShape>
       <dmndi:DMNEdge id="dmnedge-drg-_531B40A6-5CBA-475A-9333-166A0B0863C5-AUTO-TARGET" dmnElementRef="_531B40A6-5CBA-475A-9333-166A0B0863C5">
         <di:waypoint x="584" y="462"/>
-        <di:waypoint x="206.5" y="129.31578947368416"/>
+        <di:waypoint x="486.5" y="189.31578947368416"/>
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="dmnedge-drg-_CF3684F6-D082-4092-8F2A-BF0BDF8C5938-AUTO-TARGET" dmnElementRef="_CF3684F6-D082-4092-8F2A-BF0BDF8C5938">
         <di:waypoint x="941" y="162"/>
-        <di:waypoint x="292" y="99.81578947368416"/>
+        <di:waypoint x="572" y="159.81578947368416"/>
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="dmnedge-drg-_59D50A29-7B60-4D53-988B-75E5A86590E5-AUTO-TARGET" dmnElementRef="_59D50A29-7B60-4D53-988B-75E5A86590E5">
         <di:waypoint x="867" y="433.3421052631579"/>
