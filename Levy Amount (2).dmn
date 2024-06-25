@@ -61,7 +61,7 @@
         </dmn:literalExpression>
       </dmn:contextEntry>
       <dmn:contextEntry>
-        <dmn:variable id="_9010C82B-9540-40F2-92BA-42F90E2C237F" name="Sum_NPE_E"/>
+        <dmn:variable id="_9010C82B-9540-40F2-92BA-42F90E2C237F" name="Sum_NPE_E" typeRef="number"/>
         <dmn:literalExpression id="_0ED69AD4-D3AC-409C-8C30-8C1BAA2688EF">
           <dmn:text>round up((sum(Cond2.amt))*100/43.9, 2)</dmn:text>
         </dmn:literalExpression>
@@ -133,7 +133,7 @@
           <dmndi:StrokeColor red="0" green="0" blue="0"/>
           <dmndi:FontColor red="0" green="0" blue="0"/>
         </dmndi:DMNStyle>
-        <dc:Bounds x="442" y="325" width="100" height="50"/>
+        <dc:Bounds x="441" y="252" width="100" height="50"/>
         <dmndi:DMNLabel/>
       </dmndi:DMNShape>
       <dmndi:DMNShape id="dmnshape-drg-_DBBB2D14-D17A-4B1A-99EF-3CF4DA390339" dmnElementRef="_DBBB2D14-D17A-4B1A-99EF-3CF4DA390339" isCollapsed="false">
@@ -142,7 +142,7 @@
           <dmndi:StrokeColor red="0" green="0" blue="0"/>
           <dmndi:FontColor red="0" green="0" blue="0"/>
         </dmndi:DMNStyle>
-        <dc:Bounds x="443" y="217" width="100" height="50"/>
+        <dc:Bounds x="509" y="131" width="100" height="50"/>
         <dmndi:DMNLabel/>
       </dmndi:DMNShape>
       <dmndi:DMNShape id="dmnshape-drg-_881D3E0B-945C-4488-8EBD-A063313D2B96" dmnElementRef="_881D3E0B-945C-4488-8EBD-A063313D2B96" isCollapsed="false">
@@ -151,16 +151,16 @@
           <dmndi:StrokeColor red="0" green="0" blue="0"/>
           <dmndi:FontColor red="0" green="0" blue="0"/>
         </dmndi:DMNStyle>
-        <dc:Bounds x="594" y="325" width="100" height="50"/>
+        <dc:Bounds x="603" y="264" width="100" height="50"/>
         <dmndi:DMNLabel/>
       </dmndi:DMNShape>
       <dmndi:DMNEdge id="dmnedge-drg-_4B9B7017-C50C-4C19-AC06-BA36CA1AE15B-AUTO-TARGET" dmnElementRef="_4B9B7017-C50C-4C19-AC06-BA36CA1AE15B">
-        <di:waypoint x="492" y="350"/>
-        <di:waypoint x="493" y="267"/>
+        <di:waypoint x="491" y="277"/>
+        <di:waypoint x="559" y="181"/>
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="dmnedge-drg-_0CC28E57-156F-48F6-A7B4-F4EA9994D668-AUTO-TARGET" dmnElementRef="_0CC28E57-156F-48F6-A7B4-F4EA9994D668">
-        <di:waypoint x="644" y="350"/>
-        <di:waypoint x="493" y="267"/>
+        <di:waypoint x="653" y="289"/>
+        <di:waypoint x="559" y="181"/>
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
