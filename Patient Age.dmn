@@ -1,15 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dmn:definitions xmlns:dmn="http://www.omg.org/spec/DMN/20180521/MODEL/" xmlns="https://kiegroup.org/dmn/_171AD30A-9F2A-4D5D-869F-0B8106957EBC" xmlns:feel="http://www.omg.org/spec/DMN/20180521/FEEL/" xmlns:kie="http://www.drools.org/kie/dmn/1.2" xmlns:dmndi="http://www.omg.org/spec/DMN/20180521/DMNDI/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" id="_A8A93EA5-4D06-4F16-A933-ADA03EBE452F" name="Patient Age" typeLanguage="http://www.omg.org/spec/DMN/20180521/FEEL/" namespace="https://kiegroup.org/dmn/_171AD30A-9F2A-4D5D-869F-0B8106957EBC">
   <dmn:extensionElements/>
+  <dmn:itemDefinition id="_5C923BD3-B923-453C-A732-CDF6C7F8803E" name="inp" isCollection="false">
+    <dmn:itemComponent id="_FF61FBEA-5CB3-49F4-8257-EEACAAEA2EE1" name="referral" isCollection="false">
+      <dmn:typeRef>date</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_563B2FF9-A031-4464-9411-458E8B35F1F0" name="accept_assess" isCollection="false">
+      <dmn:typeRef>date</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_248FAC46-B70A-41BD-8252-77D4AA3C1831" name="dob" isCollection="false">
+      <dmn:typeRef>date</dmn:typeRef>
+    </dmn:itemComponent>
+  </dmn:itemDefinition>
   <dmn:decisionService id="_854A44FA-A476-438B-B1E4-4F3EEE1E4028" name="Patient Age DS">
     <dmn:extensionElements/>
     <dmn:variable id="_9A91C523-FB21-4D38-B039-D2E4E3519FBE" name="Patient Age DS" typeRef="number"/>
-    <dmn:outputDecision href="#_D5302AE2-3ADF-406B-B91F-613430F62D9D"/>
-    <dmn:inputData href="#_F14B4D62-6D80-4500-AE44-7B6F2F3EF70F"/>
   </dmn:decisionService>
   <dmn:inputData id="_F14B4D62-6D80-4500-AE44-7B6F2F3EF70F" name="inp">
     <dmn:extensionElements/>
-    <dmn:variable id="_9B0E7C06-3174-4466-AAC4-37B326C2C1E8" name="inp" typeRef="number"/>
+    <dmn:variable id="_9B0E7C06-3174-4466-AAC4-37B326C2C1E8" name="inp" typeRef="inp"/>
   </dmn:inputData>
   <dmn:decision id="_D5302AE2-3ADF-406B-B91F-613430F62D9D" name="PatientAge">
     <dmn:extensionElements/>
@@ -17,16 +26,52 @@
     <dmn:informationRequirement id="_A22C79A0-4B3B-43A1-A73E-F2C70207E39C">
       <dmn:requiredInput href="#_F14B4D62-6D80-4500-AE44-7B6F2F3EF70F"/>
     </dmn:informationRequirement>
-    <dmn:literalExpression id="_AD66934E-0A0E-4A82-A326-7D6264DBFE38">
-      <dmn:text>if inp &gt; 18 then 20 else 15</dmn:text>
-    </dmn:literalExpression>
+    <dmn:context id="_AD66934E-0A0E-4A82-A326-7D6264DBFE38">
+      <dmn:contextEntry>
+        <dmn:variable id="_33D337AF-94F3-4B50-9342-0D5BB69D6B59" name="Referral" typeRef="date"/>
+        <dmn:literalExpression id="_ECA90FB9-EB63-4D9B-A35E-CB7C43E871CF">
+          <dmn:text>if inp.referral = null then "" else inp.referral</dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
+      <dmn:contextEntry>
+        <dmn:variable id="_6B27E86B-FF8E-49E0-9E5E-49F2090DE1C6" name="calc_date" typeRef="date"/>
+        <dmn:literalExpression id="_BF3ACAE2-BF0B-49E1-ADB4-BA3FAC861B33">
+          <dmn:text>if Referral = "" then inp.accept_assess else Referral</dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
+      <dmn:contextEntry>
+        <dmn:variable id="_928C34E2-3008-4C63-9953-1B17655AF26C" name="DOB Check" typeRef="boolean"/>
+        <dmn:literalExpression id="_7E6F9AC0-0BBF-4DFB-A0B4-A9F2E1185A0F">
+          <dmn:text>years and months duration(inp.dob, calc_date).years</dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
+      <dmn:contextEntry>
+        <dmn:literalExpression id="_3EA9BAFE-0DAC-4DD0-851E-9AD833D3D698">
+          <dmn:text>DOB Check</dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
+    </dmn:context>
   </dmn:decision>
   <dmndi:DMNDI>
     <dmndi:DMNDiagram id="_18BDA589-798C-4001-B6E0-2FCF937FE90A" name="DRG">
       <di:extension>
         <kie:ComponentsWidthsExtension>
           <kie:ComponentWidths dmnElementRef="_AD66934E-0A0E-4A82-A326-7D6264DBFE38">
-            <kie:width>713</kie:width>
+            <kie:width>50</kie:width>
+            <kie:width>120</kie:width>
+            <kie:width>459</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_ECA90FB9-EB63-4D9B-A35E-CB7C43E871CF">
+            <kie:width>459</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_BF3ACAE2-BF0B-49E1-ADB4-BA3FAC861B33">
+            <kie:width>459</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_7E6F9AC0-0BBF-4DFB-A0B4-A9F2E1185A0F">
+            <kie:width>459</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_3EA9BAFE-0DAC-4DD0-851E-9AD833D3D698">
+            <kie:width>459</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
@@ -58,12 +103,12 @@
           <dmndi:StrokeColor red="0" green="0" blue="0"/>
           <dmndi:FontColor red="0" green="0" blue="0"/>
         </dmndi:DMNStyle>
-        <dc:Bounds x="50" y="34" width="100" height="50"/>
+        <dc:Bounds x="277" y="46" width="100" height="50"/>
         <dmndi:DMNLabel/>
       </dmndi:DMNShape>
       <dmndi:DMNEdge id="dmnedge-drg-_A22C79A0-4B3B-43A1-A73E-F2C70207E39C" dmnElementRef="_A22C79A0-4B3B-43A1-A73E-F2C70207E39C">
         <di:waypoint x="239" y="350"/>
-        <di:waypoint x="100" y="59"/>
+        <di:waypoint x="327" y="71"/>
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
