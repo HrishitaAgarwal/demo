@@ -200,11 +200,11 @@
           <dmndi:StrokeColor red="0" green="0" blue="0"/>
           <dmndi:FontColor red="0" green="0" blue="0"/>
         </dmndi:DMNStyle>
-        <dc:Bounds x="330" y="60" width="423" height="307"/>
+        <dc:Bounds x="316" y="84" width="423" height="307"/>
         <dmndi:DMNLabel/>
         <dmndi:DMNDecisionServiceDividerLine>
-          <di:waypoint x="330" y="243"/>
-          <di:waypoint x="753" y="243"/>
+          <di:waypoint x="316" y="267"/>
+          <di:waypoint x="739" y="267"/>
         </dmndi:DMNDecisionServiceDividerLine>
       </dmndi:DMNShape>
       <dmndi:DMNShape id="dmnshape-drg-_421E4E5B-B1F1-4863-AFE0-EC1A4BE6136E" dmnElementRef="_421E4E5B-B1F1-4863-AFE0-EC1A4BE6136E" isCollapsed="false">
@@ -222,7 +222,7 @@
           <dmndi:StrokeColor red="0" green="0" blue="0"/>
           <dmndi:FontColor red="0" green="0" blue="0"/>
         </dmndi:DMNStyle>
-        <dc:Bounds x="401" y="130.31578947368416" width="171" height="59"/>
+        <dc:Bounds x="387" y="154.31578947368416" width="171" height="59"/>
         <dmndi:DMNLabel/>
       </dmndi:DMNShape>
       <dmndi:DMNShape id="dmnshape-drg-_C850F5B8-601D-426E-9A96-BDF77FD77852" dmnElementRef="_C850F5B8-601D-426E-9A96-BDF77FD77852" isCollapsed="false">
@@ -254,11 +254,11 @@
       </dmndi:DMNShape>
       <dmndi:DMNEdge id="dmnedge-drg-_531B40A6-5CBA-475A-9333-166A0B0863C5-AUTO-TARGET" dmnElementRef="_531B40A6-5CBA-475A-9333-166A0B0863C5">
         <di:waypoint x="584" y="462"/>
-        <di:waypoint x="486.5" y="189.31578947368416"/>
+        <di:waypoint x="472.5" y="213.31578947368416"/>
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="dmnedge-drg-_CF3684F6-D082-4092-8F2A-BF0BDF8C5938-AUTO-TARGET" dmnElementRef="_CF3684F6-D082-4092-8F2A-BF0BDF8C5938">
         <di:waypoint x="941" y="162"/>
-        <di:waypoint x="572" y="159.81578947368416"/>
+        <di:waypoint x="558" y="183.81578947368416"/>
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="dmnedge-drg-_59D50A29-7B60-4D53-988B-75E5A86590E5-AUTO-TARGET" dmnElementRef="_59D50A29-7B60-4D53-988B-75E5A86590E5">
         <di:waypoint x="867" y="433.3421052631579"/>
