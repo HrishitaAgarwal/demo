@@ -15,6 +15,8 @@
   <dmn:decisionService id="_854A44FA-A476-438B-B1E4-4F3EEE1E4028" name="Patient Age DS">
     <dmn:extensionElements/>
     <dmn:variable id="_9A91C523-FB21-4D38-B039-D2E4E3519FBE" name="Patient Age DS" typeRef="number"/>
+    <dmn:outputDecision href="#_D5302AE2-3ADF-406B-B91F-613430F62D9D"/>
+    <dmn:inputData href="#_F14B4D62-6D80-4500-AE44-7B6F2F3EF70F"/>
   </dmn:decisionService>
   <dmn:inputData id="_F14B4D62-6D80-4500-AE44-7B6F2F3EF70F" name="inp">
     <dmn:extensionElements/>
@@ -81,11 +83,11 @@
           <dmndi:StrokeColor red="0" green="0" blue="0"/>
           <dmndi:FontColor red="0" green="0" blue="0"/>
         </dmndi:DMNStyle>
-        <dc:Bounds x="227" y="5" width="200" height="200"/>
+        <dc:Bounds x="282" y="3" width="200" height="200"/>
         <dmndi:DMNLabel/>
         <dmndi:DMNDecisionServiceDividerLine>
-          <di:waypoint x="227" y="105"/>
-          <di:waypoint x="427" y="105"/>
+          <di:waypoint x="282" y="103"/>
+          <di:waypoint x="482" y="103"/>
         </dmndi:DMNDecisionServiceDividerLine>
       </dmndi:DMNShape>
       <dmndi:DMNShape id="dmnshape-drg-_F14B4D62-6D80-4500-AE44-7B6F2F3EF70F" dmnElementRef="_F14B4D62-6D80-4500-AE44-7B6F2F3EF70F" isCollapsed="false">
@@ -103,12 +105,12 @@
           <dmndi:StrokeColor red="0" green="0" blue="0"/>
           <dmndi:FontColor red="0" green="0" blue="0"/>
         </dmndi:DMNStyle>
-        <dc:Bounds x="277" y="46" width="100" height="50"/>
+        <dc:Bounds x="332" y="44" width="100" height="50"/>
         <dmndi:DMNLabel/>
       </dmndi:DMNShape>
       <dmndi:DMNEdge id="dmnedge-drg-_A22C79A0-4B3B-43A1-A73E-F2C70207E39C" dmnElementRef="_A22C79A0-4B3B-43A1-A73E-F2C70207E39C">
         <di:waypoint x="239" y="350"/>
-        <di:waypoint x="327" y="71"/>
+        <di:waypoint x="382" y="69"/>
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
