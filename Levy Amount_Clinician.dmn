@@ -55,38 +55,38 @@
         </dmn:literalExpression>
       </dmn:contextEntry>
       <dmn:contextEntry>
-        <dmn:variable id="_77B2F396-8CDA-481E-8072-302F29BC470D" name="Cond3" typeRef="am"/>
-        <dmn:literalExpression id="_1461A0E8-E864-4072-BCC0-4982179C9AB4">
+        <dmn:variable id="_ED69835C-7131-4653-9174-BB079EC03754" name="Cond3" typeRef="am"/>
+        <dmn:literalExpression id="_7990E745-30C2-4C48-AF16-F45CAE3D33AE">
           <dmn:text>a.am[type in ["FD_TRAINING_GRANT", "FD_TRAINEE_SALARY", "FD_ERNIC"]]</dmn:text>
         </dmn:literalExpression>
       </dmn:contextEntry>
       <dmn:contextEntry>
-        <dmn:variable id="_9010C82B-9540-40F2-92BA-42F90E2C237F" name="Sum_NPE_E" typeRef="number"/>
-        <dmn:literalExpression id="_0ED69AD4-D3AC-409C-8C30-8C1BAA2688EF">
+        <dmn:variable id="_29BF6929-8569-4FDD-8C4B-DED22991308D" name="SUM_NPE_E" typeRef="number"/>
+        <dmn:literalExpression id="_69F63D75-EA30-4EDE-9AFD-AC87E27A528E">
           <dmn:text>round up((sum(Cond2.amt))*100/43.9, 2)</dmn:text>
         </dmn:literalExpression>
       </dmn:contextEntry>
       <dmn:contextEntry>
-        <dmn:variable id="_A714E497-19B4-404A-BDDD-102B04968CAE" name="Sum_FD" typeRef="number"/>
-        <dmn:literalExpression id="_03BEF7F3-E884-4C4A-B12D-2E3E44FD3A84">
+        <dmn:variable id="_92CA4CF7-C69D-4D26-8F64-5E17F3F38C77" name="Sum_FD" typeRef="number"/>
+        <dmn:literalExpression id="_2079095E-F175-4B5A-9226-6170160D2019">
           <dmn:text>sum(Cond3.amt)</dmn:text>
         </dmn:literalExpression>
       </dmn:contextEntry>
       <dmn:contextEntry>
-        <dmn:variable id="_510DF571-E29D-4532-A55E-D31D4D54EFAF" name="Total_sum" typeRef="number"/>
-        <dmn:literalExpression id="_DD5045FB-07B8-4CAE-805B-79379BC11991">
-          <dmn:text>Sum_NPE_E + Sum_FD</dmn:text>
+        <dmn:variable id="_F464C21D-3537-41BD-AE6C-13F57F812251" name="Total Sum" typeRef="number"/>
+        <dmn:literalExpression id="_EACE1B7C-C4FF-4D99-8EFB-9A54F87F6D3A">
+          <dmn:text>sum(SUM_NPE_E, Sum_FD)</dmn:text>
         </dmn:literalExpression>
       </dmn:contextEntry>
       <dmn:contextEntry>
-        <dmn:variable id="_E5973BA1-BECC-4A5C-8E9A-77CB91EBD846" name="Perf levy amt" typeRef="number"/>
-        <dmn:literalExpression id="_C583BA29-6958-4ECA-808F-78BCD76A617D">
-          <dmn:text>round up(Total_sum*inp/100, 2)</dmn:text>
+        <dmn:variable id="_074D85F4-1D77-4940-8BBA-A22DED5BB8C0" name="Perf levy amt" typeRef="number"/>
+        <dmn:literalExpression id="_20F5A64E-2BB5-47D3-9082-118534852994">
+          <dmn:text>round up(Total Sum*inp/100, 2)</dmn:text>
         </dmn:literalExpression>
       </dmn:contextEntry>
       <dmn:contextEntry>
-        <dmn:literalExpression id="_4E1880ED-B56C-4C2F-923B-1F81A77362D8">
-          <dmn:text>[a.per_id, Sum_NPE_E, Sum_FD, Total_sum, Perf levy amt]</dmn:text>
+        <dmn:literalExpression id="_17F95590-16B6-46C6-B38B-CE58E12332FC">
+          <dmn:text>["Perf ID ", a.per_id, "NPE_E", SUM_NPE_E, "FD amt", Sum_FD, "Total amt", Total Sum, "Member levy amount", Perf levy amt]</dmn:text>
         </dmn:literalExpression>
       </dmn:contextEntry>
     </dmn:context>
@@ -107,22 +107,22 @@
           <kie:ComponentWidths dmnElementRef="_ACC570FD-58E4-4F41-AB1E-B4F826206485">
             <kie:width>653</kie:width>
           </kie:ComponentWidths>
-          <kie:ComponentWidths dmnElementRef="_1461A0E8-E864-4072-BCC0-4982179C9AB4">
+          <kie:ComponentWidths dmnElementRef="_7990E745-30C2-4C48-AF16-F45CAE3D33AE">
             <kie:width>653</kie:width>
           </kie:ComponentWidths>
-          <kie:ComponentWidths dmnElementRef="_0ED69AD4-D3AC-409C-8C30-8C1BAA2688EF">
+          <kie:ComponentWidths dmnElementRef="_69F63D75-EA30-4EDE-9AFD-AC87E27A528E">
             <kie:width>653</kie:width>
           </kie:ComponentWidths>
-          <kie:ComponentWidths dmnElementRef="_03BEF7F3-E884-4C4A-B12D-2E3E44FD3A84">
+          <kie:ComponentWidths dmnElementRef="_2079095E-F175-4B5A-9226-6170160D2019">
             <kie:width>653</kie:width>
           </kie:ComponentWidths>
-          <kie:ComponentWidths dmnElementRef="_DD5045FB-07B8-4CAE-805B-79379BC11991">
+          <kie:ComponentWidths dmnElementRef="_EACE1B7C-C4FF-4D99-8EFB-9A54F87F6D3A">
             <kie:width>653</kie:width>
           </kie:ComponentWidths>
-          <kie:ComponentWidths dmnElementRef="_C583BA29-6958-4ECA-808F-78BCD76A617D">
+          <kie:ComponentWidths dmnElementRef="_20F5A64E-2BB5-47D3-9082-118534852994">
             <kie:width>653</kie:width>
           </kie:ComponentWidths>
-          <kie:ComponentWidths dmnElementRef="_4E1880ED-B56C-4C2F-923B-1F81A77362D8">
+          <kie:ComponentWidths dmnElementRef="_17F95590-16B6-46C6-B38B-CE58E12332FC">
             <kie:width>653</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
